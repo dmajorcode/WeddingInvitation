@@ -1,17 +1,17 @@
-import { Gallery, Item } from 'react-photoswipe-gallery';
-import 'photoswipe/style.css';
-import images from './Images.ts';
-import { useRef, useState } from 'react';
-import styled from 'styled-components';
-import ShowMoreButton from '../../../public/images/showMore.png';
+import { Gallery, Item } from "react-photoswipe-gallery";
+import "photoswipe/style.css";
+import images from "./Images.ts";
+import { useRef, useState } from "react";
+import styled from "styled-components";
+import ShowMoreButton from "/images/showMore.png";
 
 const PhotoGallery = () => {
   const [isMoreView, setIsMoreView] = useState(false);
   const smallItemStyles: React.CSSProperties = {
-    cursor: 'pointer',
-    objectFit: 'cover',
-    width: 'min(32vw, 190px)',
-    height: 'min(32vw, 190px)',
+    cursor: "pointer",
+    objectFit: "cover",
+    width: "min(32vw, 190px)",
+    height: "min(32vw, 190px)",
   };
 
   return (
@@ -27,18 +27,18 @@ const PhotoGallery = () => {
           arrowPrev: false,
           arrowNext: false,
           trapFocus: true,
-          imageClickAction: 'close',
+          imageClickAction: "close",
         }}
       >
         <ImageWrapper
           $isMoreView={isMoreView}
           style={{
-            display: 'grid',
-            maxWidth: '582px',
-            gridTemplateColumns: 'repeat(3, 1fr)',
-            gridGap: '6px',
-            pointerEvents: 'auto',
-            overflow: 'hidden',
+            display: "grid",
+            maxWidth: "582px",
+            gridTemplateColumns: "repeat(3, 1fr)",
+            gridGap: "6px",
+            pointerEvents: "auto",
+            overflow: "hidden",
           }}
         >
           {images.map((image, index) => {
@@ -79,8 +79,8 @@ export default PhotoGallery;
 
 const ImageWrapper = styled.div<{ $isMoreView: boolean }>`
   height: ${(props) =>
-    props.$isMoreView ? '100%' : 'calc((32vw * 6) + 30px)'};
-  max-height: ${(props) => (props.$isMoreView ? '2348px' : '1170px')};
+    props.$isMoreView ? "100%" : "calc((32vw * 6) + 30px)"};
+  max-height: ${(props) => (props.$isMoreView ? "2348px" : "1170px")};
 `;
 
 const MoreButton = styled.button`
