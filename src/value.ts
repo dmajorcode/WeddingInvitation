@@ -9,14 +9,14 @@ export const INFORMATION = {
     },
     {
       title: "혼주",
-      name: "김은수",
+      name: "정선태",
       phoneNumber: "01084776563",
       bank: "우리은행",
       accountNumber: "14202085912001",
     },
     {
       title: "혼주",
-      name: "곽숙견",
+      name: "김명옥",
       phoneNumber: "01041566563",
       bank: "우리은행",
       accountNumber: "04902692702601",
@@ -32,14 +32,14 @@ export const INFORMATION = {
     },
     {
       title: "혼주",
-      name: "이혁선",
+      name: "강희천",
       phoneNumber: "01024338363",
       bank: "농협은행",
       accountNumber: "44512147813",
     },
     {
       title: "혼주",
-      name: "이화순",
+      name: "김도희",
       phoneNumber: "01023928363",
       bank: "농협은행",
       accountNumber: "44902210637",

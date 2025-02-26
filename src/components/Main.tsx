@@ -220,7 +220,7 @@ function Main({ setComponent }: Props) {
           <HR />
           <Description>
             <Parent>
-              김은수 &nbsp;•&nbsp; 곽숙견
+              정선태 &nbsp;•&nbsp; 김명옥
               &nbsp;&nbsp;의&nbsp;&nbsp;&nbsp;아들&nbsp;
             </Parent>
             <span
@@ -242,7 +242,7 @@ function Main({ setComponent }: Props) {
                 position: "relative",
               }}
             >
-              이혁선 &nbsp;•&nbsp; 이화순
+              강희천 &nbsp;•&nbsp; 김도희
               &nbsp;&nbsp;의&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;딸&nbsp;&nbsp;&nbsp;
             </Parent>
             <span
