@@ -1,46 +1,46 @@
-import styled from 'styled-components';
-import CalendarPic from '../../public/images/calendar3.png';
-import CalendarBackground from '../../public/images/calendarBackground.jpg';
-import Fireworks from 'react-canvas-confetti/dist/presets/fireworks';
+import styled from "styled-components";
+import CalendarPic from "../../public/images/calendar3.png";
+import CalendarBackground from "../../public/images/calendarBackground.jpg";
+import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 
 // import FloatingBar from './../components/FloatingBar';
-import { useEffect, useRef, useState, lazy } from 'react';
-import { useSearchParams } from 'react-router-dom';
-import Snowfall from 'react-snowfall';
-import ManPic from '../../public/images/man.jpg';
-import WomanPic from '../../public/images/woman.jpg';
-import BoyPic from '../../public/images/boy.jpeg';
-import GirlPic from '../../public/images/girl.jpeg';
-import MainPic from '../../public/images/main7.jpg';
-import ProgressiveImg from './ProgressiveImg';
-import High from '../../public/images/high.jpg';
-import TossIcon from '../../public/images/toss.jpg';
-import KakaoMapIcon from '../../public/images/kakaoMap.png';
-import NaverMapIcon from '../../public/images/naverMap.png';
-import TMavIcon from '../../public/images/tmap.png';
-import KakayPayIcon from '../../public/images/kakaopay.png';
-import SunFlower from '../../public/images/sunflower1.png';
-import SunFlower2 from '../../public/images/sunflower2.png';
-import SunFlower3 from '../../public/images/sunflower3.png';
-import image45 from '../../public/images/image45.jpg';
-import Hall from '../../public/images/food2.jpg';
-import Hall2 from '../../public/images/hall2.jpg';
-import Cursor from '../../public/images/cursor.png';
-import PhoneModal from './PhoneModal';
-import Map from '../Map';
-import LikeButton from './LikeButton';
-import AttendModal from './AttendModal';
-import { INFORMATION } from '../value';
-import BusMap from '../../public/images/busMap.png';
+import { useEffect, useRef, useState, lazy } from "react";
+import { useSearchParams } from "react-router-dom";
+import Snowfall from "react-snowfall";
+import ManPic from "../../public/images/man.jpg";
+import WomanPic from "../../public/images/woman.jpg";
+import BoyPic from "../../public/images/boy.jpeg";
+import GirlPic from "../../public/images/girl.jpeg";
+import MainPic from "../../public/images/main7.jpg";
+import ProgressiveImg from "./ProgressiveImg";
+import High from "../../public/images/high.jpg";
+import TossIcon from "../../public/images/toss.jpg";
+import KakaoMapIcon from "../../public/images/kakaoMap.png";
+import NaverMapIcon from "../../public/images/naverMap.png";
+import TMavIcon from "../../public/images/tmap.png";
+import KakayPayIcon from "../../public/images/kakaopay.png";
+import SunFlower from "../../public/images/sunflower1.png";
+import SunFlower2 from "../../public/images/sunflower2.png";
+import SunFlower3 from "../../public/images/sunflower3.png";
+import image45 from "../../public/images/image45.jpg";
+import Hall from "../../public/images/food2.jpg";
+import Hall2 from "../../public/images/hall2.jpg";
+import Cursor from "../../public/images/cursor.png";
+import PhoneModal from "./PhoneModal";
+import Map from "../Map";
+import LikeButton from "./LikeButton";
+import AttendModal from "./AttendModal";
+import { INFORMATION } from "../value";
+import BusMap from "../../public/images/busMap.png";
 
 interface Props {
   setComponent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
 }
 
 const BUS_MAP_URL =
-  'https://map.naver.com/p/directions/14119087.345187,4396486.7244838,%EC%B6%A9%EB%82%A8%20%EC%98%88%EC%82%B0%EA%B5%B0%20%EC%98%88%EC%82%B0%EC%9D%8D%20%EC%82%B0%EC%84%B1%EB%A6%AC%20678,,SIMPLE_POI/-/-/transit?c=18.57,0,0,0,dh';
+  "https://map.naver.com/p/directions/14119087.345187,4396486.7244838,%EC%B6%A9%EB%82%A8%20%EC%98%88%EC%82%B0%EA%B5%B0%20%EC%98%88%EC%82%B0%EC%9D%8D%20%EC%82%B0%EC%84%B1%EB%A6%AC%20678,,SIMPLE_POI/-/-/transit?c=18.57,0,0,0,dh";
 
-const PhotoGallery = lazy(() => import('./Gallery/PhotoGallery'));
+const PhotoGallery = lazy(() => import("./Gallery/PhotoGallery"));
 
 function Main({ setComponent }: Props) {
   const [isboy, setIsBoy] = useState(true);
@@ -58,13 +58,13 @@ function Main({ setComponent }: Props) {
   };
 
   const [searchParams] = useSearchParams();
-  const dear = searchParams.get('dear'); // 받는사람 성명
+  const dear = searchParams.get("dear"); // 받는사람 성명
 
   const [openGroomAccount, setOpenGroomAccount] = useState<boolean>(false);
   const [openBrideccount, setOpenBrideAccount] = useState<boolean>(false);
 
   useEffect(() => {
-    window.addEventListener('scroll', checkScrollPosition);
+    window.addEventListener("scroll", checkScrollPosition);
 
     const intervalId = setInterval(() => {
       setIsBoy((prev) => !prev);
@@ -73,17 +73,17 @@ function Main({ setComponent }: Props) {
 
     return () => {
       clearInterval(intervalId);
-      window.removeEventListener('scroll', checkScrollPosition);
+      window.removeEventListener("scroll", checkScrollPosition);
     };
   }, []);
 
   // 카카오 SDK 로드
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js';
+    const script = document.createElement("script");
+    script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js";
     script.integrity =
-      'sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka';
-    script.crossOrigin = 'anonymous';
+      "sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka";
+    script.crossOrigin = "anonymous";
     script.onload = () => {
       // 카카오 SDK 초기화
       window.Kakao.init(import.meta.env.VITE_APP_KAKAO_APP_KEY); // 카카오 앱의 JavaScript 키 입력
@@ -120,27 +120,27 @@ function Main({ setComponent }: Props) {
 
   const onClickLink = async () => {
     try {
-      await navigator.clipboard.writeText('https://always-summer.vercel.app');
+      await navigator.clipboard.writeText("https://always-summer.vercel.app");
       alert(`청첩장 링크가 복사되었습니다.`);
     } catch (err) {
       console.error(err);
     }
   };
 
-  const onClickMapIcon = (platform: 'NAVER' | 'KAKAO' | 'TMAP') => {
-    if (platform === 'NAVER') {
+  const onClickMapIcon = (platform: "NAVER" | "KAKAO" | "TMAP") => {
+    if (platform === "NAVER") {
       window.location.href =
-        'https://m.map.naver.com/search2/search.naver?query=%EB%B3%B4%ED%85%8C%EA%B0%80%EB%A7%88%EC%A7%80%EC%98%A4#/map/1/31494641';
+        "https://m.map.naver.com/search2/search.naver?query=%EB%B3%B4%ED%85%8C%EA%B0%80%EB%A7%88%EC%A7%80%EC%98%A4#/map/1/31494641";
     }
   };
 
   // 내비게이션 시작 함수
   const startNavigation = () => {
     window.Kakao.Navi.start({
-      name: '보테가마지오',
+      name: "보테가마지오",
       x: 37.5456811,
       y: 127.042481,
-      coordType: 'wgs84',
+      coordType: "wgs84",
     });
   };
 
@@ -153,27 +153,27 @@ function Main({ setComponent }: Props) {
           <br />
           Married!
         </TitleImageTitle>
-        <DescriptionWrapper style={{ padding: '32px 20px' }}>
+        <DescriptionWrapper style={{ padding: "32px 20px" }}>
           <TopName>
-            김태현
+            정상진
             <Flower
               style={{
                 backgroundImage: `url(${SunFlower2})`,
               }}
             />
-            이상경
+            강다은
           </TopName>
           <TitleDescription>
-            2025. 02. 09. 일요일 PM 2:00
-            <br /> 서울숲 갤러리아포레 G층 보테가마지오
+            2025. 04. 27. 일요일 AM 11:30
+            <br /> 서울동부지방법원 동백홀
           </TitleDescription>
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            backgroundColor: '#f6f6f6',
-            gap: '32px',
-            position: 'relative',
-            paddingTop: '65px',
+            backgroundColor: "#f6f6f6",
+            gap: "32px",
+            position: "relative",
+            paddingTop: "65px",
           }}
         >
           <Snowfall
@@ -197,8 +197,8 @@ function Main({ setComponent }: Props) {
             {dear ? (
               <Title
                 style={{
-                  textAlign: 'center',
-                  lineHeight: '1.77',
+                  textAlign: "center",
+                  lineHeight: "1.77",
                 }}
               >
                 소중한 {dear}님 <br />
@@ -225,21 +225,21 @@ function Main({ setComponent }: Props) {
             </Parent>
             <span
               style={{
-                fontFamily: 'MaruBuriBold',
-                fontSize: '19px',
-                marginLeft: '10px',
-                color: '#3b3b3b',
-                position: 'relative',
-                bottom: '1px',
+                fontFamily: "MaruBuriBold",
+                fontSize: "19px",
+                marginLeft: "10px",
+                color: "#3b3b3b",
+                position: "relative",
+                bottom: "1px",
               }}
             >
-              태현
+              상진
             </span>
             <br />
             <Parent
               style={{
-                left: '1px',
-                position: 'relative',
+                left: "1px",
+                position: "relative",
               }}
             >
               이혁선 &nbsp;•&nbsp; 이화순
@@ -247,15 +247,15 @@ function Main({ setComponent }: Props) {
             </Parent>
             <span
               style={{
-                fontFamily: 'MaruBuriBold',
-                fontSize: '19px',
-                marginLeft: '10px',
-                color: '#3b3b3b',
-                position: 'relative',
-                bottom: '1px',
+                fontFamily: "MaruBuriBold",
+                fontSize: "19px",
+                marginLeft: "10px",
+                color: "#3b3b3b",
+                position: "relative",
+                bottom: "1px",
               }}
             >
-              상경
+              다은
             </span>
           </Description>
           <HR />
@@ -267,9 +267,9 @@ function Main({ setComponent }: Props) {
             <i
               className="fa fa-phone"
               style={{
-                transform: 'rotate(98deg)',
-                marginRight: '12px',
-                fontSize: '16px',
+                transform: "rotate(98deg)",
+                marginRight: "12px",
+                fontSize: "16px",
               }}
             ></i>
             전화로 축하 인사하기
@@ -277,9 +277,9 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            backgroundColor: '#efefef',
-            gap: '36px',
-            position: 'relative',
+            backgroundColor: "#efefef",
+            gap: "36px",
+            position: "relative",
           }}
         >
           <div>
@@ -294,7 +294,7 @@ function Main({ setComponent }: Props) {
           </Description>
 
           <Button
-            style={{ backgroundColor: '#444444', color: 'white' }}
+            style={{ backgroundColor: "#444444", color: "white" }}
             onClick={() =>
               setComponent(<AttendModal setComponent={setComponent} />)
             }
@@ -303,15 +303,15 @@ function Main({ setComponent }: Props) {
               className="fa fa-calendar-check"
               aria-hidden="true"
               style={{
-                marginRight: '12px',
-                fontSize: '16px',
-                color: 'white',
+                marginRight: "12px",
+                fontSize: "16px",
+                color: "white",
               }}
             ></i>
             참석여부 전달하기
           </Button>
         </DescriptionWrapper>
-        <DescriptionWrapper style={{ padding: '60px 22px' }}>
+        <DescriptionWrapper style={{ padding: "60px 22px" }}>
           <EnglishSubTitle>GROOM & BRIDE</EnglishSubTitle>
           <Title>신랑 신부는요,</Title>
 
@@ -333,21 +333,21 @@ function Main({ setComponent }: Props) {
               </InterviewImageWrapper>
               <p
                 style={{
-                  textAlign: 'center',
-                  margin: '24px 0 20px',
-                  fontSize: '20px',
+                  textAlign: "center",
+                  margin: "24px 0 20px",
+                  fontSize: "20px",
                 }}
               >
                 <span
                   style={{
-                    fontSize: '14.5px',
-                    marginRight: '8px',
-                    color: '#136198',
+                    fontSize: "14.5px",
+                    marginRight: "8px",
+                    color: "#136198",
                   }}
                 >
                   신랑
-                </span>{' '}
-                김태현
+                </span>{" "}
+                정상진
               </p>
               <Interview>
                 교내 영어회화 스터디에서 고양이 같은 여성분을 만났습니다.
@@ -355,8 +355,8 @@ function Main({ setComponent }: Props) {
                 공부하면서 여행, 게임 이야기를 할 때면 귀여운 말티즈가 되어
                 재잘재잘 말하는 것을 보니 개냥이였던 것이 틀림없습니다. 제가
                 힘들어할 때면 쪼르르 옆에 와서 격려해주고, 어느 날은 짜잔하면서
-                콘서트나 비행기 티켓을 준비해서 저를 놀래켜주기도 했습니다.{' '}
-                <div style={{ height: '18.5px' }}></div>
+                콘서트나 비행기 티켓을 준비해서 저를 놀래켜주기도 했습니다.{" "}
+                <div style={{ height: "18.5px" }}></div>
                 이렇게 이쁘고 귀여운 여자친구를 데리고 이제는 같은 진로를 통해
                 같은 미래를 바라보며 살아보고자 합니다. 여태껏 서로 달랐던
                 부분들을 잘 맞춰왔듯이, 앞으로도 많은 대화를 통해 서로
@@ -380,21 +380,21 @@ function Main({ setComponent }: Props) {
               </InterviewImageWrapper>
               <p
                 style={{
-                  textAlign: 'center',
-                  margin: '24px 0 20px',
-                  fontSize: '20px',
+                  textAlign: "center",
+                  margin: "24px 0 20px",
+                  fontSize: "20px",
                 }}
               >
                 <span
                   style={{
-                    fontSize: '14.5px',
-                    marginRight: '8px',
-                    color: '#e05068',
+                    fontSize: "14.5px",
+                    marginRight: "8px",
+                    color: "#e05068",
                   }}
                 >
                   신부
-                </span>{' '}
-                이상경
+                </span>{" "}
+                강다은
               </p>
               <Interview>
                 교내 영어회화 스터디에서 다부지고 귀여운 남자를 만났습니다.
@@ -402,7 +402,7 @@ function Main({ setComponent }: Props) {
                 챙겨주고, 시험 끝나면 맛있는걸 먹으러 가자는 모습이 귀여웠던
                 기억이 납니다. 스터디가 끝난 이후로도 다정하고 우직한 그의
                 모습에 마음을 열고 사귀게 되었습니다.
-                <div style={{ height: '18.5px' }}></div>
+                <div style={{ height: "18.5px" }}></div>
                 "보고 싶다"는 한마디에 왕복 4시간의 거리를 마다하지 않고
                 달려오고, 잊을만 하면 꽃다발을 사서 안겨주는 그의 변치않는
                 사랑과 배려에 점점 더 확신이 생겼습니다. 취업과 퇴사, 그리고
@@ -419,26 +419,26 @@ function Main({ setComponent }: Props) {
             backgroundImage: `url(${CalendarBackground})`,
           }}
         >
-          <EnglishSubTitle style={{ color: '#777777' }}>
+          <EnglishSubTitle style={{ color: "#777777" }}>
             WEDDING DAY
           </EnglishSubTitle>
           <Title>날짜 </Title>
           <img
             src={CalendarPic}
             alt="캘린더"
-            style={{ width: '91%', maxWidth: '385px', marginTop: '35px' }}
+            style={{ width: "91%", maxWidth: "385px", marginTop: "35px" }}
           />
         </DescriptionWrapper>
         <DescriptionWrapper>
           <EnglishSubTitle>GALLERY</EnglishSubTitle>
-          <Title style={{ marginBottom: '40px' }}>우리의 소중한 순간</Title>
+          <Title style={{ marginBottom: "40px" }}>우리의 소중한 순간</Title>
 
           <PhotoGallery />
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            backgroundColor: '#f6f6f6',
-            position: 'relative',
+            backgroundColor: "#f6f6f6",
+            position: "relative",
           }}
           ref={refEl}
         >
@@ -446,7 +446,7 @@ function Main({ setComponent }: Props) {
             <EnglishSubTitle>LOCATION</EnglishSubTitle>
             <Title>오시는 길</Title>
           </div>
-          <Description style={{ margin: '50px 0 24px' }}>
+          <Description style={{ margin: "50px 0 24px" }}>
             <Location>보테가마지오</Location>
             <br />
             <LocationDetail>
@@ -468,9 +468,9 @@ function Main({ setComponent }: Props) {
               네이버지도
             </MapIconItem>
           </MapIconsWrapper>
-          <NaviWrapper style={{ paddingTop: '30px' }}>
+          <NaviWrapper style={{ paddingTop: "30px" }}>
             <NaviTitle>자가용 & 주차 안내</NaviTitle>
-            <Li style={{ marginBottom: '4px' }}>
+            <Li style={{ marginBottom: "4px" }}>
               <Marker>𒊹</Marker>내비게이션으로 "보테가마지오" 검색해주세요.
             </Li>
             <Li>
@@ -484,7 +484,7 @@ function Main({ setComponent }: Props) {
             <Li>
               <Marker>𒊹</Marker>수인분당선 서울숲역 5번 출구
             </Li>
-            <Li style={{ marginBottom: '12px' }}>- &nbsp;도보 2분 거리</Li>
+            <Li style={{ marginBottom: "12px" }}>- &nbsp;도보 2분 거리</Li>
             <Li>
               <Marker>𒊹</Marker>2호선 뚝섬역 8번 출구
             </Li>
@@ -495,13 +495,13 @@ function Main({ setComponent }: Props) {
             <Li>
               <Marker>𒊹</Marker> 뚝섬 서울숲 정류장
             </Li>
-            <Li style={{ marginBottom: '12px' }}>
+            <Li style={{ marginBottom: "12px" }}>
               - &nbsp;간선(파랑색) : 121, 141, 145, 148, 463
             </Li>
             <Li>
               <Marker>𒊹</Marker> 성동구민 종합 체육센터 정류장
             </Li>
-            <Li style={{ marginBottom: '12px' }}>
+            <Li style={{ marginBottom: "12px" }}>
               - &nbsp;지선(녹색) : 2014, 2224, 2413
             </Li>
             <Li>
@@ -511,24 +511,24 @@ function Main({ setComponent }: Props) {
           </NaviWrapper>
           <NaviWrapper
             style={{
-              margin: '40px 0 0 0',
-              border: '4px double lightgray',
-              alignItems: 'center',
-              backgroundColor: 'rgba(255, 255, 255, 0)',
-              padding: '30px 0 56px',
+              margin: "40px 0 0 0",
+              border: "4px double lightgray",
+              alignItems: "center",
+              backgroundColor: "rgba(255, 255, 255, 0)",
+              padding: "30px 0 56px",
             }}
           >
             <Flower
               style={{
                 backgroundImage: `url(${SunFlower2})`,
-                marginBottom: '18px',
+                marginBottom: "18px",
               }}
             />
             <NaviTitle>전세버스 안내</NaviTitle>
             <Li
               style={{
-                textAlign: 'center',
-                marginTop: '12px',
+                textAlign: "center",
+                marginTop: "12px",
               }}
             >
               귀한 발걸음을 해주시는 <br />
@@ -537,7 +537,7 @@ function Main({ setComponent }: Props) {
             </Li>
             <Li
               style={{
-                textAlign: 'left',
+                textAlign: "left",
                 lineHeight: 1.7,
               }}
             >
@@ -545,22 +545,22 @@ function Main({ setComponent }: Props) {
                 className="fa fa-clock"
                 aria-hidden="true"
                 style={{
-                  marginTop: '38px',
-                  marginRight: '8px',
-                  fontSize: '15.5px',
-                  color: '#444444',
+                  marginTop: "38px",
+                  marginRight: "8px",
+                  fontSize: "15.5px",
+                  color: "#444444",
                 }}
               ></i>
-              출발 시간 : 2025. 02. 09. (일) 오전 10시
+              출발 시간 : 2025. 04. 27. (일) 오전 10시
               <br />
               <i
                 className="fa fa-map-marker-alt"
                 aria-hidden="true"
                 style={{
-                  marginTop: '16px',
-                  marginRight: '8px',
-                  fontSize: '15.5px',
-                  color: '#444444',
+                  marginTop: "16px",
+                  marginRight: "8px",
+                  fontSize: "15.5px",
+                  color: "#444444",
                 }}
               ></i>
               탑승 장소 : 충남 예산군 예산읍 산성리 653
@@ -570,11 +570,11 @@ function Main({ setComponent }: Props) {
                 className="fa fa-phone"
                 aria-hidden="true"
                 style={{
-                  marginTop: '16px',
-                  marginRight: '8px',
-                  fontSize: '15.5px',
-                  color: '#444444',
-                  transform: 'rotate(98deg)',
+                  marginTop: "16px",
+                  marginRight: "8px",
+                  fontSize: "15.5px",
+                  color: "#444444",
+                  transform: "rotate(98deg)",
                 }}
               ></i>
               관련 문의 : 신부측 연락처로 부탁드립니다.
@@ -599,15 +599,15 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper>
           <EnglishSubTitle>WEDDING DINING INFO</EnglishSubTitle>
-          <Title style={{ margin: '0 0 24px' }}>예식 · 식사 안내</Title>
+          <Title style={{ margin: "0 0 24px" }}>예식 · 식사 안내</Title>
 
           {/* <Slider /> */}
           <DescriptionItem>
-            <HR style={{ width: '100%', marginBottom: '6px' }} />
+            <HR style={{ width: "100%", marginBottom: "6px" }} />
             <img
               src={Hall}
               loading="lazy"
-              style={{ marginBottom: '18px', width: '100%' }}
+              style={{ marginBottom: "18px", width: "100%" }}
             />
             <DescriptionLi>
               <DescriptionMarker>𒊹</DescriptionMarker>예식장 내부에 ATM기가
@@ -629,18 +629,18 @@ function Main({ setComponent }: Props) {
             </DescriptionLi>
           </DescriptionItem>
 
-          <EnglishSubTitle style={{ marginTop: '68px' }}>
+          <EnglishSubTitle style={{ marginTop: "68px" }}>
             RECEPTION INFO
           </EnglishSubTitle>
-          <Title style={{ margin: '0 0 24px' }}>
+          <Title style={{ margin: "0 0 24px" }}>
             지방 피로연 (앞잔치) 안내
           </Title>
           <DescriptionItem>
-            <HR style={{ width: '100%', marginBottom: '6px' }} />
+            <HR style={{ width: "100%", marginBottom: "6px" }} />
             <img
               src={Hall2}
               loading="lazy"
-              style={{ marginBottom: '18px', width: '100%' }}
+              style={{ marginBottom: "18px", width: "100%" }}
             />
             <DescriptionLi>
               <DescriptionMarker>𒊹</DescriptionMarker>거리가 멀어 본식에
@@ -658,17 +658,17 @@ function Main({ setComponent }: Props) {
           </DescriptionItem>
         </DescriptionWrapper>
 
-        <DescriptionWrapper style={{ backgroundColor: '#f6f6f6' }}>
+        <DescriptionWrapper style={{ backgroundColor: "#f6f6f6" }}>
           <EnglishSubTitle>
             <i
               className="fa fa-heart"
-              style={{ color: '#ffa2a2', fontSize: '16px' }}
+              style={{ color: "#ffa2a2", fontSize: "16px" }}
             ></i>
           </EnglishSubTitle>
           <Title>마음 전하실 곳</Title>
           <Description
             style={{
-              margin: '36px 0',
+              margin: "36px 0",
             }}
           >
             필요하신 분들을 위해
@@ -680,19 +680,19 @@ function Main({ setComponent }: Props) {
           </Description>
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'column',
-              gap: '10px',
-              width: '98%',
+              display: "flex",
+              flexDirection: "column",
+              gap: "10px",
+              width: "98%",
             }}
           >
             <TabButton
-              style={{ backgroundColor: '#355568' }}
+              style={{ backgroundColor: "#355568" }}
               onClick={() => setOpenGroomAccount(!openGroomAccount)}
             >
               신랑측 계좌번호 보기
             </TabButton>
-            <AccountWrapper style={{ height: openGroomAccount ? '310px' : 0 }}>
+            <AccountWrapper style={{ height: openGroomAccount ? "310px" : 0 }}>
               {INFORMATION.groom.map((info) => (
                 <div key={info.name}>
                   <AccountOwner>
@@ -713,11 +713,11 @@ function Main({ setComponent }: Props) {
             </AccountWrapper>
             <TabButton
               onClick={() => setOpenBrideAccount(!openBrideccount)}
-              style={{ backgroundColor: '#714048' }}
+              style={{ backgroundColor: "#714048" }}
             >
               신부측 계좌번호 보기
             </TabButton>
-            <AccountWrapper style={{ height: openBrideccount ? '310px' : 0 }}>
+            <AccountWrapper style={{ height: openBrideccount ? "310px" : 0 }}>
               {INFORMATION.bride.map((info) => (
                 <div key={info.name}>
                   <AccountOwner>
@@ -739,7 +739,7 @@ function Main({ setComponent }: Props) {
           </div>
         </DescriptionWrapper>
         <LastImgWrapper style={{ backgroundImage: `url(${image45})` }}>
-          <span style={{ color: 'white', zIndex: 200 }}>
+          <span style={{ color: "white", zIndex: 200 }}>
             저희의 새로운 시작을 축하해주시는
             <br />
             모든 분들께 감사드립니다.
@@ -751,7 +751,7 @@ function Main({ setComponent }: Props) {
       {isVisible && (
         <BottomBar>
           <button
-            style={{ width: '50%' }}
+            style={{ width: "50%" }}
             onClick={() =>
               setComponent(<AttendModal setComponent={setComponent} />)
             }
@@ -760,10 +760,10 @@ function Main({ setComponent }: Props) {
             참석여부 전달하기
           </button>
           <button
-            style={{ width: '25%', content: '23423' }}
+            style={{ width: "25%", content: "23423" }}
             onClick={onClickLink}
           >
-            {' '}
+            {" "}
             <i className="fa fa-link" aria-hidden="true"></i>
             링크 복사
           </button>
@@ -773,10 +773,10 @@ function Main({ setComponent }: Props) {
             카톡 공유
           </button> */}
           <button
-            style={{ width: '25%' }}
+            style={{ width: "25%" }}
             onClick={triggerChildEventFromParent}
           >
-            {' '}
+            {" "}
             <i className="fa fa-heart" aria-hidden="true"></i>
             좋아요
           </button>
@@ -1108,7 +1108,7 @@ const GalleryItemImg = styled.img`
 `;
 
 const Button = styled.button`
-  font-family: 'Pretendard';
+  font-family: "Pretendard";
   background-color: rgba(255, 255, 255, 0.1);
   letter-spacing: 0.5px;
   width: min(300px, 85%);
@@ -1129,7 +1129,7 @@ const AButton = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Pretendard';
+  font-family: "Pretendard";
   background-color: rgba(255, 255, 255, 0.1);
   letter-spacing: 0.5px;
   width: min(300px, 85%);
