@@ -178,11 +178,7 @@ function Main({ setComponent }: Props) {
     <Wrappper>
       <ContentWrapper>
         <ProgressiveImg placeholderSrc={MainPic} src={High} />
-        <TitleImageTitle>
-          We're Getting
-          <br />
-          Married!
-        </TitleImageTitle>
+        <TitleImageTitle>사진에 글씨 넣기</TitleImageTitle>
         <DescriptionWrapper style={{ padding: "32px 20px" }}>
           <TopName>
             정상진
@@ -438,7 +434,6 @@ function Main({ setComponent }: Props) {
           </InterviewWrapper>
           <LikeButton ref={childRef} />
         </DescriptionWrapper> */}
-
         <DescriptionWrapper
           style={{
             backgroundImage: `url(${CalendarBackground})`,
@@ -507,32 +502,26 @@ function Main({ setComponent }: Props) {
           <NaviWrapper>
             <NaviTitle>지하철 안내</NaviTitle>
             <Li>
-              <Marker>𒊹</Marker>수인분당선 서울숲역 5번 출구
+              <Marker>𒊹</Marker>8호선 문정역 3번 출구
             </Li>
-            <Li style={{ marginBottom: "12px" }}>- &nbsp;도보 2분 거리</Li>
-            <Li>
-              <Marker>𒊹</Marker>2호선 뚝섬역 8번 출구
-            </Li>
-            <Li>- &nbsp;도보 5분 거리</Li>
+            <Li>- &nbsp;도보 10분 거리</Li>
           </NaviWrapper>
           <NaviWrapper>
             <NaviTitle>대중교통 버스 안내</NaviTitle>
             <Li>
-              <Marker>𒊹</Marker> 뚝섬 서울숲 정류장
+              <Marker>𒊹</Marker> 서울동부지방법원 앞 건영아파트 정류장
+            </Li>
+            <Li>- &nbsp;일반버스(녹색) : 30, 31, 32, 119, 331</Li>
+            <Li>
+              - &nbsp;간선버스(청색) : 302, 303, 320, 333, 343, 345, 350, 360
             </Li>
             <Li style={{ marginBottom: "12px" }}>
-              - &nbsp;간선(파랑색) : 121, 141, 145, 148, 463
+              - &nbsp;지선버스(녹색) : 3322, 3420
             </Li>
             <Li>
-              <Marker>𒊹</Marker> 성동구민 종합 체육센터 정류장
+              <Marker>𒊹</Marker> 서울동부지방법원 앞 정류장
             </Li>
-            <Li style={{ marginBottom: "12px" }}>
-              - &nbsp;지선(녹색) : 2014, 2224, 2413
-            </Li>
-            <Li>
-              <Marker>𒊹</Marker> 뚝섬역 8번 출구 정류장
-            </Li>
-            <Li>- &nbsp;지선(녹색) : 2016, 2224, 2413</Li>
+            <Li>- &nbsp;마을버스(녹색) : 송파02</Li>
           </NaviWrapper>
           <NaviWrapper
             style={{
@@ -622,26 +611,20 @@ function Main({ setComponent }: Props) {
             </AButton> */}
           </NaviWrapper>
         </DescriptionWrapper>
+        //{" "}
         <DescriptionWrapper>
-          <EnglishSubTitle>WEDDING DINING INFO</EnglishSubTitle>
-          <Title style={{ margin: "0 0 24px" }}>예식 · 식사 안내</Title>
+          {/* <EnglishSubTitle>WEDDING DINING INFO</EnglishSubTitle>
+          <Title style={{ margin: "0 0 24px" }}>예식 · 식사 안내</Title> */}
 
           {/* <Slider /> */}
-          <DescriptionItem>
+          {/* <DescriptionItem>
             <HR style={{ width: "100%", marginBottom: "6px" }} />
             <img
               src={Hall}
               loading="lazy"
               style={{ marginBottom: "18px", width: "100%" }}
             />
-            <DescriptionLi>
-              <DescriptionMarker>𒊹</DescriptionMarker>예식장 내부에 ATM기가
-              없으니 참고 부탁드립니다.
-            </DescriptionLi>
-            <DescriptionLi>
-              <DescriptionMarker>𒊹</DescriptionMarker>식사 장소는 예식홀과
-              동일한 층에 마련되어 있습니다.
-            </DescriptionLi>
+
             <DescriptionLi>
               <DescriptionMarker>𒊹</DescriptionMarker>예식 시작 30분 전부터
               식사가 가능합니다.
@@ -652,9 +635,9 @@ function Main({ setComponent }: Props) {
               전체메뉴의 80% 이상이 즉석 메뉴로 구성된 뷔페로, 생맥주, 와인 등
               주류도 무제한이니 편하게 즐겨주시면 감사하겠습니다.
             </DescriptionLi>
-          </DescriptionItem>
+          </DescriptionItem> */}
 
-          <EnglishSubTitle style={{ marginTop: "68px" }}>
+          {/* <EnglishSubTitle style={{ marginTop: "68px" }}>
             RECEPTION INFO
           </EnglishSubTitle>
           <Title style={{ margin: "0 0 24px" }}>
@@ -680,9 +663,8 @@ function Main({ setComponent }: Props) {
               <DescriptionMarker>𒊹</DescriptionMarker>
               장소 : 충청남도 예산군 더스타웨딩홀 피로연장
             </DescriptionLi>
-          </DescriptionItem>
+          </DescriptionItem> */}
         </DescriptionWrapper>
-
         <DescriptionWrapper style={{ backgroundColor: "#f6f6f6" }}>
           <EnglishSubTitle>
             <i
@@ -797,14 +779,14 @@ function Main({ setComponent }: Props) {
             <i className="fa fa-comment" aria-hidden="true"></i>
             카톡 공유
           </button> */}
-          <button
+          {/* <button
             style={{ width: "25%" }}
             onClick={triggerChildEventFromParent}
           >
             {" "}
             <i className="fa fa-heart" aria-hidden="true"></i>
             좋아요
-          </button>
+          </button> */}
         </BottomBar>
       )}
     </Wrappper>
