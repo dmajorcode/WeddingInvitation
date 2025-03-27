@@ -47,6 +47,36 @@ function Main({ setComponent }: Props) {
   const [isGirl, setIsGirl] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
   const refEl = useRef(null);
+  // TODO: 상태를 5개로 아래와 같이 바꿔야 함
+  // function Main({ setComponent }: Props) {
+  //   // 상태를 5개의 경우의 수로 설정
+  //   const [status, setStatus] = useState(0); // 0부터 4까지의 값을 가질 수 있는 상태
+
+  //   const changeStatus = () => {
+  //     setStatus((prev) => (prev + 1) % 5); // 0부터 4까지 순차적으로 변화
+  //   };
+
+  //   useEffect(() => {
+  //     // 상태를 주기적으로 변경
+  //     const intervalId = setInterval(() => {
+  //       changeStatus();
+  //     }, 4000); // 4초마다 상태 변경
+
+  //     return () => clearInterval(intervalId); // 정리 함수
+  //   }, []);
+
+  //   return (
+  //     <div>
+  //       <p>현재 상태: {status}</p>
+  //       {/* 상태에 따른 다른 내용을 렌더링 */}
+  //       {status === 0 && <div>상태 0의 내용</div>}
+  //       {status === 1 && <div>상태 1의 내용</div>}
+  //       {status === 2 && <div>상태 2의 내용</div>}
+  //       {status === 3 && <div>상태 3의 내용</div>}
+  //       {status === 4 && <div>상태 4의 내용</div>}
+  //     </div>
+  //   );
+  // }
 
   const childRef = useRef<{ triggerChildEvent: () => void }>(null);
 
@@ -323,7 +353,7 @@ function Main({ setComponent }: Props) {
             참석여부 전달하기
           </Button>
         </DescriptionWrapper>
-        <DescriptionWrapper style={{ padding: "60px 22px" }}>
+        {/* <DescriptionWrapper style={{ padding: "60px 22px" }}>
           <EnglishSubTitle>GROOM & BRIDE</EnglishSubTitle>
           <Title>신랑 신부는요,</Title>
 
@@ -362,17 +392,8 @@ function Main({ setComponent }: Props) {
                 정상진
               </p>
               <Interview>
-                교내 영어회화 스터디에서 고양이 같은 여성분을 만났습니다.
-                처음에는 말수가 적고 철벽을 치는 고양이 같았지만, 막상 같이
-                공부하면서 여행, 게임 이야기를 할 때면 귀여운 말티즈가 되어
-                재잘재잘 말하는 것을 보니 개냥이였던 것이 틀림없습니다. 제가
-                힘들어할 때면 쪼르르 옆에 와서 격려해주고, 어느 날은 짜잔하면서
-                콘서트나 비행기 티켓을 준비해서 저를 놀래켜주기도 했습니다.{" "}
-                <div style={{ height: "18.5px" }}></div>
-                이렇게 이쁘고 귀여운 여자친구를 데리고 이제는 같은 진로를 통해
-                같은 미래를 바라보며 살아보고자 합니다. 여태껏 서로 달랐던
-                부분들을 잘 맞춰왔듯이, 앞으로도 많은 대화를 통해 서로
-                배려하면서 예쁘게 잘 살아가겠습니다.
+                간단한 이야기1 <div style={{ height: "18.5px" }}></div>
+                간단한 이야기2
               </Interview>
             </div>
             <div>
@@ -409,22 +430,14 @@ function Main({ setComponent }: Props) {
                 강다은
               </p>
               <Interview>
-                교내 영어회화 스터디에서 다부지고 귀여운 남자를 만났습니다.
-                무뚝뚝해보이던 첫인상과는 달리, 스터디 초반부터 초콜릿과 쿠키를
-                챙겨주고, 시험 끝나면 맛있는걸 먹으러 가자는 모습이 귀여웠던
-                기억이 납니다. 스터디가 끝난 이후로도 다정하고 우직한 그의
-                모습에 마음을 열고 사귀게 되었습니다.
+                간단한 이야기1
                 <div style={{ height: "18.5px" }}></div>
-                "보고 싶다"는 한마디에 왕복 4시간의 거리를 마다하지 않고
-                달려오고, 잊을만 하면 꽃다발을 사서 안겨주는 그의 변치않는
-                사랑과 배려에 점점 더 확신이 생겼습니다. 취업과 퇴사, 그리고
-                대학 재입학까지, 삶의 굴곡을 함께하며 쌓아온 신뢰와 사랑을
-                바탕으로 서로 아끼며 행복하게 살아가겠습니다.
+                간단한 이야기2
               </Interview>
             </div>
           </InterviewWrapper>
           <LikeButton ref={childRef} />
-        </DescriptionWrapper>
+        </DescriptionWrapper> */}
 
         <DescriptionWrapper
           style={{
@@ -459,10 +472,10 @@ function Main({ setComponent }: Props) {
             <Title>오시는 길</Title>
           </div>
           <Description style={{ margin: "50px 0 24px" }}>
-            <Location>보테가마지오</Location>
+            <Location>서울동부지방법원</Location>
             <br />
             <LocationDetail>
-              서울 성동구 서울숲2길 32-14 갤러리아포레 G층
+              서울 송파구 법원로 101(서울 송파구 문정동 352)
             </LocationDetail>
           </Description>
           <Map />
@@ -471,11 +484,11 @@ function Main({ setComponent }: Props) {
               <MapIconImage src={TMavIcon} width={24} height={24} />
               티맵
             </MapIconItem> */}
-            <MapIconItem href="https://kko.kakao.com/q2SI2nKc7p">
+            <MapIconItem href="https://kko.kakao.com/JvuRBfKyOW">
               <MapIconImage src={KakaoMapIcon} width={24} height={24} />
               카카오맵
             </MapIconItem>
-            <MapIconItem href="https://m.map.naver.com/search2/search.naver?query=%EB%B3%B4%ED%85%8C%EA%B0%80%EB%A7%88%EC%A7%80%EC%98%A4#/map/1/31494641">
+            <MapIconItem href="https://m.map.naver.com/search2/search.naver?query=%EC%84%9C%EC%9A%B8%EB%8F%99%EB%B6%80%EC%A7%80%EB%B0%A9%EB%B2%95%EC%9B%90&sm=hty&style=v5#/map/1/11628085">
               <MapIconImage src={NaverMapIcon} width={24} height={24} />
               네이버지도
             </MapIconItem>
@@ -483,10 +496,10 @@ function Main({ setComponent }: Props) {
           <NaviWrapper style={{ paddingTop: "30px" }}>
             <NaviTitle>자가용 & 주차 안내</NaviTitle>
             <Li style={{ marginBottom: "4px" }}>
-              <Marker>𒊹</Marker>내비게이션으로 "보테가마지오" 검색해주세요.
+              <Marker>𒊹</Marker>네비게이션으로 "서울동부지방법원" 검색해주세요.
             </Li>
             <Li>
-              <Marker>𒊹</Marker>무료 주차는 2시간 가능합니다.
+              <Marker>𒊹</Marker>***확인해야함***무료 주차는 2시간 가능합니다.
             </Li>
             <Li> - &nbsp;건물 내 B3-B7층, 무료주차 2시간 가능</Li>
             <Li> - &nbsp;안내데스크에서 주차 등록 必</Li>

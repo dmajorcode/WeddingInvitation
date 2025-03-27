@@ -3,18 +3,18 @@ import {
   Marker,
   NaverMap,
   useNavermaps,
-} from 'react-naver-maps';
+} from "react-naver-maps";
 
 const Map = () => {
-  const lat = 37.54545; // 37.5456811
-  const lon = 127.04292; // 127.042481
+  const lat = 37.48332; // 37.483626;
+  const lon = 127.119668; // 127.19732;
   const navermaps = useNavermaps();
 
   return (
     <MapDiv
       style={{
-        width: '100%',
-        height: '310px',
+        width: "100%",
+        height: "310px",
       }}
     >
       <NaverMap
