@@ -209,13 +209,25 @@ function Main({ setComponent }: Props) {
             )}
           </div>
           <Description>
-            같은 계절이 6번 돌아오는 동안
+            <span style={{ letterSpacing: "0.14em", fontWeight: "bold" }}>
+              상
+            </span>
+            상해 왔던 모든 행복이 현실이 되는 순간
             <br />
-            함께 행복했던 기억이 차곡차곡 쌓였습니다. <br />
-            부부로서 하나의 길을 걷게 될
-            <br /> 힘찬 첫걸음을 내딛는 날, 함께해 주세요. <br />
-            귀한 걸음 하시어 따스하게 격려해 주신다면 <br /> 평생의 응원으로
-            여기며 살아가겠습니다.
+            <span style={{ letterSpacing: "0.14em", fontWeight: "bold" }}>
+              진
+            </span>
+            정한 동반자를 만나 새 삶을 시작합니다 <br />
+            <span style={{ letterSpacing: "0.14em", fontWeight: "bold" }}>
+              다
+            </span>
+            가올 날들을 같이 한 걸음씩 걸어나가며
+            <br />
+            <span style={{ letterSpacing: "0.14em", fontWeight: "bold" }}>
+              은
+            </span>
+            은한 꽃향기처럼 봄날과 함께 피어나갈 <br />
+            저희의 사랑이야기를 나누고자 합니다. <br />
           </Description>
           <HR />
           <Description>
