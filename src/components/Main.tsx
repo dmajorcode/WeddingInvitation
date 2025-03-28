@@ -177,7 +177,20 @@ function Main({ setComponent }: Props) {
   return (
     <Wrappper>
       <ContentWrapper>
-        <ProgressiveImg placeholderSrc={MainPic} src={High} />
+        <div style={{ position: "relative", display: "inline-block" }}>
+          <ProgressiveImg placeholderSrc={MainPic} src={High} />
+          <div
+            style={{
+              position: "absolute",
+              bottom: "0",
+              left: "0",
+              width: "100%",
+              height: "20%", // 그라데이션 높이 조정
+              background: "linear-gradient(to bottom, transparent, white)",
+            }}
+          />
+        </div>
+
         <TitleImageTitle
           style={{
             fontSize: "30px",
