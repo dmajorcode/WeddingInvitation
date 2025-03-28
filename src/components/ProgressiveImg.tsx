@@ -5,26 +5,28 @@ const ProgressiveImg = ({ placeholderSrc, src, ...props }: any) => {
 
   return (
     <div style={{ position: "relative", width: "100%", overflow: "hidden" }}>
-      {/* 이미지 삽입 (짤리지 않도록 width 100% 설정) */}
+      {/* 원본 이미지 */}
       <img
         src={imgSrc}
         alt={props.alt || ""}
         style={{
           width: "100%",
-          height: "auto", // 이미지 비율 유지
+          height: "auto",
           display: "block",
         }}
       />
 
-      {/* 그라데이션 오버레이 */}
+      {/* ✅ 훨씬 더 부드러운 그라데이션 */}
       <div
         style={{
           position: "absolute",
           bottom: "0",
           left: "0",
           width: "100%",
-          height: "100px", // 조절 가능
-          background: "linear-gradient(to bottom, transparent, white)",
+          height: "250px", // 🔥 높이 늘려서 부드럽게 확산
+          background:
+            "linear-gradient(to bottom, rgba(249, 249, 249, 0) 30%, rgba(249, 249, 249, 0.5) 60%, #f9f9f9 100%)",
+          pointerEvents: "none",
         }}
       />
     </div>

@@ -179,16 +179,6 @@ function Main({ setComponent }: Props) {
       <ContentWrapper>
         <div style={{ position: "relative", display: "inline-block" }}>
           <ProgressiveImg placeholderSrc={MainPic} src={High} />
-          <div
-            style={{
-              position: "absolute",
-              bottom: "0",
-              left: "0",
-              width: "100%",
-              height: "20%", // 그라데이션 높이 조정
-              background: "linear-gradient(to bottom, transparent, white)",
-            }}
-          />
         </div>
 
         <TitleImageTitle
@@ -200,7 +190,7 @@ function Main({ setComponent }: Props) {
           {/* <br /> */}
         </TitleImageTitle>
         <DescriptionWrapper
-          style={{ padding: "32px 20px", backgroundColor: "#f9f9f9" }}
+          style={{ padding: "50px 20px", backgroundColor: "#f9f9f9" }}
         >
           <TopName>
             정상진
