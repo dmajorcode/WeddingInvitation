@@ -329,42 +329,7 @@ function Main({ setComponent }: Props) {
             전화로 축하 인사하기
           </Button>
         </DescriptionWrapper>
-        <DescriptionWrapper
-          style={{
-            backgroundColor: "#efefef",
-            gap: "36px",
-            position: "relative",
-          }}
-        >
-          <div>
-            <EnglishSubTitle>SAVE THE DATE</EnglishSubTitle>
-            <Title>참석여부를 전달해주세요</Title>
-          </div>
-          <Description>
-            축하의 마음으로 예식에 참석하시는
-            <br />
-            모든 분들을 더욱 귀하게 모실 수 있도록, <br />
-            참석 여부를 알려주시면 감사하겠습니다.
-          </Description>
 
-          <Button
-            style={{ backgroundColor: "#444444", color: "white" }}
-            onClick={() =>
-              setComponent(<AttendModal setComponent={setComponent} />)
-            }
-          >
-            <i
-              className="fa fa-calendar-check"
-              aria-hidden="true"
-              style={{
-                marginRight: "12px",
-                fontSize: "16px",
-                color: "white",
-              }}
-            ></i>
-            참석여부 전달하기
-          </Button>
-        </DescriptionWrapper>
         {/* <DescriptionWrapper style={{ padding: "60px 22px" }}>
           <EnglishSubTitle>GROOM & BRIDE</EnglishSubTitle>
           <Title>신랑 신부는요,</Title>
@@ -456,6 +421,42 @@ function Main({ setComponent }: Props) {
           <Title style={{ marginBottom: "40px" }}>우리의 소중한 순간</Title>
 
           <PhotoGallery />
+        </DescriptionWrapper>
+        <DescriptionWrapper
+          style={{
+            backgroundColor: "#efefef",
+            gap: "36px",
+            position: "relative",
+          }}
+        >
+          <div>
+            <EnglishSubTitle>SAVE THE DATE</EnglishSubTitle>
+            <Title>참석여부를 전달해주세요</Title>
+          </div>
+          <Description>
+            축하의 마음으로 예식에 참석하시는
+            <br />
+            모든 분들을 더욱 귀하게 모실 수 있도록, <br />
+            참석 여부를 알려주시면 감사하겠습니다.
+          </Description>
+
+          <Button
+            style={{ backgroundColor: "#444444", color: "white" }}
+            onClick={() =>
+              setComponent(<AttendModal setComponent={setComponent} />)
+            }
+          >
+            <i
+              className="fa fa-calendar-check"
+              aria-hidden="true"
+              style={{
+                marginRight: "12px",
+                fontSize: "16px",
+                color: "white",
+              }}
+            ></i>
+            참석여부 전달하기
+          </Button>
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{

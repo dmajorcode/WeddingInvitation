@@ -23,9 +23,9 @@ const ProgressiveImg = ({ placeholderSrc, src, ...props }: any) => {
           bottom: "0",
           left: "0",
           width: "100%",
-          height: "250px", // 🔥 높이 늘려서 부드럽게 확산
+          height: "200px", // 🔥 높이 늘려서 부드럽게 확산
           background:
-            "linear-gradient(to bottom, rgba(249, 249, 249, 0) 30%, rgba(249, 249, 249, 0.5) 60%, #f9f9f9 100%)",
+            "linear-gradient(to bottom, rgba(249, 249, 249, 0) 30%, rgba(249, 249, 249, 0.5) 55%, #f9f9f9 100%)",
           pointerEvents: "none",
         }}
       />
