@@ -167,9 +167,9 @@ function Main({ setComponent }: Props) {
   // 내비게이션 시작 함수
   const startNavigation = () => {
     window.Kakao.Navi.start({
-      name: "보테가마지오",
-      x: 37.5456811,
-      y: 127.042481,
+      name: "서울동부지방법원",
+      x: 37.48332,
+      y: 127.119668,
       coordType: "wgs84",
     });
   };
@@ -178,8 +178,17 @@ function Main({ setComponent }: Props) {
     <Wrappper>
       <ContentWrapper>
         <ProgressiveImg placeholderSrc={MainPic} src={High} />
-        <TitleImageTitle>사진에 글씨 넣기</TitleImageTitle>
-        <DescriptionWrapper style={{ padding: "32px 20px" }}>
+        <TitleImageTitle
+          style={{
+            fontSize: "30px",
+          }}
+        >
+          {/* 정상진 그리고 강다은 */}
+          {/* <br /> */}
+        </TitleImageTitle>
+        <DescriptionWrapper
+          style={{ padding: "32px 20px", backgroundColor: "#f9f9f9" }}
+        >
           <TopName>
             정상진
             <Flower
@@ -192,24 +201,28 @@ function Main({ setComponent }: Props) {
           <TitleDescription>
             2025. 04. 27. 일요일 AM 11:30
             <br /> 서울동부지방법원 동백홀
+            <br />
+            <br />
+            <br />
           </TitleDescription>
         </DescriptionWrapper>
+
         <DescriptionWrapper
           style={{
-            backgroundColor: "#f6f6f6",
+            backgroundColor: "#f9f9f9",
             gap: "32px",
             position: "relative",
             paddingTop: "65px",
           }}
         >
-          <Snowfall
+          {/* <Snowfall
             color="gold"
             snowflakeCount={30}
             radius={[1, 5]}
             // images={['🌻']}
             speed={[0.2, 1]}
             style={{ opacity: 0.35 }}
-          />
+          /> */}
           {/* <div
             style={{
               backgroundImage: `url(${SunFlower3})`,
@@ -434,6 +447,7 @@ function Main({ setComponent }: Props) {
           </InterviewWrapper>
           <LikeButton ref={childRef} />
         </DescriptionWrapper> */}
+
         <DescriptionWrapper
           style={{
             backgroundImage: `url(${CalendarBackground})`,
@@ -532,6 +546,7 @@ function Main({ setComponent }: Props) {
               padding: "30px 0 56px",
             }}
           >
+            {/* 이부분 위로 올리기 */}
             <Flower
               style={{
                 backgroundImage: `url(${SunFlower2})`,
@@ -611,61 +626,10 @@ function Main({ setComponent }: Props) {
             </AButton> */}
           </NaviWrapper>
         </DescriptionWrapper>
-        //{" "}
-        <DescriptionWrapper>
-          {/* <EnglishSubTitle>WEDDING DINING INFO</EnglishSubTitle>
-          <Title style={{ margin: "0 0 24px" }}>예식 · 식사 안내</Title> */}
 
-          {/* <Slider /> */}
-          {/* <DescriptionItem>
-            <HR style={{ width: "100%", marginBottom: "6px" }} />
-            <img
-              src={Hall}
-              loading="lazy"
-              style={{ marginBottom: "18px", width: "100%" }}
-            />
-
-            <DescriptionLi>
-              <DescriptionMarker>𒊹</DescriptionMarker>예식 시작 30분 전부터
-              식사가 가능합니다.
-            </DescriptionLi>
-
-            <DescriptionLi>
-              <DescriptionMarker>𒊹</DescriptionMarker>
-              전체메뉴의 80% 이상이 즉석 메뉴로 구성된 뷔페로, 생맥주, 와인 등
-              주류도 무제한이니 편하게 즐겨주시면 감사하겠습니다.
-            </DescriptionLi>
-          </DescriptionItem> */}
-
-          {/* <EnglishSubTitle style={{ marginTop: "68px" }}>
-            RECEPTION INFO
-          </EnglishSubTitle>
-          <Title style={{ margin: "0 0 24px" }}>
-            지방 피로연 (앞잔치) 안내
-          </Title>
-          <DescriptionItem>
-            <HR style={{ width: "100%", marginBottom: "6px" }} />
-            <img
-              src={Hall2}
-              loading="lazy"
-              style={{ marginBottom: "18px", width: "100%" }}
-            />
-            <DescriptionLi>
-              <DescriptionMarker>𒊹</DescriptionMarker>거리가 멀어 본식에
-              참석하지 못하시는 분들을 위해, 예식 4일전 작은 피로연 자리를
-              마련하였습니다.
-            </DescriptionLi>
-            <DescriptionLi>
-              <DescriptionMarker>𒊹</DescriptionMarker>
-              일시 : 25.02.05. 수요일 오후 5시
-            </DescriptionLi>
-            <DescriptionLi>
-              <DescriptionMarker>𒊹</DescriptionMarker>
-              장소 : 충청남도 예산군 더스타웨딩홀 피로연장
-            </DescriptionLi>
-          </DescriptionItem> */}
-        </DescriptionWrapper>
-        <DescriptionWrapper style={{ backgroundColor: "#f6f6f6" }}>
+        <DescriptionWrapper
+        // style={{ backgroundColor: "#f6f6f6" }}
+        >
           <EnglishSubTitle>
             <i
               className="fa fa-heart"
