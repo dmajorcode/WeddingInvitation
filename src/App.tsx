@@ -1,11 +1,11 @@
-import './App.css';
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import Main from './components/Main';
-import Modal from './components/Modal';
-import { useState } from 'react';
-import { NavermapsProvider } from 'react-naver-maps';
-import JSConfetti from 'js-confetti';
-import { Analytics } from '@vercel/analytics/react';
+import "./App.css";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import Main from "./components/Main";
+import Modal from "./components/Modal";
+import { useState } from "react";
+import { NavermapsProvider } from "react-naver-maps";
+import JSConfetti from "js-confetti";
+import { Analytics } from "@vercel/analytics/react";
 
 export const jsConfetti = new JSConfetti();
 
