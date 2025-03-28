@@ -439,7 +439,6 @@ function Main({ setComponent }: Props) {
             모든 분들을 더욱 귀하게 모실 수 있도록, <br />
             참석 여부를 알려주시면 감사하겠습니다.
           </Description>
-          {/* edit */}
           <Button
             style={{ backgroundColor: "#444444", color: "white" }}
             onClick={() =>

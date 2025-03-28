@@ -1,4 +1,4 @@
-# vercel 배포 백지화 현상은 네이버 클라우드 플랫폼에서 네이버 지도 api에 vercel 도메인 등록하면 됨
+# vercel 배포 백지화 현상은 네이버 클라우드 플랫폼에서 네이버 지도 api에 vercel 도메인 등록하면 됨. 그리고 client id를 새로 env에 넣어야 함
 
 # Run Command
 
