@@ -448,6 +448,12 @@ function Main({ setComponent }: Props) {
           <LikeButton ref={childRef} />
         </DescriptionWrapper> */}
 
+        <DescriptionWrapper>
+          <EnglishSubTitle>GALLERY</EnglishSubTitle>
+          <Title style={{ marginBottom: "40px" }}>우리의 소중한 순간</Title>
+
+          <PhotoGallery />
+        </DescriptionWrapper>
         <DescriptionWrapper
           style={{
             backgroundImage: `url(${CalendarBackground})`,
@@ -462,12 +468,6 @@ function Main({ setComponent }: Props) {
             alt="캘린더"
             style={{ width: "91%", maxWidth: "385px", marginTop: "35px" }}
           />
-        </DescriptionWrapper>
-        <DescriptionWrapper>
-          <EnglishSubTitle>GALLERY</EnglishSubTitle>
-          <Title style={{ marginBottom: "40px" }}>우리의 소중한 순간</Title>
-
-          <PhotoGallery />
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
@@ -881,7 +881,7 @@ const TitleImageTitle = styled.div`
 `;
 
 const Wrappper = styled.div`
-  background-color: #e4e4e4;
+  background-color: #f2eeee;
   width: 100vw;
   position: relative;
   padding-bottom: 55px;
