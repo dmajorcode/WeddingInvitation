@@ -135,6 +135,7 @@ const PhotoGallery = () => {
               style={{ marginLeft: "10px", verticalAlign: "middle" }}
             />
           </MoreButton>
+          // 열리면 그라데이션 안보이게 바꿔야 함
         )}
       </div>
     </div>

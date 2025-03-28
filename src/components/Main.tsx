@@ -422,6 +422,22 @@ function Main({ setComponent }: Props) {
 
           <PhotoGallery />
         </DescriptionWrapper>
+
+        <DescriptionWrapper
+          style={{
+            backgroundImage: `url(${CalendarBackground})`,
+          }}
+        >
+          <EnglishSubTitle style={{ color: "#777777" }}>
+            WEDDING DAY
+          </EnglishSubTitle>
+          <Title>날짜 </Title>
+          <img
+            src={CalendarPic}
+            alt="캘린더"
+            style={{ width: "91%", maxWidth: "385px", marginTop: "35px" }}
+          />
+        </DescriptionWrapper>
         <DescriptionWrapper
           style={{
             backgroundColor: "#efefef",
@@ -456,21 +472,6 @@ function Main({ setComponent }: Props) {
             ></i>
             참석여부 전달하기
           </Button>
-        </DescriptionWrapper>
-        <DescriptionWrapper
-          style={{
-            backgroundImage: `url(${CalendarBackground})`,
-          }}
-        >
-          <EnglishSubTitle style={{ color: "#777777" }}>
-            WEDDING DAY
-          </EnglishSubTitle>
-          <Title>날짜 </Title>
-          <img
-            src={CalendarPic}
-            alt="캘린더"
-            style={{ width: "91%", maxWidth: "385px", marginTop: "35px" }}
-          />
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
