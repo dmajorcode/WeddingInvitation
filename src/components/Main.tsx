@@ -706,7 +706,16 @@ function Main({ setComponent }: Props) {
           </div>
         </DescriptionWrapper>
         <LastImgWrapper style={{ backgroundImage: `url(${image45})` }}>
-          <span style={{ color: "white", zIndex: 200 }}>
+          <span
+            style={{
+              color: "white",
+              zIndex: 200,
+              // marginRight: 10,
+              // marginLeft: 130,
+            }}
+          >
+            <br />
+            <br />
             <br />
             <br />
             <br />
