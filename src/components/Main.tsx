@@ -419,9 +419,9 @@ function Main({ setComponent }: Props) {
 
         <DescriptionWrapper
           style={{
-            background: "linear-gradient(to bottom, #f9f9f9 ₩%, #ffffff 3%)",
+            background: "linear-gradient(to bottom, #f9f9f9 0%, #ffffff 5%)",
             // minHeight: "500px", // 높이 조절 (필요에 따라 변경)
-            padding: "80px 20px",
+            padding: "130px 20px",
           }}
         >
           <EnglishSubTitle>GALLERY</EnglishSubTitle>
