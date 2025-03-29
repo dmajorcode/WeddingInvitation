@@ -111,15 +111,21 @@ const PhotoGallery = () => {
             backgroundColor: "#fff",
             padding: "15px 0",
             border: "none",
-            display: "block",
-            textAlign: "center",
+            display: "flex", // Flexbox 적용
+            alignItems: "center", // 세로 중앙 정렬
+            justifyContent: "center", // 가로 중앙 정렬
             fontWeight: "bold",
             cursor: "pointer",
             zIndex: 3, // 버튼이 사진 위쪽에 보이도록
           }}
         >
-          사진 더보기
-          <KeyboardArrowDownIcon />
+          <span style={{ display: "flex", alignItems: "center" }}>
+            사진 더보기
+            <KeyboardArrowDownIcon
+              fontSize="large"
+              style={{ marginLeft: "8px" }}
+            />
+          </span>
         </MoreButton>
       )}
     </div>

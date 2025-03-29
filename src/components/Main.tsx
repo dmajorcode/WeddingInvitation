@@ -418,7 +418,7 @@ function Main({ setComponent }: Props) {
 
         <DescriptionWrapper>
           <EnglishSubTitle>GALLERY</EnglishSubTitle>
-          <Title style={{ marginBottom: "40px" }}>우리의 소중한 순간</Title>
+          <Title style={{ marginBottom: "40px" }}>우리의 순간</Title>
 
           <PhotoGallery />
         </DescriptionWrapper>
