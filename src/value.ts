@@ -3,7 +3,7 @@ export const INFORMATION = {
     {
       title: "신랑",
       name: "정상진",
-      phoneNumber: "01030016563",
+      phoneNumber: import.meta.env.GROOM_PHONENUMBER,
       bank: "새마을금고",
       accountNumber: "9003249850662",
     },
