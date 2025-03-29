@@ -14,7 +14,7 @@ import image13 from "../../../public/images/image13.jpg";
 import image14 from "../../../public/images/image14.jpg";
 import image15 from "../../../public/images/image15.jpg";
 import image16 from "../../../public/images/image16.jpg";
-import image17_edited from "../../../public/images/image17_edited.jpg";
+import image17 from "../../../public/images/image17.jpg";
 import image18 from "../../../public/images/image18.jpg";
 import image19 from "../../../public/images/image19.jpg";
 import image20 from "../../../public/images/image20.jpg";
@@ -59,7 +59,7 @@ import image13Thumb from "../../../public/images/thumbnails/image13.jpg";
 import image14Thumb from "../../../public/images/thumbnails/image14.jpg";
 import image15Thumb from "../../../public/images/thumbnails/image15.jpg";
 import image16Thumb from "../../../public/images/thumbnails/image16.jpg";
-import image17_editedThumb from "../../../public/images/thumbnails/image17_edited.jpg";
+import image17Thumb from "../../../public/images/thumbnails/image17.jpg";
 import image18Thumb from "../../../public/images/thumbnails/image18.jpg";
 import image19Thumb from "../../../public/images/thumbnails/image19.jpg";
 import image20Thumb from "../../../public/images/thumbnails/image20.jpg";
@@ -93,83 +93,6 @@ import completeThumb from "../../../public/images/thumbnails/complete.jpg";
 
 const images = [
   /* 이미지 경로를 리스트로 저장 */
-  // {
-  //   alt: 'image12',
-  //   source: image12,
-  //   thumbnail: image12Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-  {
-    alt: "image42",
-    source: image42,
-    thumbnail: image42Thumb,
-    width: 600,
-    height: 900,
-  },
-  {
-    alt: "image40",
-    source: image40,
-    thumbnail: image40Thumb,
-    width: 600,
-    height: 900,
-  },
-  {
-    alt: "image08",
-    source: image08,
-    thumbnail: image08Thumb,
-    width: 900,
-    height: 600,
-  },
-  // {
-  //   alt: 'image41',
-  //   source: image41,
-  //   thumbnail: image41Thumb,
-  //   width: 900,
-  //   height: 600,
-  // },
-  {
-    alt: "image09",
-    source: image09,
-    thumbnail: image09Thumb,
-    width: 600,
-    height: 900,
-  },
-  // {
-  //   alt: 'image44',
-  //   source: image44,
-  //   thumbnail: image44Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-  // {
-  //   alt: 'image03',
-  //   source: image03,
-  //   thumbnail: image03Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-  {
-    alt: "complete",
-    source: complete,
-    thumbnail: completeThumb,
-    width: 600,
-    height: 900,
-  },
-  // {
-  //   alt: 'image43',
-  //   source: image43,
-  //   thumbnail: image43Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-  {
-    alt: "image05",
-    source: image05,
-    thumbnail: image05Thumb,
-    width: 600,
-    height: 900,
-  },
   {
     alt: "image01",
     source: image01,
@@ -184,7 +107,13 @@ const images = [
     width: 600,
     height: 900,
   },
-
+  {
+    alt: "image03",
+    source: image03,
+    thumbnail: image03Thumb,
+    width: 600,
+    height: 900,
+  },
   {
     alt: "image04",
     source: image04,
@@ -193,39 +122,65 @@ const images = [
     height: 900,
   },
   {
-    alt: "image15",
-    source: image15,
-    thumbnail: image15Thumb,
-    width: 600,
-    height: 900,
-  },
-
-  {
-    alt: "image17_edited",
-    source: image17_edited,
-    thumbnail: image17_editedThumb,
+    alt: "image05",
+    source: image05,
+    thumbnail: image05Thumb,
     width: 600,
     height: 900,
   },
   {
-    alt: "image20",
-    source: image20,
-    thumbnail: image20Thumb,
-    width: 600,
-    height: 900,
-  },
-
-  {
-    alt: "image19",
-    source: image19,
-    thumbnail: image19Thumb,
+    alt: "image06",
+    source: image06,
+    thumbnail: image06Thumb,
     width: 600,
     height: 900,
   },
   {
-    alt: "image18",
-    source: image18,
-    thumbnail: image18Thumb,
+    alt: "image07",
+    source: image07,
+    thumbnail: image07Thumb,
+    width: 600,
+    height: 900,
+  },
+  {
+    alt: "image08",
+    source: image08,
+    thumbnail: image08Thumb,
+    width: 600,
+    height: 900,
+  },
+  {
+    alt: "image09",
+    source: image09,
+    thumbnail: image09Thumb,
+    width: 600,
+    height: 900,
+  },
+  {
+    alt: "image10",
+    source: image10,
+    thumbnail: image10Thumb,
+    width: 600,
+    height: 900,
+  },
+  {
+    alt: "image11",
+    source: image11,
+    thumbnail: image11Thumb,
+    width: 600,
+    height: 900,
+  },
+  {
+    alt: "image12",
+    source: image12,
+    thumbnail: image12Thumb,
+    width: 600,
+    height: 900,
+  },
+  {
+    alt: "image13",
+    source: image13,
+    thumbnail: image13Thumb,
     width: 600,
     height: 900,
   },
@@ -237,30 +192,44 @@ const images = [
     height: 900,
   },
   {
-    alt: "image36",
-    source: image36,
-    thumbnail: image36Thumb,
+    alt: "image15",
+    source: image15,
+    thumbnail: image15Thumb,
     width: 600,
     height: 900,
   },
   {
-    alt: "image29",
-    source: image29,
-    thumbnail: image29Thumb,
+    alt: "image16",
+    source: image16,
+    thumbnail: image16Thumb,
     width: 600,
     height: 900,
   },
   {
-    alt: "image30",
-    source: image30,
-    thumbnail: image30Thumb,
+    alt: "image17",
+    source: image17,
+    thumbnail: image17Thumb,
     width: 600,
     height: 900,
   },
   {
-    alt: "image31",
-    source: image31,
-    thumbnail: image31Thumb,
+    alt: "image18",
+    source: image18,
+    thumbnail: image18Thumb,
+    width: 600,
+    height: 900,
+  },
+  {
+    alt: "image19",
+    source: image19,
+    thumbnail: image19Thumb,
+    width: 600,
+    height: 900,
+  },
+  {
+    alt: "image20",
+    source: image20,
+    thumbnail: image20Thumb,
     width: 600,
     height: 900,
   },
@@ -275,15 +244,15 @@ const images = [
     alt: "image22",
     source: image22,
     thumbnail: image22Thumb,
-    width: 900,
-    height: 600,
+    width: 600,
+    height: 900,
   },
   {
     alt: "image23",
     source: image23,
     thumbnail: image23Thumb,
-    width: 900,
-    height: 600,
+    width: 600,
+    height: 900,
   },
   {
     alt: "image24",
@@ -292,137 +261,6 @@ const images = [
     width: 600,
     height: 900,
   },
-  {
-    alt: "image25",
-    source: image25,
-    thumbnail: image25Thumb,
-    width: 900,
-    height: 600,
-  },
-  {
-    alt: "image26",
-    source: image26,
-    thumbnail: image26Thumb,
-    width: 900,
-    height: 600,
-  },
-  {
-    alt: "image27",
-    source: image27,
-    thumbnail: image27Thumb,
-    width: 900,
-    height: 600,
-  },
-  {
-    alt: "image28",
-    source: image28,
-    thumbnail: image28Thumb,
-    width: 900,
-    height: 600,
-  },
-
-  {
-    alt: "image32",
-    source: image32,
-    thumbnail: image32Thumb,
-    width: 900,
-    height: 600,
-  },
-  // {
-  //   alt: 'image33',
-  //   source: image33,
-  //   thumbnail: image33Thumb,
-  //   width: 900,
-  //   height: 600,
-  // },
-  {
-    alt: "image35",
-    source: image35,
-    thumbnail: image35Thumb,
-    width: 900,
-    height: 600,
-  },
-  {
-    alt: "image34",
-    source: image34,
-    thumbnail: image34Thumb,
-    width: 600,
-    height: 900,
-  },
-
-  // {
-  //   alt: 'image37',
-  //   source: image37,
-  //   thumbnail: image37Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-  // {
-  //   alt: 'image38',
-  //   source: image38,
-  //   thumbnail: image38Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-  // {
-  //   alt: 'image39',
-  //   source: image39,
-  //   thumbnail: image39Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-  // {
-  //   alt: 'image45',
-  //   source: image45,
-  //   thumbnail: image45Thumb,
-  //   width: 900,
-  //   height: 600,
-  // },
-
-  // {
-  //   alt: 'image06',
-  //   source: image06,
-  //   thumbnail: image06Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-  // {
-  //   alt: 'image07',
-  //   source: image07,
-  //   thumbnail: image07Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-
-  // {
-  //   alt: 'image10',
-  //   source: image10,
-  //   thumbnail: image10Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-  // {
-  //   alt: 'image11',
-  //   source: image11,
-  //   width: 600,
-  //   height: 900,
-  //   thumbnail: image11Thumb,
-  // },
-  // {
-  //   alt: 'image13',
-  //   source: image13,
-  //   thumbnail: image13Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
-
-  // {
-  //   alt: 'image16',
-  //   source: image16,
-  //   thumbnail: image16Thumb,
-  //   width: 600,
-  //   height: 900,
-  // },
 ];
 
 export default images;
