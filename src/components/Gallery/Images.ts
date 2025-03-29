@@ -37,9 +37,9 @@ import image36 from "../../../public/images/image36.jpg";
 import image37 from "../../../public/images/image37.jpg";
 import image38 from "../../../public/images/image38.jpg";
 import image39 from "../../../public/images/image39.jpg";
-import image40 from "../../../public/images/image40.jpeg";
+import image40 from "../../../public/images/image40.jpg";
 import image41 from "../../../public/images/image41.jpeg";
-import image42 from "../../../public/images/image42.jpeg";
+import image42 from "../../../public/images/image42.jpg";
 import image43 from "../../../public/images/image43.jpg";
 import image44 from "../../../public/images/image44.jpg";
 import image45 from "../../../public/images/image45.jpg";
@@ -82,14 +82,14 @@ import image36Thumb from "../../../public/images/thumbnails/image36.jpg";
 import image37Thumb from "../../../public/images/thumbnails/image37.jpg";
 import image38Thumb from "../../../public/images/thumbnails/image38.jpg";
 import image39Thumb from "../../../public/images/thumbnails/image39.jpg";
-import image40Thumb from "../../../public/images/thumbnails/image40.jpeg";
+import image40Thumb from "../../../public/images/thumbnails/image40.jpg";
 import image41Thumb from "../../../public/images/thumbnails/image41.jpeg";
-import image42Thumb from "../../../public/images/thumbnails/image42.jpeg";
+import image42Thumb from "../../../public/images/thumbnails/image42.jpg";
 import image43Thumb from "../../../public/images/thumbnails/image43.jpg";
 import image44Thumb from "../../../public/images/thumbnails/image44.jpg";
 import image45Thumb from "../../../public/images/thumbnails/image45.jpg";
-import complete from "../../../public/images/complete.png";
-import completeThumb from "../../../public/images/thumbnails/complete.png";
+import complete from "../../../public/images/complete.jpg";
+import completeThumb from "../../../public/images/thumbnails/complete.jpg";
 
 const images = [
   /* 이미지 경로를 리스트로 저장 */

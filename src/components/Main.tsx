@@ -508,25 +508,18 @@ function Main({ setComponent }: Props) {
             </MapIconItem>
           </MapIconsWrapper>
           <NaviWrapper style={{ paddingTop: "30px" }}>
-            <NaviTitle style={{ fontSize: "18px", fontWeight: "bold" }}>
-              자가용 & 주차 안내
-            </NaviTitle>
+            <NaviTitle>자가용 & 주차 안내</NaviTitle>
             <Li
               style={{
                 marginBottom: "4px",
                 display: "block", // ✅ 블록 요소로 변경하여 들여쓰기 가능하도록 수정
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                fontSize: "15px",
               }}
             >
               <Marker>𒊹</Marker>네비게이션에 "서울동부지방법원" 검색해주세요.
             </Li>
-            <Li
-              style={{
-                fontSize: "15px",
-              }}
-            >
+            <Li>
               <Marker>𒊹</Marker>지상주차장 무료주차
             </Li>
             {/* <Li
@@ -649,10 +642,6 @@ function Main({ setComponent }: Props) {
               margin: "36px 0",
             }}
           >
-            필요하신 분들을 위해
-            <br />
-            안내드리니 양해 부탁드립니다.
-            <br />
             참석하지 못하더라도 축복해주시는
             <br />그 마음 감사히 간직하겠습니다.
           </Description>
@@ -718,6 +707,10 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <LastImgWrapper style={{ backgroundImage: `url(${image45})` }}>
           <span style={{ color: "white", zIndex: 200 }}>
+            <br />
+            <br />
+            <br />
+            <br />
             저희의 새로운 시작을 축하해주시는
             <br />
             모든 분들께 감사드립니다.
