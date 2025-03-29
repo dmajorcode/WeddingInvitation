@@ -90,6 +90,7 @@ import image44Thumb from "../../../public/images/thumbnails/image44.jpg";
 import image45Thumb from "../../../public/images/thumbnails/image45.jpg";
 import complete from "../../../public/images/complete.jpg";
 import completeThumb from "../../../public/images/thumbnails/complete.jpg";
+// 가로 사진이 확대하면 세로로 길어지는 것 해결하기
 
 const images = [
   /* 이미지 경로를 리스트로 저장 */
@@ -125,8 +126,8 @@ const images = [
     alt: "image05",
     source: image05,
     thumbnail: image05Thumb,
-    width: 600,
-    height: 900,
+    width: 900,
+    height: 600,
   },
   {
     alt: "image06",
@@ -167,8 +168,8 @@ const images = [
     alt: "image11",
     source: image11,
     thumbnail: image11Thumb,
-    width: 600,
-    height: 900,
+    width: 900,
+    height: 600,
   },
   {
     alt: "image12",
@@ -202,8 +203,8 @@ const images = [
     alt: "image16",
     source: image16,
     thumbnail: image16Thumb,
-    width: 600,
-    height: 900,
+    width: 900,
+    height: 600,
   },
   {
     alt: "image17",
@@ -223,8 +224,8 @@ const images = [
     alt: "image19",
     source: image19,
     thumbnail: image19Thumb,
-    width: 600,
-    height: 900,
+    width: 900,
+    height: 600,
   },
   {
     alt: "image20",
@@ -244,22 +245,22 @@ const images = [
     alt: "image22",
     source: image22,
     thumbnail: image22Thumb,
-    width: 600,
-    height: 900,
+    width: 900,
+    height: 600,
   },
   {
     alt: "image23",
     source: image23,
     thumbnail: image23Thumb,
-    width: 600,
-    height: 900,
+    width: 900,
+    height: 600,
   },
   {
     alt: "image24",
     source: image24,
     thumbnail: image24Thumb,
-    width: 600,
-    height: 900,
+    width: 900,
+    height: 600,
   },
 ];
 
