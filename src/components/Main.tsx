@@ -508,18 +508,25 @@ function Main({ setComponent }: Props) {
             </MapIconItem>
           </MapIconsWrapper>
           <NaviWrapper style={{ paddingTop: "30px" }}>
-            <NaviTitle>자가용 & 주차 안내</NaviTitle>
+            <NaviTitle style={{ fontSize: "18px", fontWeight: "bold" }}>
+              자가용 & 주차 안내
+            </NaviTitle>
             <Li
               style={{
                 marginBottom: "4px",
                 display: "block", // ✅ 블록 요소로 변경하여 들여쓰기 가능하도록 수정
                 whiteSpace: "normal",
                 wordBreak: "break-word",
+                fontSize: "15px",
               }}
             >
               <Marker>𒊹</Marker>네비게이션에 "서울동부지방법원" 검색해주세요.
             </Li>
-            <Li>
+            <Li
+              style={{
+                fontSize: "15px",
+              }}
+            >
               <Marker>𒊹</Marker>지상주차장 무료주차
             </Li>
             {/* <Li
