@@ -83,61 +83,44 @@ const PhotoGallery = () => {
         )}
       </Gallery>
 
-      {/* 더보기 버튼 위에 새로운 그라데이션 */}
+      {/* isMoreView가 false일 때만 보이도록 설정 */}
       {!isMoreView && (
         <div
           style={{
             position: "absolute",
-            bottom: "0px", // 버튼 바로 위
+            bottom: 0,
             left: 0,
-            right: 0,
-            height: "50px", // 그라데이션 높이 조정
+            width: "100%",
+            height: "100px", // 원하는 높이로 조정 가능
             background:
-              "linear-gradient(to top, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)",
-            zIndex: 4, // 버튼보다 위에 배치
-            pointerEvents: "none", // 클릭 방해 안 되게
+              "linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent)",
+            transition: "opacity 0.3s ease",
           }}
         />
       )}
-      <div
-        style={{
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          width: "100%",
-          height: "20%", // 높이 살짝 증가
-          background:
-            "linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 60%, rgba(255, 255, 255, 1) 100%)",
-        }}
-      >
-        {/* 더보기 버튼 */}
-        {!isMoreView && (
-          <MoreButton
-            onClick={() => setIsMoreView(true)}
-            style={{
-              position: "absolute",
-              bottom: "0px",
-              left: 0,
-              width: "100%",
-              backgroundColor: "#fff",
-              padding: "15px 0",
-              border: "none",
-              display: "block",
-              textAlign: "center",
-              fontWeight: "bold",
-              cursor: "pointer",
-              zIndex: 3, // 버튼이 사진 위쪽에 보이도록
-            }}
-          >
-            사진 더보기
-            <img
-              src={ShowMoreButton}
-              style={{ marginLeft: "10px", verticalAlign: "middle" }}
-            />
-          </MoreButton>
-          // 열리면 그라데이션 안보이게 바꿔야 함
-        )}
-      </div>
+
+      {/* 더보기 버튼 */}
+      {!isMoreView && (
+        <MoreButton
+          onClick={() => setIsMoreView(true)}
+          style={{
+            position: "absolute",
+            bottom: "0px",
+            left: 0,
+            width: "100%",
+            backgroundColor: "#fff",
+            padding: "15px 0",
+            border: "none",
+            display: "block",
+            textAlign: "center",
+            fontWeight: "bold",
+            cursor: "pointer",
+            zIndex: 3, // 버튼이 사진 위쪽에 보이도록
+          }}
+        >
+          사진 더보기
+        </MoreButton>
+      )}
     </div>
   );
 };
