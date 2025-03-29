@@ -12,6 +12,8 @@ const PhotoGallery = () => {
     objectFit: "cover",
     width: "min(32vw, 190px)",
     height: "min(32vw, 190px)",
+    borderRadius: "2%", // 동그랗게 만들기
+    transition: "all 0.3s ease", // 부드러운 애니메이션
   };
 
   return (
