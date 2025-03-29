@@ -417,7 +417,13 @@ function Main({ setComponent }: Props) {
           <LikeButton ref={childRef} />
         </DescriptionWrapper> */}
 
-        <DescriptionWrapper>
+        <DescriptionWrapper
+          style={{
+            background: "linear-gradient(to bottom, #f9f9f9, #ffffff)",
+            minHeight: "500px", // 높이 설정 (필요에 맞게 조절)
+            padding: "40px 20px", // 안쪽 여백 추가
+          }}
+        >
           <EnglishSubTitle>GALLERY</EnglishSubTitle>
           <Title style={{ marginBottom: "40px" }}>우리의 순간</Title>
 
@@ -729,9 +735,23 @@ function Main({ setComponent }: Props) {
       </ContentWrapper>
 
       {isVisible && (
-        <BottomBar>
+        <BottomBar
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "0px", // 버튼 사이 간격 조절
+          }}
+        >
           <button
-            style={{ width: "50%" }}
+            style={{
+              width: "40%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+              gap: "8px", // 아이콘과 텍스트 간격
+            }}
             onClick={() =>
               setComponent(<AttendModal setComponent={setComponent} />)
             }
@@ -740,26 +760,19 @@ function Main({ setComponent }: Props) {
             참석여부 전달하기
           </button>
           <button
-            style={{ width: "25%", content: "23423" }}
+            style={{
+              width: "40%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              textAlign: "center",
+              gap: "8px",
+            }}
             onClick={onClickLink}
           >
-            {" "}
             <i className="fa fa-link" aria-hidden="true"></i>
             링크 복사
           </button>
-          {/* <button style={{ width: '25%' }}>
-            {' '}
-            <i className="fa fa-comment" aria-hidden="true"></i>
-            카톡 공유
-          </button> */}
-          {/* <button
-            style={{ width: "25%" }}
-            onClick={triggerChildEventFromParent}
-          >
-            {" "}
-            <i className="fa fa-heart" aria-hidden="true"></i>
-            좋아요
-          </button> */}
         </BottomBar>
       )}
     </Wrappper>
