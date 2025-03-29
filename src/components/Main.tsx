@@ -2,7 +2,6 @@ import styled from "styled-components";
 import CalendarPic from "/images/calendar3.png";
 import CalendarBackground from "/images/calendarBackground.jpg";
 import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
-
 // import FloatingBar from './../components/FloatingBar';
 import { useEffect, useRef, useState, lazy } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -41,6 +40,8 @@ const BUS_MAP_URL =
   "https://map.naver.com/p/directions/14119087.345187,4396486.7244838,%EC%B6%A9%EB%82%A8%20%EC%98%88%EC%82%B0%EA%B5%B0%20%EC%98%88%EC%82%B0%EC%9D%8D%20%EC%82%B0%EC%84%B1%EB%A6%AC%20678,,SIMPLE_POI/-/-/transit?c=18.57,0,0,0,dh";
 
 const PhotoGallery = lazy(() => import("./Gallery/PhotoGallery"));
+
+// TODO: 콘솔 보이는 것 막기
 
 function Main({ setComponent }: Props) {
   const [isboy, setIsBoy] = useState(true);
@@ -508,126 +509,121 @@ function Main({ setComponent }: Props) {
           </MapIconsWrapper>
           <NaviWrapper style={{ paddingTop: "30px" }}>
             <NaviTitle>자가용 & 주차 안내</NaviTitle>
-            <Li style={{ marginBottom: "4px" }}>
-              <Marker>𒊹</Marker>네비게이션으로 "서울동부지방법원" 검색해주세요.
+            <Li
+              style={{
+                marginBottom: "4px",
+                display: "block", // ✅ 블록 요소로 변경하여 들여쓰기 가능하도록 수정
+                whiteSpace: "normal",
+                wordBreak: "break-word",
+              }}
+            >
+              <Marker>𒊹</Marker>네비게이션에 "서울동부지방법원" 검색해주세요.
             </Li>
             <Li>
-              <Marker>𒊹</Marker>***확인해야함***무료 주차는 2시간 가능합니다.
+              <Marker>𒊹</Marker>지상주차장 무료주차
             </Li>
-            <Li> - &nbsp;건물 내 B3-B7층, 무료주차 2시간 가능</Li>
-            <Li> - &nbsp;안내데스크에서 주차 등록 必</Li>
+            {/* <Li
+              style={{
+                paddingLeft: "20px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+              }}
+            >
+              {" "}
+              - &nbsp;안내데스크에서 주차 등록 必
+            </Li> */}
           </NaviWrapper>
           <NaviWrapper>
             <NaviTitle>지하철 안내</NaviTitle>
             <Li>
               <Marker>𒊹</Marker>8호선 문정역 3번 출구
             </Li>
-            <Li>- &nbsp;도보 10분 거리</Li>
-          </NaviWrapper>
-          <NaviWrapper>
-            <NaviTitle>대중교통 버스 안내</NaviTitle>
-            <Li>
-              <Marker>𒊹</Marker> 서울동부지방법원 앞 건영아파트 정류장
+            <Li
+              style={{
+                paddingLeft: "20px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+              }}
+            >
+              - &nbsp;도보 10분 거리
             </Li>
-            <Li>- &nbsp;일반버스(녹색) : 30, 31, 32, 119, 331</Li>
-            <Li>
-              - &nbsp;간선버스(청색) : 302, 303, 320, 333, 343, 345, 350, 360
-            </Li>
-            <Li style={{ marginBottom: "12px" }}>
-              - &nbsp;지선버스(녹색) : 3322, 3420
-            </Li>
-            <Li>
-              <Marker>𒊹</Marker> 서울동부지방법원 앞 정류장
-            </Li>
-            <Li>- &nbsp;마을버스(녹색) : 송파02</Li>
           </NaviWrapper>
           <NaviWrapper
             style={{
-              margin: "40px 0 0 0",
-              border: "4px double lightgray",
-              alignItems: "center",
-              backgroundColor: "rgba(255, 255, 255, 0)",
-              padding: "30px 0 56px",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
             }}
           >
-            {/* 이부분 위로 올리기 */}
-            <Flower
-              style={{
-                backgroundImage: `url(${SunFlower2})`,
-                marginBottom: "18px",
-              }}
-            />
-            <NaviTitle>전세버스 안내</NaviTitle>
+            <NaviTitle>대중교통 버스 안내</NaviTitle>
+
             <Li
               style={{
-                textAlign: "center",
-                marginTop: "12px",
+                display: "inline-flex", // ✅ 아이콘과 텍스트 간격 줄이기
+                alignItems: "center",
+                gap: "2px", // ✅ 아이콘과 텍스트 사이 최소 간격 유지
+                whiteSpace: "normal",
+                wordBreak: "break-word",
               }}
             >
-              귀한 발걸음을 해주시는 <br />
-              지방 하객분들의 편의를 위해 <br />
-              예산↔서울 간 전세버스를 준비하였습니다.
-            </Li>
-            <Li
-              style={{
-                textAlign: "left",
-                lineHeight: 1.7,
-              }}
-            >
-              <i
-                className="fa fa-clock"
-                aria-hidden="true"
-                style={{
-                  marginTop: "38px",
-                  marginRight: "8px",
-                  fontSize: "15.5px",
-                  color: "#444444",
-                }}
-              ></i>
-              출발 시간 : 2025. 04. 27. (일) 오전 10시
-              <br />
-              <i
-                className="fa fa-map-marker-alt"
-                aria-hidden="true"
-                style={{
-                  marginTop: "16px",
-                  marginRight: "8px",
-                  fontSize: "15.5px",
-                  color: "#444444",
-                }}
-              ></i>
-              탑승 장소 : 충남 예산군 예산읍 산성리 653
-              <br />
-              하나로마트 예산농협 본점, 대로 앞 <br />
-              <i
-                className="fa fa-phone"
-                aria-hidden="true"
-                style={{
-                  marginTop: "16px",
-                  marginRight: "8px",
-                  fontSize: "15.5px",
-                  color: "#444444",
-                  transform: "rotate(98deg)",
-                }}
-              ></i>
-              관련 문의 : 신부측 연락처로 부탁드립니다.
+              <Marker>𒊹</Marker> 서울동부지방법원 앞 건영아파트 정류장
             </Li>
 
-            {/* <img
-              src={BusMap}
+            <Li
               style={{
-                width: '80%',
-                marginTop: '36px',
-                border: '1px solid lightgray',
+                display: "block", // ✅ 블록 요소로 변경하여 들여쓰기 가능하도록 수정
+                whiteSpace: "normal",
+                wordBreak: "break-word",
+                textIndent: "-15px", // ✅ "-" 기호를 앞으로 당김
+                paddingLeft: "35px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
-            /> */}
-            {/* <AButton
-              target="_blank"
-              href={BUS_MAP_URL}
-              style={{ position: 'relative', top: '30px' }}
             >
-              탑승 위치 보기
-            </AButton> */}
+              - &nbsp;일반버스(녹색) : 30, 31, 32, 119, 331
+            </Li>
+
+            <Li
+              style={{
+                display: "block",
+                whiteSpace: "normal",
+                wordBreak: "break-word",
+                textIndent: "-15px", // ✅ "-" 기호를 앞으로 당김
+                paddingLeft: "35px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+              }}
+            >
+              - &nbsp;간선버스(청색) : 302, 303, 320, 333, 343, 345, 350, 360
+            </Li>
+
+            <Li
+              style={{
+                display: "block",
+                marginBottom: "12px",
+                whiteSpace: "normal",
+                wordBreak: "break-word",
+                textIndent: "-15px", // ✅ "-" 기호를 앞으로 당김
+                paddingLeft: "35px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+              }}
+            >
+              - &nbsp;지선버스(녹색) : 3322, 3420
+            </Li>
+
+            <Li
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "2px",
+                whiteSpace: "normal",
+                wordBreak: "break-word",
+              }}
+            >
+              <Marker>𒊹</Marker> 서울동부지방법원 앞 정류장
+            </Li>
+
+            <Li
+              style={{
+                display: "block",
+                whiteSpace: "normal",
+                wordBreak: "break-word",
+                paddingLeft: "20px",
+              }}
+            >
+              - &nbsp;마을버스(녹색) : 송파02
+            </Li>
           </NaviWrapper>
         </DescriptionWrapper>
 
