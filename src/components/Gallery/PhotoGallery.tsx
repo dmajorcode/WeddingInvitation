@@ -1,12 +1,13 @@
 import { Gallery, Item } from "react-photoswipe-gallery";
 import "photoswipe/style.css";
 import images from "./Images.ts";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import ShowMoreButton from "/images/showMore.png";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
 const PhotoGallery = () => {
   const [isMoreView, setIsMoreView] = useState(false);
+
   const smallItemStyles: React.CSSProperties = {
     cursor: "pointer",
     objectFit: "cover",
@@ -17,7 +18,14 @@ const PhotoGallery = () => {
   };
 
   return (
-    <div style={{ position: "relative", overflow: "hidden" }}>
+    <div
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        paddingLeft: "20px",
+        paddingRight: "20px",
+      }}
+    >
       <Gallery
         options={{
           zoom: false,
@@ -43,6 +51,9 @@ const PhotoGallery = () => {
             overflow: "hidden",
             opacity: isMoreView ? 1 : 1,
             transition: "opacity 0.3s ease",
+            paddingLeft: "20px", // 왼쪽 여백
+            paddingRight: "20px", // 오른쪽 여백
+            boxSizing: "border-box", // 여백을 포함한 크기 계산
           }}
         >
           {images.map((image, index) => (
@@ -140,6 +151,8 @@ const ImageWrapper = styled.div<{ $isMoreView: boolean }>`
   height: ${(props) =>
     props.$isMoreView ? "100%" : "calc((32vw * 6) + 30px)"};
   max-height: ${(props) => (props.$isMoreView ? "2348px" : "1170px")};
+  padding-left: 20px; /* 좌측 여백 추가 */
+  padding-right: 20px; /* 우측 여백 추가 */
 `;
 
 const MoreButton = styled.button`

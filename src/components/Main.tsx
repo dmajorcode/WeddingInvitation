@@ -521,12 +521,15 @@ function Main({ setComponent }: Props) {
                 display: "block", // ✅ 블록 요소로 변경하여 들여쓰기 가능하도록 수정
                 whiteSpace: "normal",
                 wordBreak: "break-word",
+                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
+                paddingLeft: "23px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
             >
-              <Marker>𒊹</Marker>네비게이션에 "서울동부지방법원" 검색해주세요.
+              <Marker style={{ fontSize: "15px" }}>𒊹</Marker>네비게이션에
+              "서울동부지방법원" 검색
             </Li>
             <Li>
-              <Marker>𒊹</Marker>지상주차장 무료주차
+              <Marker style={{ fontSize: "15px" }}>𒊹</Marker>지상주차장 무료주차
             </Li>
             {/* <Li
               style={{
@@ -540,14 +543,8 @@ function Main({ setComponent }: Props) {
           <NaviWrapper>
             <NaviTitle>지하철 안내</NaviTitle>
             <Li>
-              <Marker>𒊹</Marker>8호선 문정역 3번 출구
-            </Li>
-            <Li
-              style={{
-                paddingLeft: "20px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
-              }}
-            >
-              - &nbsp;도보 10분 거리
+              <Marker style={{ color: "hotpink", fontSize: "15px" }}>𒊹</Marker>
+              8호선 문정역 3번 출구(도보 10분)
             </Li>
           </NaviWrapper>
           <NaviWrapper
@@ -566,9 +563,11 @@ function Main({ setComponent }: Props) {
                 gap: "2px", // ✅ 아이콘과 텍스트 사이 최소 간격 유지
                 whiteSpace: "normal",
                 wordBreak: "break-word",
+                paddingLeft: "2px",
+                fontWeight: "490", // 글씨를 bold로 처리
               }}
             >
-              <Marker>𒊹</Marker> 서울동부지방법원 앞 건영아파트 정류장
+              서울동부지방법원 앞 건영아파트 정류장
             </Li>
 
             <Li
@@ -576,11 +575,12 @@ function Main({ setComponent }: Props) {
                 display: "block", // ✅ 블록 요소로 변경하여 들여쓰기 가능하도록 수정
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                textIndent: "-15px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "35px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
+                paddingLeft: "23px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
             >
-              - &nbsp;일반버스(녹색) : 30, 31, 32, 119, 331
+              <Marker style={{ color: "green", fontSize: "15px" }}>𒊹</Marker>
+              일반버스 : 30, 31, 32, 119, 331
             </Li>
 
             <Li
@@ -588,11 +588,12 @@ function Main({ setComponent }: Props) {
                 display: "block",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                textIndent: "-15px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "35px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
+                paddingLeft: "23px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
             >
-              - &nbsp;간선버스(청색) : 302, 303, 320, 333, 343, 345, 350, 360
+              <Marker style={{ color: "blue", fontSize: "15px" }}>𒊹</Marker>
+              간선버스 : 302, 303, 320, 333, 343, 345, 350, 360
             </Li>
 
             <Li
@@ -601,11 +602,12 @@ function Main({ setComponent }: Props) {
                 marginBottom: "12px",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                textIndent: "-15px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "35px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
+                paddingLeft: "23px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
             >
-              - &nbsp;지선버스(녹색) : 3322, 3420
+              <Marker style={{ color: "green", fontSize: "15px" }}>𒊹</Marker>
+              지선버스 : 3322, 3420
             </Li>
 
             <Li
@@ -615,9 +617,11 @@ function Main({ setComponent }: Props) {
                 gap: "2px",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
+                paddingLeft: "2px",
+                fontWeight: "490", // 글씨를 bold로 처리
               }}
             >
-              <Marker>𒊹</Marker> 서울동부지방법원 앞 정류장
+              서울동부지방법원 앞 정류장
             </Li>
 
             <Li
@@ -625,10 +629,10 @@ function Main({ setComponent }: Props) {
                 display: "block",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                paddingLeft: "20px",
               }}
             >
-              - &nbsp;마을버스(녹색) : 송파02
+              <Marker style={{ color: "green", fontSize: "15px" }}>𒊹</Marker>
+              마을버스(녹색) : 송파02
             </Li>
           </NaviWrapper>
         </DescriptionWrapper>
@@ -720,8 +724,6 @@ function Main({ setComponent }: Props) {
               // marginLeft: 130,
             }}
           >
-            <br />
-            <br />
             <br />
             <br />
             <br />
