@@ -4,7 +4,7 @@ import images from "./Images.ts";
 import { useRef, useState } from "react";
 import styled from "styled-components";
 import ShowMoreButton from "/images/showMore.png";
-
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 const PhotoGallery = () => {
   const [isMoreView, setIsMoreView] = useState(false);
   const smallItemStyles: React.CSSProperties = {
@@ -119,6 +119,7 @@ const PhotoGallery = () => {
           }}
         >
           사진 더보기
+          <KeyboardArrowDownIcon />
         </MoreButton>
       )}
     </div>
