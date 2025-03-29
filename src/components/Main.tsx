@@ -5,6 +5,7 @@ import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 // import FloatingBar from './../components/FloatingBar';
 import { useEffect, useRef, useState, lazy } from "react";
 import { useSearchParams } from "react-router-dom";
+import { Typography } from "@mui/material";
 import Snowfall from "react-snowfall";
 import ManPic from "/images/man.jpg";
 import WomanPic from "/images/woman.jpg";
@@ -193,15 +194,18 @@ function Main({ setComponent }: Props) {
         <DescriptionWrapper
           style={{ padding: "50px 20px", backgroundColor: "#f9f9f9" }}
         >
-          <TopName>
-            정상진
-            <Flower
-              style={{
-                backgroundImage: `url(${SunFlower2})`,
-              }}
-            />
-            강다은
-          </TopName>
+          <Parent>
+            <TopName>
+              정상진&nbsp;
+              <Typography
+                component="span"
+                sx={{ fontSize: "14px", marginLeft: "7px" }}
+              >
+                •
+              </Typography>
+              &nbsp; 강다은
+            </TopName>
+          </Parent>
           <TitleDescription>
             2025. 04. 27. 일요일 AM 11:30
             <br /> 서울동부지방법원 동백홀
