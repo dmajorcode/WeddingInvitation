@@ -86,6 +86,10 @@ const PhotoGallery = () => {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",
     WebkitTapHighlightColor: "transparent",
+    pointerEvents: "none",
+    WebkitUserDrag: "none",
+    userDrag: "none",
+    draggable: "false",
   };
 
   const handleImageClick = (imageSource: string, index: number) => {
@@ -134,6 +138,7 @@ const PhotoGallery = () => {
         WebkitUserSelect: "none",
         WebkitTapHighlightColor: "transparent",
         boxSizing: "border-box",
+        pointerEvents: "auto",
       }}
     >
       <ImageWrapper
@@ -151,13 +156,20 @@ const PhotoGallery = () => {
         }}
       >
         {images.map((image, index) => (
-          <div key={index} className="image-container">
+          <div
+            key={index}
+            className="image-container"
+            style={{
+              pointerEvents: "auto",
+              cursor: "pointer",
+            }}
+            onClick={() => handleImageClick(image.source, index)}
+          >
             <img
               loading="lazy"
               style={smallItemStyles}
               alt={image.alt}
               src={image.thumbnail}
-              onClick={() => handleImageClick(image.source, index)}
             />
           </div>
         ))}
