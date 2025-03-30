@@ -452,7 +452,7 @@ function Main({ setComponent }: Props) {
           <img
             src={CalendarPic}
             alt="캘린더"
-            style={{ width: "91%", maxWidth: "430px", marginTop: "35px" }}
+            style={{ width: "91%", maxWidth: "445px", marginTop: "35px" }}
           />
         </DescriptionWrapper>
         <DescriptionWrapper
@@ -1005,7 +1005,7 @@ const Flower = styled.div`
 `;
 
 const TopName = styled(Description)`
-  font-size: 23px;
+  font-size: 25px;
   margin-bottom: 32px;
   color: #141414;
   letter-spacing: 0.5px;
@@ -1027,7 +1027,7 @@ const TopName = styled(Description)`
 
 const TitleDescription = styled(Description)`
   line-height: 33px;
-  font-size: 20.5px;
+  font-size: 23px;
   color: #3a3a3a;
 
   @media only screen and (max-width: 445px) {
