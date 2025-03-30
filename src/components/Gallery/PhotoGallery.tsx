@@ -82,7 +82,6 @@ const PhotoGallery = () => {
     height: "min(32vw, 190px)",
     borderRadius: "2%",
     transition: "all 0.3s ease",
-    touchAction: "none",
     userSelect: "none",
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",
@@ -130,7 +129,6 @@ const PhotoGallery = () => {
         position: "relative",
         overflow: "hidden",
         padding: "0 20px",
-        touchAction: "none",
         userSelect: "none",
         WebkitTouchCallout: "none",
         WebkitUserSelect: "none",
@@ -150,7 +148,6 @@ const PhotoGallery = () => {
           opacity: isMoreView ? 1 : 1,
           transition: "opacity 0.3s ease",
           boxSizing: "border-box",
-          touchAction: "none",
         }}
       >
         {images.map((image, index) => (
@@ -197,7 +194,6 @@ const PhotoGallery = () => {
                   maxHeight: "90vh",
                   objectFit: "contain",
                   cursor: "pointer",
-                  touchAction: "none",
                   userSelect: "none",
                   WebkitTouchCallout: "none",
                   WebkitUserSelect: "none",
