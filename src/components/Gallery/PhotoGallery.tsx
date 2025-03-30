@@ -1,20 +1,56 @@
-import { Gallery, Item } from "react-photoswipe-gallery";
-import "photoswipe/style.css";
-import images from "./Images.ts";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import styled from "styled-components";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import images from "./Images.ts";
 
 const PhotoGallery = () => {
   const [isMoreView, setIsMoreView] = useState(false);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const touchStartX = useRef(0);
 
   const smallItemStyles: React.CSSProperties = {
     cursor: "pointer",
     objectFit: "cover",
     width: "min(32vw, 190px)",
     height: "min(32vw, 190px)",
-    borderRadius: "2%", // 동그랗게 만들기
-    transition: "all 0.3s ease", // 부드러운 애니메이션
+    borderRadius: "2%",
+    transition: "all 0.3s ease",
+  };
+
+  const handleImageClick = (imageSource: string, index: number) => {
+    setSelectedImage(imageSource);
+    setCurrentIndex(index);
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!selectedImage) return;
+
+    const touchEndX = e.touches[0].clientX;
+    const diff = touchStartX.current - touchEndX;
+
+    if (Math.abs(diff) > 50) {
+      // Minimum swipe distance
+      if (diff > 0) {
+        // Swipe left - next image
+        const nextIndex = (currentIndex + 1) % images.length;
+        setCurrentIndex(nextIndex);
+        setSelectedImage(images[nextIndex].source);
+      } else {
+        // Swipe right - previous image
+        const prevIndex = (currentIndex - 1 + images.length) % images.length;
+        setCurrentIndex(prevIndex);
+        setSelectedImage(images[prevIndex].source);
+      }
+    }
   };
 
   return (
@@ -26,75 +62,73 @@ const PhotoGallery = () => {
         paddingRight: "20px",
       }}
     >
-      <Gallery
-        options={{
-          zoom: false,
-          counter: true,
-          arrowKeys: false,
-          loop: true,
-          close: true,
-          preload: [1, 1],
-          arrowPrev: false,
-          arrowNext: false,
-          trapFocus: true,
-          imageClickAction: "close",
+      <ImageWrapper
+        $isMoreView={isMoreView}
+        style={{
+          display: "grid",
+          maxWidth: "582px",
+          gridTemplateColumns: "repeat(3, 1fr)",
+          gridGap: "6px",
+          pointerEvents: "auto",
+          overflow: "hidden",
+          opacity: isMoreView ? 1 : 1,
+          transition: "opacity 0.3s ease",
+          paddingLeft: "20px",
+          paddingRight: "20px",
+          boxSizing: "border-box",
         }}
       >
-        <ImageWrapper
-          $isMoreView={isMoreView}
-          style={{
-            display: "grid",
-            maxWidth: "582px",
-            gridTemplateColumns: "repeat(3, 1fr)",
-            gridGap: "6px",
-            pointerEvents: "auto",
-            overflow: "hidden",
-            opacity: isMoreView ? 1 : 1,
-            transition: "opacity 0.3s ease",
-            paddingLeft: "20px", // 왼쪽 여백
-            paddingRight: "20px", // 오른쪽 여백
-            boxSizing: "border-box", // 여백을 포함한 크기 계산
-          }}
-        >
-          {images.map((image, index) => (
-            <Item
-              key={index}
-              cropped
-              original={image.source}
-              thumbnail={image.thumbnail}
-              width={image.width}
-              height={image.height}
-            >
-              {({ ref, open }) => (
-                <img
-                  loading="lazy"
-                  style={smallItemStyles}
-                  alt={image.alt}
-                  src={image.thumbnail}
-                  ref={ref}
-                  onClick={open}
-                />
-              )}
-            </Item>
-          ))}
-        </ImageWrapper>
+        {images.map((image, index) => (
+          <div key={index} className="image-container">
+            <img
+              loading="lazy"
+              style={smallItemStyles}
+              alt={image.alt}
+              src={image.thumbnail}
+              onClick={() => handleImageClick(image.source, index)}
+            />
+          </div>
+        ))}
+      </ImageWrapper>
 
-        {/* 기존 사진 위쪽 그라데이션 */}
-        {!isMoreView && (
-          <div
-            style={{
-              position: "absolute",
-              bottom: "50px",
-              left: 0,
-              right: 0,
-              height: "80px",
-              background:
-                "linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%)",
-              zIndex: 2, // 기존보다 한 단계 높게
-            }}
-          />
-        )}
-      </Gallery>
+      {selectedImage && (
+        <ModalOverlay onClick={handleCloseModal}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <ImageContainer
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onClick={handleCloseModal}
+            >
+              <img
+                src={selectedImage}
+                alt="Selected"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "90vh",
+                  objectFit: "contain",
+                  cursor: "pointer",
+                }}
+              />
+            </ImageContainer>
+          </ModalContent>
+        </ModalOverlay>
+      )}
+
+      {/* 기존 사진 위쪽 그라데이션 */}
+      {!isMoreView && (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "50px",
+            left: 0,
+            right: 0,
+            height: "80px",
+            background:
+              "linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%)",
+            zIndex: 2,
+          }}
+        />
+      )}
 
       {/* isMoreView가 false일 때만 보이도록 설정 */}
       {!isMoreView && (
@@ -104,7 +138,7 @@ const PhotoGallery = () => {
             bottom: 0,
             left: 0,
             width: "100%",
-            height: "100px", // 원하는 높이로 조정 가능
+            height: "100px",
             background:
               "linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent)",
             transition: "opacity 0.3s ease",
@@ -124,12 +158,12 @@ const PhotoGallery = () => {
             backgroundColor: "#fff",
             padding: "15px 0",
             border: "none",
-            display: "flex", // Flexbox 적용
-            alignItems: "center", // 세로 중앙 정렬
-            justifyContent: "center", // 가로 중앙 정렬
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
             fontWeight: "bold",
             cursor: "pointer",
-            zIndex: 3, // 버튼이 사진 위쪽에 보이도록
+            zIndex: 3,
           }}
         >
           <span style={{ display: "flex", alignItems: "center" }}>
@@ -151,8 +185,8 @@ const ImageWrapper = styled.div<{ $isMoreView: boolean }>`
   height: ${(props) =>
     props.$isMoreView ? "100%" : "calc((32vw * 6) + 30px)"};
   max-height: ${(props) => (props.$isMoreView ? "2348px" : "1170px")};
-  padding-left: 20px; /* 좌측 여백 추가 */
-  padding-right: 20px; /* 우측 여백 추가 */
+  padding-left: 20px;
+  padding-right: 20px;
 `;
 
 const MoreButton = styled.button`
@@ -182,4 +216,35 @@ const MoreButton = styled.button`
       height: 75px;
     }
   }
+`;
+
+const ModalOverlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+`;
+
+const ModalContent = styled.div`
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ImageContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  touch-action: pan-y pinch-zoom;
 `;
