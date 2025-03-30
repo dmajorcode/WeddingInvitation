@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import CalendarPic from "/images/calendar3.png";
+import CalendarPic from "/images/calendar3.jpg";
 import CalendarBackground from "/images/calendarBackground.jpg";
 import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 // import FloatingBar from './../components/FloatingBar';
@@ -17,6 +17,7 @@ import High from "/images/high.jpg";
 import TossIcon from "/images/toss.jpg";
 import KakaoMapIcon from "/images/kakaoMap.png";
 import NaverMapIcon from "/images/naverMap.png";
+import Heart from "/images/heart.png";
 import TMavIcon from "/images/tmap.png";
 import KakayPayIcon from "/images/kakaopay.png";
 import SunFlower from "/images/sunflower1.png";
@@ -196,14 +197,19 @@ function Main({ setComponent }: Props) {
         >
           <Parent>
             <TopName>
-              정상진&nbsp;
-              <Typography
+              정상진
+              <img
+                src={Heart}
+                alt="Heart"
+                style={{ width: "20px", height: "20px", margin: "0 10px" }}
+              />
+              {/* <Typography
                 component="span"
-                sx={{ fontSize: "14px", marginLeft: "7px" }}
+                sx={{ fontSize: "25px", marginLeft: "7px", color: "pink" }}
               >
-                •
-              </Typography>
-              &nbsp; 강다은
+                ♥
+              </Typography> */}
+              강다은
             </TopName>
           </Parent>
           <TitleDescription>
@@ -436,13 +442,14 @@ function Main({ setComponent }: Props) {
 
         <DescriptionWrapper
           style={{
-            backgroundImage: `url(${CalendarBackground})`,
+            background: "linear-gradient(to bottom, #ffffff 0%, #f9f9f9 5%)",
           }}
         >
           <EnglishSubTitle style={{ color: "#777777" }}>
             WEDDING DAY
           </EnglishSubTitle>
           <Title>날짜 </Title>
+          <br />
           <img
             src={CalendarPic}
             alt="캘린더"
