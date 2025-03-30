@@ -380,7 +380,7 @@ const TouchZone = styled.div`
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 15%;
+  width: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
