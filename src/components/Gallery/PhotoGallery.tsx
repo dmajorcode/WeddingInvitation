@@ -150,6 +150,7 @@ const PhotoGallery = () => {
           opacity: isMoreView ? 1 : 1,
           transition: "opacity 0.3s ease",
           boxSizing: "border-box",
+          touchAction: "none",
         }}
       >
         {images.map((image, index) => (
