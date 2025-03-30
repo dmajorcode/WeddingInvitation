@@ -449,11 +449,10 @@ function Main({ setComponent }: Props) {
             WEDDING DAY
           </EnglishSubTitle>
           <Title>날짜 </Title>
-          <br />
           <img
             src={CalendarPic}
             alt="캘린더"
-            style={{ width: "91%", maxWidth: "400px", marginTop: "35px" }}
+            style={{ width: "91%", maxWidth: "430px", marginTop: "35px" }}
           />
         </DescriptionWrapper>
         <DescriptionWrapper
@@ -1028,7 +1027,7 @@ const TopName = styled(Description)`
 
 const TitleDescription = styled(Description)`
   line-height: 33px;
-  font-size: 19px;
+  font-size: 20.5px;
   color: #3a3a3a;
 
   @media only screen and (max-width: 445px) {
