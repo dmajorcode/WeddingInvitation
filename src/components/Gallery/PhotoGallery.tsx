@@ -1,13 +1,79 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import images from "./Images.ts";
 
 const PhotoGallery = () => {
   const [isMoreView, setIsMoreView] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [leftArrowColor, setLeftArrowColor] = useState(
+    "rgba(255, 255, 255, 0.9)"
+  );
+  const [rightArrowColor, setRightArrowColor] = useState(
+    "rgba(255, 255, 255, 0.9)"
+  );
   const touchStartX = useRef(0);
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  const analyzeImageBrightness = (image: HTMLImageElement) => {
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+
+    // Set canvas size to match image
+    canvas.width = image.width;
+    canvas.height = image.height;
+
+    // Draw image
+    ctx.drawImage(image, 0, 0);
+
+    // Analyze left side
+    const leftData = ctx.getImageData(
+      0,
+      0,
+      Math.floor(image.width * 0.2),
+      image.height
+    ).data;
+    const leftBrightness = calculateBrightness(leftData);
+
+    // Analyze right side
+    const rightData = ctx.getImageData(
+      Math.floor(image.width * 0.8),
+      0,
+      Math.floor(image.width * 0.2),
+      image.height
+    ).data;
+    const rightBrightness = calculateBrightness(rightData);
+
+    // Update arrow colors based on brightness
+    setLeftArrowColor(
+      leftBrightness > 128 ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)"
+    );
+    setRightArrowColor(
+      rightBrightness > 128 ? "rgba(0, 0, 0, 0.9)" : "rgba(255, 255, 255, 0.9)"
+    );
+  };
+
+  const calculateBrightness = (data: Uint8ClampedArray): number => {
+    let sum = 0;
+    for (let i = 0; i < data.length; i += 4) {
+      sum += (data[i] + data[i + 1] + data[i + 2]) / 3;
+    }
+    return sum / (data.length / 4);
+  };
+
+  useEffect(() => {
+    if (selectedImage && imageRef.current) {
+      const img = new Image();
+      img.onload = () => {
+        analyzeImageBrightness(img);
+      };
+      img.src = selectedImage;
+    }
+  }, [selectedImage]);
 
   const smallItemStyles: React.CSSProperties = {
     cursor: "pointer",
@@ -16,6 +82,11 @@ const PhotoGallery = () => {
     height: "min(32vw, 190px)",
     borderRadius: "2%",
     transition: "all 0.3s ease",
+    touchAction: "none",
+    userSelect: "none",
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
+    WebkitTapHighlightColor: "transparent",
   };
 
   const handleImageClick = (imageSource: string, index: number) => {
@@ -58,13 +129,13 @@ const PhotoGallery = () => {
       style={{
         position: "relative",
         overflow: "hidden",
-        paddingLeft: "20px",
-        paddingRight: "20px",
+        padding: "0 20px",
         touchAction: "none",
         userSelect: "none",
         WebkitTouchCallout: "none",
         WebkitUserSelect: "none",
         WebkitTapHighlightColor: "transparent",
+        boxSizing: "border-box",
       }}
     >
       <ImageWrapper
@@ -78,8 +149,6 @@ const PhotoGallery = () => {
           overflow: "hidden",
           opacity: isMoreView ? 1 : 1,
           transition: "opacity 0.3s ease",
-          paddingLeft: "20px",
-          paddingRight: "20px",
           boxSizing: "border-box",
         }}
       >
@@ -99,12 +168,27 @@ const PhotoGallery = () => {
       {selectedImage && (
         <ModalOverlay onClick={handleCloseModal}>
           <ModalContent onClick={(e) => e.stopPropagation()}>
+            <TouchZone
+              onClick={(e) => {
+                e.stopPropagation();
+                const prevIndex =
+                  (currentIndex - 1 + images.length) % images.length;
+                setCurrentIndex(prevIndex);
+                setSelectedImage(images[prevIndex].source);
+              }}
+              style={{ left: 0 }}
+            >
+              <NavButton>
+                <ArrowBackIosNewIcon style={{ color: leftArrowColor }} />
+              </NavButton>
+            </TouchZone>
             <ImageContainer
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
               onClick={handleCloseModal}
             >
               <img
+                ref={imageRef}
                 src={selectedImage}
                 alt="Selected"
                 style={{
@@ -112,9 +196,30 @@ const PhotoGallery = () => {
                   maxHeight: "90vh",
                   objectFit: "contain",
                   cursor: "pointer",
+                  touchAction: "none",
+                  userSelect: "none",
+                  WebkitTouchCallout: "none",
+                  WebkitUserSelect: "none",
+                  WebkitTapHighlightColor: "transparent",
+                  transform: "scale(1)",
+                  transformOrigin: "center",
+                  pointerEvents: "none",
                 }}
               />
             </ImageContainer>
+            <TouchZone
+              onClick={(e) => {
+                e.stopPropagation();
+                const nextIndex = (currentIndex + 1) % images.length;
+                setCurrentIndex(nextIndex);
+                setSelectedImage(images[nextIndex].source);
+              }}
+              style={{ right: 0 }}
+            >
+              <NavButton>
+                <ArrowForwardIosIcon style={{ color: rightArrowColor }} />
+              </NavButton>
+            </TouchZone>
           </ModalContent>
         </ModalOverlay>
       )}
@@ -190,8 +295,7 @@ const ImageWrapper = styled.div<{ $isMoreView: boolean }>`
   height: ${(props) =>
     props.$isMoreView ? "100%" : "calc((32vw * 6) + 30px)"};
   max-height: ${(props) => (props.$isMoreView ? "2348px" : "1170px")};
-  padding-left: 20px;
-  padding-right: 20px;
+  box-sizing: border-box;
 `;
 
 const MoreButton = styled.button`
@@ -249,11 +353,13 @@ const ModalContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  touch-action: none;
+  touch-action: pan-x;
   user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
+  transform: scale(1);
+  transform-origin: center;
 `;
 
 const ImageContainer = styled.div`
@@ -261,9 +367,56 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  touch-action: none;
+  touch-action: pan-x;
   user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
+  transform: scale(1);
+  transform-origin: center;
+`;
+
+const TouchZone = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1001;
+`;
+
+const NavButton = styled.button`
+  background: none;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  svg {
+    font-size: 24px;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+  }
+
+  @media (max-width: 768px) {
+    width: 24px;
+    height: 24px;
+
+    svg {
+      font-size: 20px;
+    }
+  }
 `;
