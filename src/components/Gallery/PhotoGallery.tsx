@@ -420,3 +420,23 @@ const NavButton = styled.button`
     }
   }
 `;
+
+const GalleryContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
+  overflow: auto;
+  &.photo-gallery {
+    position: relative;
+    touch-action: pan-x pan-y;
+    -webkit-overflow-scrolling: touch;
+    overflow: auto;
+  }
+`;
