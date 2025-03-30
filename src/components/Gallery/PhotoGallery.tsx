@@ -60,6 +60,11 @@ const PhotoGallery = () => {
         overflow: "hidden",
         paddingLeft: "20px",
         paddingRight: "20px",
+        touchAction: "none",
+        userSelect: "none",
+        WebkitTouchCallout: "none",
+        WebkitUserSelect: "none",
+        WebkitTapHighlightColor: "transparent",
       }}
     >
       <ImageWrapper
@@ -230,6 +235,11 @@ const ModalOverlay = styled.div`
   align-items: center;
   z-index: 1000;
   cursor: pointer;
+  touch-action: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 const ModalContent = styled.div`
@@ -239,6 +249,11 @@ const ModalContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  touch-action: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 `;
 
 const ImageContainer = styled.div`
@@ -246,5 +261,9 @@ const ImageContainer = styled.div`
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  touch-action: pan-y pinch-zoom;
+  touch-action: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 `;
