@@ -17,6 +17,7 @@ const PhotoGallery = () => {
   );
   const touchStartX = useRef(0);
   const imageRef = useRef<HTMLImageElement>(null);
+  const [isImageLoading, setIsImageLoading] = useState(false);
 
   const analyzeImageBrightness = (image: HTMLImageElement) => {
     const canvas = document.createElement("canvas");
@@ -89,8 +90,18 @@ const PhotoGallery = () => {
   };
 
   const handleImageClick = (imageSource: string, index: number) => {
-    setSelectedImage(imageSource);
-    setCurrentIndex(index);
+    setIsImageLoading(true);
+    // Preload the image before showing it
+    const img = new Image();
+    img.onload = () => {
+      setSelectedImage(imageSource);
+      setCurrentIndex(index);
+    };
+    img.src = imageSource;
+  };
+
+  const handleImageLoad = () => {
+    setIsImageLoading(false);
   };
 
   const handleCloseModal = () => {
@@ -171,8 +182,13 @@ const PhotoGallery = () => {
                 e.stopPropagation();
                 const prevIndex =
                   (currentIndex - 1 + images.length) % images.length;
-                setCurrentIndex(prevIndex);
-                setSelectedImage(images[prevIndex].source);
+                setIsImageLoading(true);
+                const img = new Image();
+                img.onload = () => {
+                  setCurrentIndex(prevIndex);
+                  setSelectedImage(images[prevIndex].source);
+                };
+                img.src = images[prevIndex].source;
               }}
               style={{ left: 0 }}
             >
@@ -185,6 +201,11 @@ const PhotoGallery = () => {
               onTouchMove={handleTouchMove}
               onClick={handleCloseModal}
             >
+              {isImageLoading && (
+                <LoadingPlaceholder>
+                  <div className="loading-spinner" />
+                </LoadingPlaceholder>
+              )}
               <img
                 ref={imageRef}
                 src={selectedImage}
@@ -201,15 +222,23 @@ const PhotoGallery = () => {
                   transform: "scale(1)",
                   transformOrigin: "center",
                   pointerEvents: "none",
+                  opacity: isImageLoading ? 0 : 1,
+                  transition: "opacity 0.3s ease",
                 }}
+                onLoad={handleImageLoad}
               />
             </ImageContainer>
             <TouchZone
               onClick={(e) => {
                 e.stopPropagation();
                 const nextIndex = (currentIndex + 1) % images.length;
-                setCurrentIndex(nextIndex);
-                setSelectedImage(images[nextIndex].source);
+                setIsImageLoading(true);
+                const img = new Image();
+                img.onload = () => {
+                  setCurrentIndex(nextIndex);
+                  setSelectedImage(images[nextIndex].source);
+                };
+                img.src = images[nextIndex].source;
               }}
               style={{ right: 0 }}
             >
@@ -435,5 +464,32 @@ const GalleryContainer = styled.div`
     touch-action: pan-x pan-y;
     -webkit-overflow-scrolling: touch;
     overflow: auto;
+  }
+`;
+
+const LoadingPlaceholder = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
   }
 `;
