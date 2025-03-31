@@ -145,6 +145,7 @@ const PhotoGallery = () => {
         WebkitUserSelect: "none",
         WebkitTapHighlightColor: "transparent",
         boxSizing: "border-box",
+        margin: 0,
       }}
     >
       <ImageWrapper
@@ -159,6 +160,8 @@ const PhotoGallery = () => {
           opacity: isMoreView ? 1 : 1,
           transition: "opacity 0.3s ease",
           boxSizing: "border-box",
+          margin: 0,
+          padding: 0,
         }}
       >
         {images.map((image, index) => (
@@ -322,6 +325,8 @@ const ImageWrapper = styled.div<{ $isMoreView: boolean }>`
     props.$isMoreView ? "100%" : "calc((32vw * 6) + 30px)"};
   max-height: ${(props) => (props.$isMoreView ? "2348px" : "1170px")};
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 `;
 
 const MoreButton = styled.button`
