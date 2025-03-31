@@ -215,7 +215,9 @@ const PhotoGallery = () => {
                 alt="Selected"
                 style={{
                   maxWidth: "100%",
-                  maxHeight: "90vh",
+                  maxHeight: "100%",
+                  width: "auto",
+                  height: "auto",
                   objectFit: "contain",
                   cursor: "pointer",
                   userSelect: "none",
@@ -379,8 +381,8 @@ const ModalOverlay = styled.div`
 
 const ModalContent = styled.div`
   position: relative;
-  max-width: 90vw;
-  max-height: 90vh;
+  width: 100%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -389,22 +391,20 @@ const ModalContent = styled.div`
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transform: scale(1);
-  transform-origin: center;
 `;
 
 const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   touch-action: pan-x;
   user-select: none;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transform: scale(1);
-  transform-origin: center;
 `;
 
 const TouchZone = styled.div`
