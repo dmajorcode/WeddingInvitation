@@ -676,7 +676,7 @@ function Main({ setComponent }: Props) {
             }}
           >
             <TabButton
-              style={{ backgroundColor: "#355568" }}
+              style={{ backgroundColor: "#efefef", color: "#000000" }}
               onClick={() => setOpenGroomAccount(!openGroomAccount)}
             >
               신랑측 계좌번호 보기
@@ -702,7 +702,7 @@ function Main({ setComponent }: Props) {
             </AccountWrapper>
             <TabButton
               onClick={() => setOpenBrideAccount(!openBrideccount)}
-              style={{ backgroundColor: "#714048" }}
+              style={{ backgroundColor: "#efefef", color: "#000000" }}
             >
               신부측 계좌번호 보기
             </TabButton>
