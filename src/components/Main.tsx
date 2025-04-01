@@ -920,7 +920,7 @@ function Main({ setComponent }: Props) {
         <DialogContent
           style={{ textAlign: "center", padding: "16px 0 24px 0" }}
         >
-          <Typography style={{ fontSize: "14px", color: "#666666" }}>
+          <Typography style={{ fontSize: "16px", color: "#666666" }}>
             복사가 완료되었습니다.
           </Typography>
         </DialogContent>

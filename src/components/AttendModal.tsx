@@ -1,8 +1,8 @@
-import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import { useOutsideClick } from '../hooks/useOutsideClick';
-import { push, ref } from 'firebase/database';
-import { realtimeDb } from '../firebase';
+import { ChangeEvent, useEffect, useRef, useState } from "react";
+import styled from "styled-components";
+import { useOutsideClick } from "../hooks/useOutsideClick";
+import { push, ref } from "firebase/database";
+import { realtimeDb } from "../firebase";
 
 interface Props {
   setComponent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
@@ -12,8 +12,8 @@ const AttendModal = ({ setComponent }: Props) => {
   const [isAvailable, setIsAvailable] = useState<boolean>(true);
   const [isGroom, setIsGroom] = useState<boolean>(true);
   const [name, setName] = useState<string>();
-  const [companionCount, setCompanionCount] = useState<string>('0');
-  const [useBus, setUseBus] = useState<boolean>();
+  const [companionCount, setCompanionCount] = useState<string>("0");
+  // const [useBus, setUseBus] = useState<boolean>();
   // const [isAgreed, setIsAgreed] = useState<boolean>(false);
 
   const elRef = useRef<HTMLDivElement>(null);
@@ -24,14 +24,14 @@ const AttendModal = ({ setComponent }: Props) => {
   });
 
   const isAvailableHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const _isAvailable = e.target.value === 'true';
+    const _isAvailable = e.target.value === "true";
 
     console.log(_isAvailable);
     setIsAvailable(_isAvailable);
   };
 
   const isGroomHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const _isGroom = e.target.value === 'true';
+    const _isGroom = e.target.value === "true";
 
     console.log(_isGroom);
     setIsGroom(_isGroom);
@@ -47,7 +47,7 @@ const AttendModal = ({ setComponent }: Props) => {
   // };
 
   const useBusHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const _useBus = e.target.value === 'true';
+    const _useBus = e.target.value === "true";
     setUseBus(_useBus);
   };
 
@@ -57,32 +57,32 @@ const AttendModal = ({ setComponent }: Props) => {
       isAvailable,
       isGroom,
       companionCount: isAvailable ? companionCount : 0,
-      useBus: isAvailable ? useBus : false,
+      // useBus: isAvailable ? useBus : false,
       created_at: new Date().toISOString(),
     };
 
-    const res = await push(ref(realtimeDb, '/attend'), inputData);
+    const res = await push(ref(realtimeDb, "/attend"), inputData);
     return res;
   };
 
   const onSubmit = async () => {
     if (!name?.trim()) {
-      alert('이름을 입력해주세요.');
+      alert("이름을 입력해주세요.");
       return;
     }
 
-    if (isAvailable && useBus === undefined) {
-      alert('전세버스 이용여부를 선택해주세요.');
-      return;
-    }
+    // if (isAvailable && useBus === undefined) {
+    //   alert("전세버스 이용여부를 선택해주세요.");
+    //   return;
+    // }
 
     try {
       const res = await postAttendInfo();
       console.log(res);
-      alert('참석 정보가 전달되었습니다.');
+      alert("참석 정보가 전달되었습니다.");
     } catch (err) {
       console.error(err);
-      alert('에러가 발생하였습니다.');
+      alert("에러가 발생하였습니다.");
     } finally {
       setComponent(null);
     }
@@ -93,7 +93,7 @@ const AttendModal = ({ setComponent }: Props) => {
       <CloseButton onClick={() => setComponent(null)}>
         <i
           className="fa fa-times"
-          style={{ color: 'white' }}
+          style={{ color: "white" }}
           aria-hidden="true"
         ></i>
       </CloseButton>
@@ -111,7 +111,7 @@ const AttendModal = ({ setComponent }: Props) => {
               checked={isAvailable}
             />
             <Label htmlFor="radio-1">
-              <i className="fa fa-check" style={{ marginRight: '4px' }} />
+              <i className="fa fa-check" style={{ marginRight: "4px" }} />
               참석 가능
             </Label>
           </Button>
@@ -128,10 +128,10 @@ const AttendModal = ({ setComponent }: Props) => {
               <span
                 className="no"
                 style={{
-                  fontFamily: 'Pretendard',
+                  fontFamily: "Pretendard",
                   fontWeight: 700,
-                  fontSize: '17px',
-                  marginRight: '4px',
+                  fontSize: "17px",
+                  marginRight: "4px",
                 }}
               >
                 X
@@ -142,7 +142,7 @@ const AttendModal = ({ setComponent }: Props) => {
         </ButtonWrapper>
       </Wrapper>
 
-      <Wrapper style={{ marginTop: '28px' }}>
+      <Wrapper style={{ marginTop: "28px" }}>
         <SubTitle>신랑 & 신부에게 전달될 정보를 입력해주세요.</SubTitle>
         <ButtonWrapper>
           <Button>
@@ -208,40 +208,40 @@ const AttendModal = ({ setComponent }: Props) => {
             </InputContent>
             <InputContent
               style={{
-                border: 'none',
-                paddingTop: '10px',
+                border: "none",
+                paddingTop: "10px",
               }}
             >
-              <span
+              {/* <span
                 style={{
-                  position: 'absolute',
+                  position: "absolute",
                   bottom: -2,
-                  fontFamily: 'Pretendard',
-                  color: '#555555',
-                  fontSize: '13.7px',
+                  fontFamily: "Pretendard",
+                  color: "#555555",
+                  fontSize: "13.7px",
                 }}
               >
                 (예산 ↔ 서울)
-              </span>
-              <InputContentLabel
+              </span> */}
+              {/* <InputContentLabel
                 htmlFor="companionCount"
                 style={{ position: 'relative', bottom: '9px' }}
               >
                 전세버스 이용<Dot>*</Dot>
-              </InputContentLabel>
+              </InputContentLabel> */}
 
-              <div
+              {/* <div
                 style={{
-                  display: 'flex',
-                  flexWrap: 'nowrap',
+                  display: "flex",
+                  flexWrap: "nowrap",
                   flex: 1,
-                  maxWidth: '300px',
-                  marginLeft: '8px',
-                  position: 'relative',
-                  top: '2px',
+                  maxWidth: "300px",
+                  marginLeft: "8px",
+                  position: "relative",
+                  top: "2px",
                 }}
               >
-                <button style={{ width: '50%' }}>
+                <button style={{ width: "50%" }}>
                   <Input
                     id="radio-5"
                     className="useBus"
@@ -256,13 +256,13 @@ const AttendModal = ({ setComponent }: Props) => {
                     style={{
                       fontWeight: 400,
                       height: 41,
-                      whiteSpace: 'nowrap',
+                      whiteSpace: "nowrap",
                     }}
                   >
                     이용함
                   </Label>
                 </button>
-                <button style={{ width: '50%' }}>
+                <button style={{ width: "50%" }}>
                   <Input
                     id="radio-6"
                     className="useBus"
@@ -277,13 +277,13 @@ const AttendModal = ({ setComponent }: Props) => {
                     style={{
                       fontWeight: 400,
                       height: 41,
-                      whiteSpace: 'nowrap',
+                      whiteSpace: "nowrap",
                     }}
                   >
                     이용 안함
                   </Label>
                 </button>
-              </div>
+              </div> */}
             </InputContent>
           </>
         )}
@@ -521,11 +521,11 @@ const Input = styled.input`
     border: 1px solid #be7e79;
   }
 
-  /* &.useBus:checked + label {
-    background-color: gold;
-    color: black;
-    border: 1px solid #555555;
-  } */
+  // /* &.useBus:checked + label {
+  //   background-color: gold;
+  //   color: black;
+  //   border: 1px solid #555555;
+  // } */
 `;
 
 const Button = styled.button`
