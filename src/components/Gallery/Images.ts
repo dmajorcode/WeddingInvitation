@@ -269,6 +269,20 @@ const images = [
     width: 900,
     height: 600,
   },
+  {
+    alt: "image26",
+    source: image26,
+    thumbnail: image26Thumb,
+    width: 900,
+    height: 600,
+  },
+  {
+    alt: "image27",
+    source: image27,
+    thumbnail: image27Thumb,
+    width: 900,
+    height: 600,
+  },
 ];
 
 export default images;

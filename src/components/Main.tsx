@@ -583,14 +583,16 @@ function Main({ setComponent }: Props) {
                 border: "none",
                 width: "100%",
                 height: "50px",
-                borderRadius: "2px 2px 0 0",
+                borderRadius: "1px 1px 0 0",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 fontSize: "16px",
                 fontWeight: "500",
-                boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                boxShadow: openGroomAccount
+                  ? "-1px 0 3px rgba(0, 0, 0, 0.1), 1px 0 3px rgba(0, 0, 0, 0.1)"
+                  : "0 1px 3px rgba(0, 0, 0, 0.1)",
                 margin: 0,
                 padding: "0 20px",
                 position: "relative",
@@ -632,10 +634,12 @@ function Main({ setComponent }: Props) {
                 transition: "all 0.3s ease",
                 overflow: "hidden",
                 backgroundColor: "#f8f8f8",
-                borderRadius: "0 0 2px 2px",
+                borderRadius: "0 0 1px 1px",
                 padding: "0",
                 border: "none",
-                boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                boxShadow: openGroomAccount
+                  ? "-1px 0 3px rgba(0, 0, 0, 0.1), 1px 0 3px rgba(0, 0, 0, 0.1)"
+                  : "0 1px 3px rgba(0, 0, 0, 0.1)",
                 margin: 0,
                 width: "100%",
               }}
@@ -715,14 +719,16 @@ function Main({ setComponent }: Props) {
                 border: "none",
                 width: "100%",
                 height: "50px",
-                borderRadius: "2px 2px 0 0",
+                borderRadius: "1px 1px 0 0",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "space-between",
                 fontSize: "16px",
                 fontWeight: "500",
-                boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                boxShadow: openBrideccount
+                  ? "-1px 0 3px rgba(0, 0, 0, 0.1), 1px 0 3px rgba(0, 0, 0, 0.1)"
+                  : "0 1px 3px rgba(0, 0, 0, 0.1)",
                 margin: 0,
                 padding: "0 20px",
                 position: "relative",
@@ -763,10 +769,12 @@ function Main({ setComponent }: Props) {
                 transition: "all 0.3s ease",
                 overflow: "hidden",
                 backgroundColor: "#f8f8f8",
-                borderRadius: "0 0 2px 2px",
+                borderRadius: "0 0 1px 1px",
                 padding: "0",
                 border: "none",
-                boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                boxShadow: openBrideccount
+                  ? "-1px 0 3px rgba(0, 0, 0, 0.1), 1px 0 3px rgba(0, 0, 0, 0.1)"
+                  : "0 1px 3px rgba(0, 0, 0, 0.1)",
                 margin: 0,
                 width: "100%",
               }}
