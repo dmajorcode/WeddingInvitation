@@ -60,7 +60,7 @@ function Main({ setComponent }: Props) {
   const [isboy, setIsBoy] = useState(true);
   const [isGirl, setIsGirl] = useState(true);
   const [isVisible, setIsVisible] = useState(false);
-  const refEl = useRef(null);
+  // const refEl = useRef(null);
   // TODO: 상태를 5개로 아래와 같이 바꿔야 함
   // function Main({ setComponent }: Props) {
   //   // 상태를 5개의 경우의 수로 설정
@@ -109,19 +109,19 @@ function Main({ setComponent }: Props) {
   const [copyPopupOpen, setCopyPopupOpen] = useState(false);
   const [copiedText, setCopiedText] = useState("");
 
-  useEffect(() => {
-    window.addEventListener("scroll", checkScrollPosition);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", checkScrollPosition);
 
-    const intervalId = setInterval(() => {
-      setIsBoy((prev) => !prev);
-      setIsGirl((prev) => !prev);
-    }, 4000);
+  //   const intervalId = setInterval(() => {
+  //     setIsBoy((prev) => !prev);
+  //     setIsGirl((prev) => !prev);
+  //   }, 4000);
 
-    return () => {
-      clearInterval(intervalId);
-      window.removeEventListener("scroll", checkScrollPosition);
-    };
-  }, []);
+  //   return () => {
+  //     clearInterval(intervalId);
+  //     window.removeEventListener("scroll", checkScrollPosition);
+  //   };
+  // }, []);
 
   // 카카오 SDK 로드
   useEffect(() => {
@@ -141,19 +141,37 @@ function Main({ setComponent }: Props) {
       document.body.removeChild(script);
     };
   }, []);
+  const refEl = useRef<HTMLDivElement>(null);
 
-  const checkScrollPosition = () => {
-    if (refEl.current) {
-      const { offsetTop } = refEl.current;
-      const scrollPosition = window.scrollY;
-
-      if (scrollPosition >= offsetTop) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
+  useEffect(() => {
+    const checkPosition = () => {
+      if (refEl.current) {
+        const { top } = refEl.current.getBoundingClientRect();
+        setIsVisible((prev) => prev || top < window.innerHeight - 150); // Adjust -150 for earlier visibility
       }
-    }
-  };
+    };
+
+    // Run immediately on mount
+    checkPosition();
+
+    // Keep checking at intervals since scroll is banned
+    const interval = setInterval(checkPosition, 300); // Check every 300ms
+
+    return () => clearInterval(interval);
+  }, []);
+
+  // const checkScrollPosition = () => {
+  //   if (refEl.current) {
+  //     const { offsetTop } = refEl.current;
+  //     const scrollPosition = window.innerHeight;
+
+  //     if (scrollPosition >= offsetTop + 12314700) {
+  //       setIsVisible(true);
+  //     } else {
+  //       setIsVisible(false);
+  //     }
+  //   }
+  // };
 
   const onClickCopy = async (text: string) => {
     try {
@@ -881,7 +899,9 @@ function Main({ setComponent }: Props) {
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
-              gap: "8px",
+              gap: "4px",
+              fontSize: "15px",
+              height: "18px",
             }}
             onClick={() =>
               setComponent(<AttendModal setComponent={setComponent} />)
@@ -897,7 +917,9 @@ function Main({ setComponent }: Props) {
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
-              gap: "8px",
+              gap: "4px",
+              fontSize: "15px",
+              height: "18px",
             }}
             onClick={onClickLink}
           >
