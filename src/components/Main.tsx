@@ -686,6 +686,11 @@ function Main({ setComponent }: Props) {
                       margin: "0",
                       padding: "4px 12px",
                       fontSize: "15px",
+                      userSelect: "text",
+                      cursor: "text",
+                      WebkitUserSelect: "text",
+                      MozUserSelect: "text",
+                      msUserSelect: "text",
                     }}
                   >
                     {info.bank} {info.accountNumberShown}
@@ -807,6 +812,11 @@ function Main({ setComponent }: Props) {
                       margin: "0",
                       padding: "4px 12px",
                       fontSize: "15px",
+                      userSelect: "text",
+                      cursor: "text",
+                      WebkitUserSelect: "text",
+                      MozUserSelect: "text",
+                      msUserSelect: "text",
                     }}
                   >
                     {info.bank} {info.accountNumberShown}
