@@ -203,12 +203,6 @@ function Main({ setComponent }: Props) {
                 alt="Heart"
                 style={{ width: "20px", height: "20px", margin: "0 10px" }}
               />
-              {/* <Typography
-                component="span"
-                sx={{ fontSize: "25px", marginLeft: "7px", color: "pink" }}
-              >
-                ♥
-              </Typography> */}
               강다은
             </TopName>
           </Parent>
@@ -229,22 +223,6 @@ function Main({ setComponent }: Props) {
             paddingTop: "65px",
           }}
         >
-          {/* <Snowfall
-            color="gold"
-            snowflakeCount={30}
-            radius={[1, 5]}
-            // images={['🌻']}
-            speed={[0.2, 1]}
-            style={{ opacity: 0.35 }}
-          /> */}
-          {/* <div
-            style={{
-              backgroundImage: `url(${SunFlower3})`,
-              width: '50px',
-              height: '50px',
-              backgroundSize: 'contain',
-            }}
-          /> */}
           <div>
             <EnglishSubTitle>INVITATION</EnglishSubTitle>
             {dear ? (
@@ -341,92 +319,6 @@ function Main({ setComponent }: Props) {
           </Button>
         </DescriptionWrapper>
 
-        {/* <DescriptionWrapper style={{ padding: "60px 22px" }}>
-          <EnglishSubTitle>GROOM & BRIDE</EnglishSubTitle>
-          <Title>신랑 신부는요,</Title>
-
-          <InterviewWrapper>
-            <div>
-              <InterviewImageWrapper>
-                <InterviewImage
-                  style={{
-                    opacity: isboy ? 0 : 1,
-                    backgroundImage: `url(${BoyPic})`,
-                  }}
-                />
-                <InterviewImage
-                  style={{
-                    opacity: isboy ? 1 : 0,
-                    backgroundImage: `url(${ManPic})`,
-                  }}
-                />
-              </InterviewImageWrapper>
-              <p
-                style={{
-                  textAlign: "center",
-                  margin: "24px 0 20px",
-                  fontSize: "20px",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "14.5px",
-                    marginRight: "8px",
-                    color: "#136198",
-                  }}
-                >
-                  신랑
-                </span>{" "}
-                정상진
-              </p>
-              <Interview>
-                간단한 이야기1 <div style={{ height: "18.5px" }}></div>
-                간단한 이야기2
-              </Interview>
-            </div>
-            <div>
-              <InterviewImageWrapper>
-                <InterviewImage
-                  style={{
-                    opacity: isGirl ? 0 : 1,
-                    backgroundImage: `url(${GirlPic})`,
-                  }}
-                />
-                <InterviewImage
-                  style={{
-                    opacity: isGirl ? 1 : 0,
-                    backgroundImage: `url(${WomanPic})`,
-                  }}
-                />
-              </InterviewImageWrapper>
-              <p
-                style={{
-                  textAlign: "center",
-                  margin: "24px 0 20px",
-                  fontSize: "20px",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "14.5px",
-                    marginRight: "8px",
-                    color: "#e05068",
-                  }}
-                >
-                  신부
-                </span>{" "}
-                강다은
-              </p>
-              <Interview>
-                간단한 이야기1
-                <div style={{ height: "18.5px" }}></div>
-                간단한 이야기2
-              </Interview>
-            </div>
-          </InterviewWrapper>
-          <LikeButton ref={childRef} />
-        </DescriptionWrapper> */}
-
         <DescriptionWrapper
           style={{
             background: "linear-gradient(to bottom, #f9f9f9 0%, #ffffff 5%)",
@@ -510,10 +402,6 @@ function Main({ setComponent }: Props) {
           </Description>
           <Map />
           <MapIconsWrapper>
-            {/* <MapIconItem target="_blank" onClick={() => onClickMapIcon('TMAP')}>
-              <MapIconImage src={TMavIcon} width={24} height={24} />
-              티맵
-            </MapIconItem> */}
             <MapIconItem href="https://kko.kakao.com/JvuRBfKyOW">
               <MapIconImage src={KakaoMapIcon} width={24} height={24} />
               카카오맵
@@ -541,14 +429,6 @@ function Main({ setComponent }: Props) {
             <Li>
               <Marker style={{ fontSize: "15px" }}>𒊹</Marker>지상주차장 무료주차
             </Li>
-            {/* <Li
-              style={{
-                paddingLeft: "20px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
-              }}
-            >
-              {" "}
-              - &nbsp;안내데스크에서 주차 등록 必
-            </Li> */}
           </NaviWrapper>
           <NaviWrapper>
             <NaviTitle>지하철 안내</NaviTitle>
@@ -671,19 +551,63 @@ function Main({ setComponent }: Props) {
             style={{
               display: "flex",
               flexDirection: "column",
-              gap: "10px",
-              width: "98%",
+              width: "60%",
+              margin: "0 auto",
             }}
           >
             <TabButton
-              style={{ backgroundColor: "#efefef", color: "#000000" }}
+              style={{
+                backgroundColor: openGroomAccount ? "#efefef" : "#f8f8f8",
+                color: "#000000",
+                transition: "all 0.3s ease",
+                border: "none",
+                width: "100%",
+                height: "50px",
+                borderRadius: "8px 8px 0 0",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                fontSize: "16px",
+                fontWeight: "500",
+                boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                margin: 0,
+                padding: "0 20px",
+                position: "relative",
+              }}
               onClick={() => setOpenGroomAccount(!openGroomAccount)}
             >
-              신랑측 계좌번호 보기
+              <span
+                style={{
+                  position: "absolute",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                }}
+              >
+                신랑측 계좌번호
+              </span>
+              <i
+                className={`fa fa-chevron-${openGroomAccount ? "up" : "down"}`}
+                style={{ fontSize: "14px", marginLeft: "auto" }}
+              />
             </TabButton>
-            <AccountWrapper style={{ height: openGroomAccount ? "310px" : 0 }}>
+            <AccountWrapper
+              style={{
+                height: openGroomAccount ? "auto" : 0,
+                opacity: openGroomAccount ? 1 : 0,
+                transition: "all 0.3s ease",
+                overflow: "hidden",
+                backgroundColor: "#f8f8f8",
+                borderRadius: "0 0 8px 8px",
+                padding: "15px",
+                border: "none",
+                boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                margin: 0,
+                width: "100%",
+              }}
+            >
               {INFORMATION.groom.map((info) => (
-                <div key={info.name}>
+                <div key={info.name} style={{ marginBottom: "15px" }}>
                   <AccountOwner>
                     {info.bank} (예금주 : {info.name})
                   </AccountOwner>
@@ -700,15 +624,60 @@ function Main({ setComponent }: Props) {
                 </div>
               ))}
             </AccountWrapper>
+            <div style={{ height: "20px" }}></div>
             <TabButton
               onClick={() => setOpenBrideAccount(!openBrideccount)}
-              style={{ backgroundColor: "#efefef", color: "#000000" }}
+              style={{
+                backgroundColor: openBrideccount ? "#efefef" : "#f8f8f8",
+                color: "#000000",
+                transition: "all 0.3s ease",
+                border: "none",
+                width: "100%",
+                height: "50px",
+                borderRadius: "8px 8px 0 0",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                fontSize: "16px",
+                fontWeight: "500",
+                boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                margin: 0,
+                padding: "0 20px",
+                position: "relative",
+              }}
             >
-              신부측 계좌번호 보기
+              <span
+                style={{
+                  position: "absolute",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                }}
+              >
+                신부측 계좌번호
+              </span>
+              <i
+                className={`fa fa-chevron-${openBrideccount ? "up" : "down"}`}
+                style={{ fontSize: "14px", marginLeft: "auto" }}
+              />
             </TabButton>
-            <AccountWrapper style={{ height: openBrideccount ? "310px" : 0 }}>
+            <AccountWrapper
+              style={{
+                height: openBrideccount ? "auto" : 0,
+                opacity: openBrideccount ? 1 : 0,
+                transition: "all 0.3s ease",
+                overflow: "hidden",
+                backgroundColor: "#f8f8f8",
+                borderRadius: "0 0 8px 8px",
+                padding: "15px",
+                border: "none",
+                boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
+                margin: 0,
+                width: "100%",
+              }}
+            >
               {INFORMATION.bride.map((info) => (
-                <div key={info.name}>
+                <div key={info.name} style={{ marginBottom: "15px" }}>
                   <AccountOwner>
                     {info.bank} (예금주 : {info.name})
                   </AccountOwner>
@@ -732,8 +701,6 @@ function Main({ setComponent }: Props) {
             style={{
               color: "white",
               zIndex: 200,
-              // marginRight: 10,
-              // marginLeft: 130,
             }}
           >
             <br />
@@ -754,7 +721,7 @@ function Main({ setComponent }: Props) {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            gap: "0px", // 버튼 사이 간격 조절
+            gap: "0px",
           }}
         >
           <button
@@ -764,7 +731,7 @@ function Main({ setComponent }: Props) {
               alignItems: "center",
               justifyContent: "center",
               textAlign: "center",
-              gap: "8px", // 아이콘과 텍스트 간격
+              gap: "8px",
             }}
             onClick={() =>
               setComponent(<AttendModal setComponent={setComponent} />)
@@ -968,7 +935,6 @@ const Description = styled.p`
   text-align: center;
   font-weight: bold;
   position: relative;
-  /* animation: fade_up 0.8s; */
   white-space: nowrap;
   font-weight: 200;
   color: #4e4e4e;
@@ -1094,24 +1060,24 @@ const HR = styled.hr`
 
 const Gallery = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3개의 열 */
-  grid-template-rows: repeat(8, 1fr); /* 8개의 행 */
-  gap: 10px; /* 이미지 사이 간격 */
-  max-width: 100%; /* 가로 크기 제한 */
-  margin: 0 auto; /* 가운데 정렬 */
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(8, 1fr);
+  gap: 10px;
+  max-width: 100%;
+  margin: 0 auto;
 `;
 
 const GalleryItem = styled.div`
-  border: 2px solid #ddd; /* 이미지를 감싸는 테두리 */
-  border-radius: 8px; /* 테두리 둥글게 처리 */
+  border: 2px solid #ddd;
+  border-radius: 8px;
   overflow: hidden;
 `;
 
 const GalleryItemImg = styled.img`
-  width: 100%; /* 이미지가 갤러리 아이템에 꽉 차도록 설정 */
-  height: 100%; /* 이미지 높이도 꽉 차도록 설정 */
-  object-fit: cover; /* 이미지 크기 맞추기 */
-  display: block; /* 이미지 아래 공백 제거 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 `;
 
 const Button = styled.button`
@@ -1392,7 +1358,6 @@ const MapIconImage = styled.img`
 `;
 
 const DescriptionItem = styled.div`
-  /* border: 1px solid red; */
   display: flex;
   flex-direction: column;
   gap: 6.5px;
@@ -1406,7 +1371,6 @@ const DescriptionItem = styled.div`
 
 const DescriptionLi = styled.li`
   list-style: none;
-  /* font-weight: 800; */
   font-family: Pretendard;
   font-size: 17px;
 
