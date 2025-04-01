@@ -42,7 +42,7 @@ import LikeButton from "./LikeButton";
 import AttendModal from "./AttendModal";
 import { INFORMATION } from "../value";
 import BusMap from "/images/busMap.png";
-import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 
 interface Props {
@@ -569,7 +569,7 @@ function Main({ setComponent }: Props) {
             style={{
               display: "flex",
               flexDirection: "column",
-              width: "60%",
+              width: "65%",
               margin: "0 auto",
               paddingTop: "0",
               minWidth: "fit-content",
@@ -645,7 +645,7 @@ function Main({ setComponent }: Props) {
                   key={info.name}
                   style={{
                     backgroundColor: "white",
-                    padding: "8px",
+                    padding: "16px 8px 8px 8px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "0",
@@ -659,9 +659,10 @@ function Main({ setComponent }: Props) {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "8px",
-                      padding: "4px 0",
+                      gap: "4px",
+                      padding: "0",
                       margin: "0",
+                      color: "#666666",
                     }}
                   >
                     <IconButton
@@ -670,23 +671,23 @@ function Main({ setComponent }: Props) {
                       }}
                       size="small"
                       sx={{
-                        color: "#666666",
+                        color: "#cccccc",
                         "&:hover": {
-                          backgroundColor: "rgba(102, 102, 102, 0.08)",
+                          backgroundColor: "rgba(204, 204, 204, 0.08)",
                         },
-                        padding: "4px",
-                        marginLeft: "12px",
-                        marginRight: "4px",
+                        padding: "2px",
+                        marginLeft: "6px",
+                        marginRight: "0",
                       }}
                     >
-                      <FileCopyIcon sx={{ fontSize: 18 }} />
+                      <FileCopyIcon sx={{ fontSize: 18, color: "#cccccc" }} />
                     </IconButton>
                     {info.name}
                   </AccountOwner>
                   <AccountItem
                     style={{
                       margin: "0",
-                      padding: "4px 12px",
+                      padding: "2px 12px",
                       fontSize: "15px",
                       userSelect: "text",
                       cursor: "text",
@@ -695,6 +696,8 @@ function Main({ setComponent }: Props) {
                       msUserSelect: "text",
                       whiteSpace: "normal",
                       wordBreak: "break-all",
+                      color: "#666666",
+                      fontWeight: "300",
                     }}
                   >
                     {info.bank} {info.accountNumberShown}
@@ -773,7 +776,7 @@ function Main({ setComponent }: Props) {
                   key={info.name}
                   style={{
                     backgroundColor: "white",
-                    padding: "8px",
+                    padding: "16px 8px 8px 8px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "0",
@@ -787,9 +790,10 @@ function Main({ setComponent }: Props) {
                     style={{
                       display: "flex",
                       alignItems: "center",
-                      gap: "8px",
-                      padding: "4px 0",
+                      gap: "4px",
+                      padding: "0",
                       margin: "0",
+                      color: "#666666",
                     }}
                   >
                     <IconButton
@@ -798,23 +802,23 @@ function Main({ setComponent }: Props) {
                       }}
                       size="small"
                       sx={{
-                        color: "#666666",
+                        color: "#cccccc",
                         "&:hover": {
-                          backgroundColor: "rgba(102, 102, 102, 0.08)",
+                          backgroundColor: "rgba(204, 204, 204, 0.08)",
                         },
-                        padding: "4px",
-                        marginLeft: "12px",
-                        marginRight: "4px",
+                        padding: "2px",
+                        marginLeft: "6px",
+                        marginRight: "0",
                       }}
                     >
-                      <FileCopyIcon sx={{ fontSize: 18 }} />
+                      <FileCopyIcon sx={{ fontSize: 18, color: "#cccccc" }} />
                     </IconButton>
                     {info.name}
                   </AccountOwner>
                   <AccountItem
                     style={{
                       margin: "0",
-                      padding: "4px 12px",
+                      padding: "2px 12px",
                       fontSize: "15px",
                       userSelect: "text",
                       cursor: "text",
@@ -823,6 +827,8 @@ function Main({ setComponent }: Props) {
                       msUserSelect: "text",
                       whiteSpace: "normal",
                       wordBreak: "break-all",
+                      color: "#666666",
+                      fontWeight: "300",
                     }}
                   >
                     {info.bank} {info.accountNumberShown}
