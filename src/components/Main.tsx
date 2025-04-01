@@ -5,7 +5,16 @@ import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 // import FloatingBar from './../components/FloatingBar';
 import { useEffect, useRef, useState, lazy } from "react";
 import { useSearchParams } from "react-router-dom";
-import { Typography } from "@mui/material";
+import {
+  Typography,
+  IconButton,
+  Tooltip,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  Button as MuiButton,
+} from "@mui/material";
 import Snowfall from "react-snowfall";
 import ManPic from "/images/man.jpg";
 import WomanPic from "/images/woman.jpg";
@@ -33,6 +42,8 @@ import LikeButton from "./LikeButton";
 import AttendModal from "./AttendModal";
 import { INFORMATION } from "../value";
 import BusMap from "/images/busMap.png";
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
 
 interface Props {
   setComponent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
@@ -95,6 +106,8 @@ function Main({ setComponent }: Props) {
 
   const [openGroomAccount, setOpenGroomAccount] = useState<boolean>(false);
   const [openBrideccount, setOpenBrideAccount] = useState<boolean>(false);
+  const [copyPopupOpen, setCopyPopupOpen] = useState(false);
+  const [copiedText, setCopiedText] = useState("");
 
   useEffect(() => {
     window.addEventListener("scroll", checkScrollPosition);
@@ -149,6 +162,10 @@ function Main({ setComponent }: Props) {
     } catch (err) {
       console.error(err);
     }
+  };
+
+  const handleClosePopup = () => {
+    setCopyPopupOpen(false);
   };
 
   const onClickLink = async () => {
@@ -553,6 +570,7 @@ function Main({ setComponent }: Props) {
               flexDirection: "column",
               width: "60%",
               margin: "0 auto",
+              paddingTop: "0",
             }}
           >
             <TabButton
@@ -563,7 +581,7 @@ function Main({ setComponent }: Props) {
                 border: "none",
                 width: "100%",
                 height: "50px",
-                borderRadius: "8px 8px 0 0",
+                borderRadius: "1px 1px 0 0",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
@@ -574,6 +592,11 @@ function Main({ setComponent }: Props) {
                 margin: 0,
                 padding: "0 20px",
                 position: "relative",
+                transform: "translateZ(0)",
+                WebkitTransform: "translateZ(0)",
+                WebkitTapHighlightColor: "transparent",
+                userSelect: "none",
+                touchAction: "manipulation",
               }}
               onClick={() => setOpenGroomAccount(!openGroomAccount)}
             >
@@ -582,13 +605,22 @@ function Main({ setComponent }: Props) {
                   position: "absolute",
                   left: "50%",
                   transform: "translateX(-50%)",
+                  pointerEvents: "none",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  maxWidth: "100%",
                 }}
               >
                 신랑측 계좌번호
               </span>
               <i
                 className={`fa fa-chevron-${openGroomAccount ? "up" : "down"}`}
-                style={{ fontSize: "14px", marginLeft: "auto" }}
+                style={{
+                  fontSize: "14px",
+                  marginLeft: "auto",
+                  pointerEvents: "none",
+                }}
               />
             </TabButton>
             <AccountWrapper
@@ -598,33 +630,70 @@ function Main({ setComponent }: Props) {
                 transition: "all 0.3s ease",
                 overflow: "hidden",
                 backgroundColor: "#f8f8f8",
-                borderRadius: "0 0 8px 8px",
-                padding: "15px",
+                borderRadius: "0 0 1px 1px",
+                padding: "0",
                 border: "none",
                 boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
                 margin: 0,
                 width: "100%",
               }}
             >
-              {INFORMATION.groom.map((info) => (
-                <div key={info.name} style={{ marginBottom: "15px" }}>
-                  <AccountOwner>
-                    {info.bank} (예금주 : {info.name})
-                  </AccountOwner>
-                  <AccountItem>
-                    {info.accountNumber}
-                    <button
+              {INFORMATION.groom.map((info, index) => (
+                <div
+                  key={info.name}
+                  style={{
+                    backgroundColor: "white",
+                    padding: "8px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0",
+                    borderBottom:
+                      index !== INFORMATION.groom.length - 1
+                        ? "1px solid #e0e0e0"
+                        : "none",
+                  }}
+                >
+                  <AccountOwner
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      padding: "4px 0",
+                      margin: "0",
+                    }}
+                  >
+                    <IconButton
                       onClick={() => {
                         onClickCopy(info.accountNumber);
                       }}
+                      size="small"
+                      sx={{
+                        color: "#666666",
+                        "&:hover": {
+                          backgroundColor: "rgba(102, 102, 102, 0.08)",
+                        },
+                        padding: "4px",
+                        marginLeft: "12px",
+                        marginRight: "4px",
+                      }}
                     >
-                      복사하기
-                    </button>
+                      <FileCopyIcon sx={{ fontSize: 18 }} />
+                    </IconButton>
+                    {info.name}
+                  </AccountOwner>
+                  <AccountItem
+                    style={{
+                      margin: "0",
+                      padding: "4px 12px",
+                      fontSize: "15px",
+                    }}
+                  >
+                    {info.bank} {info.accountNumberShown}
                   </AccountItem>
                 </div>
               ))}
             </AccountWrapper>
-            <div style={{ height: "20px" }}></div>
+            <div style={{ height: "15px" }}></div>
             <TabButton
               onClick={() => setOpenBrideAccount(!openBrideccount)}
               style={{
@@ -634,7 +703,7 @@ function Main({ setComponent }: Props) {
                 border: "none",
                 width: "100%",
                 height: "50px",
-                borderRadius: "8px 8px 0 0",
+                borderRadius: "1px 1px 0 0",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
@@ -645,6 +714,11 @@ function Main({ setComponent }: Props) {
                 margin: 0,
                 padding: "0 20px",
                 position: "relative",
+                transform: "translateZ(0)",
+                WebkitTransform: "translateZ(0)",
+                WebkitTapHighlightColor: "transparent",
+                userSelect: "none",
+                touchAction: "manipulation",
               }}
             >
               <span
@@ -652,13 +726,22 @@ function Main({ setComponent }: Props) {
                   position: "absolute",
                   left: "50%",
                   transform: "translateX(-50%)",
+                  pointerEvents: "none",
+                  whiteSpace: "nowrap",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
+                  maxWidth: "100%",
                 }}
               >
                 신부측 계좌번호
               </span>
               <i
                 className={`fa fa-chevron-${openBrideccount ? "up" : "down"}`}
-                style={{ fontSize: "14px", marginLeft: "auto" }}
+                style={{
+                  fontSize: "14px",
+                  marginLeft: "auto",
+                  pointerEvents: "none",
+                }}
               />
             </TabButton>
             <AccountWrapper
@@ -668,28 +751,65 @@ function Main({ setComponent }: Props) {
                 transition: "all 0.3s ease",
                 overflow: "hidden",
                 backgroundColor: "#f8f8f8",
-                borderRadius: "0 0 8px 8px",
-                padding: "15px",
+                borderRadius: "0 0 1px 1px",
+                padding: "0",
                 border: "none",
                 boxShadow: "0 1px 3px rgba(0, 0, 0, 0.1)",
                 margin: 0,
                 width: "100%",
               }}
             >
-              {INFORMATION.bride.map((info) => (
-                <div key={info.name} style={{ marginBottom: "15px" }}>
-                  <AccountOwner>
-                    {info.bank} (예금주 : {info.name})
-                  </AccountOwner>
-                  <AccountItem>
-                    {info.accountNumber}
-                    <button
+              {INFORMATION.bride.map((info, index) => (
+                <div
+                  key={info.name}
+                  style={{
+                    backgroundColor: "white",
+                    padding: "8px",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0",
+                    borderBottom:
+                      index !== INFORMATION.bride.length - 1
+                        ? "1px solid #e0e0e0"
+                        : "none",
+                  }}
+                >
+                  <AccountOwner
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      padding: "4px 0",
+                      margin: "0",
+                    }}
+                  >
+                    <IconButton
                       onClick={() => {
                         onClickCopy(info.accountNumber);
                       }}
+                      size="small"
+                      sx={{
+                        color: "#666666",
+                        "&:hover": {
+                          backgroundColor: "rgba(102, 102, 102, 0.08)",
+                        },
+                        padding: "4px",
+                        marginLeft: "12px",
+                        marginRight: "4px",
+                      }}
                     >
-                      복사하기
-                    </button>
+                      <FileCopyIcon sx={{ fontSize: 18 }} />
+                    </IconButton>
+                    {info.name}
+                  </AccountOwner>
+                  <AccountItem
+                    style={{
+                      margin: "0",
+                      padding: "4px 12px",
+                      fontSize: "15px",
+                    }}
+                  >
+                    {info.bank} {info.accountNumberShown}
                   </AccountItem>
                 </div>
               ))}
@@ -756,6 +876,43 @@ function Main({ setComponent }: Props) {
           </button>
         </BottomBar>
       )}
+      <Dialog
+        open={copyPopupOpen}
+        onClose={handleClosePopup}
+        PaperProps={{
+          style: {
+            borderRadius: "12px",
+            padding: "20px",
+            minWidth: "280px",
+          },
+        }}
+      >
+        <DialogContent style={{ textAlign: "center", padding: "20px 0" }}>
+          <Typography style={{ fontSize: "16px", marginBottom: "8px" }}>
+            {copiedText}
+          </Typography>
+          <Typography style={{ fontSize: "14px", color: "#666666" }}>
+            복사가 완료되었습니다.
+          </Typography>
+        </DialogContent>
+        <DialogActions
+          style={{ justifyContent: "center", padding: "0 0 10px 0" }}
+        >
+          <MuiButton
+            onClick={handleClosePopup}
+            style={{
+              backgroundColor: "#666666",
+              color: "white",
+              padding: "8px 24px",
+              borderRadius: "6px",
+              textTransform: "none",
+              fontSize: "14px",
+            }}
+          >
+            확인
+          </MuiButton>
+        </DialogActions>
+      </Dialog>
     </Wrappper>
   );
 }
