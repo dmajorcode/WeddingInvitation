@@ -158,7 +158,8 @@ function Main({ setComponent }: Props) {
   const onClickCopy = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      alert(`${text}\n계좌번호가 복사되었습니다.`);
+      setCopiedText(text);
+      setCopyPopupOpen(true);
     } catch (err) {
       console.error(err);
     }
@@ -892,31 +893,31 @@ function Main({ setComponent }: Props) {
         PaperProps={{
           style: {
             borderRadius: "12px",
-            padding: "20px",
+            padding: "16px",
             minWidth: "280px",
           },
         }}
       >
-        <DialogContent style={{ textAlign: "center", padding: "20px 0" }}>
-          <Typography style={{ fontSize: "16px", marginBottom: "8px" }}>
-            {copiedText}
-          </Typography>
+        <DialogContent
+          style={{ textAlign: "center", padding: "16px 0 24px 0" }}
+        >
           <Typography style={{ fontSize: "14px", color: "#666666" }}>
             복사가 완료되었습니다.
           </Typography>
         </DialogContent>
         <DialogActions
-          style={{ justifyContent: "center", padding: "0 0 10px 0" }}
+          style={{ justifyContent: "center", padding: "0 0 6px 0" }}
         >
           <MuiButton
             onClick={handleClosePopup}
             style={{
-              backgroundColor: "#666666",
-              color: "white",
-              padding: "8px 24px",
+              backgroundColor: "#e0e0e0",
+              color: "#333333",
+              padding: "4px 16px",
               borderRadius: "6px",
               textTransform: "none",
               fontSize: "14px",
+              height: "32px",
             }}
           >
             확인
@@ -1359,7 +1360,7 @@ const Marker = styled.span`
 
 const AccountWrapper = styled.div`
   margin: 0 auto;
-  width: max(75%, 290px);
+  width: max(85%, 320px);
   transition: height 0.6s;
   transition-timing-function: cubic-bezier(0.15, 0.82, 0.165, 1);
   overflow: hidden;
