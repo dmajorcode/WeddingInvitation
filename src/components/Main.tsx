@@ -572,6 +572,7 @@ function Main({ setComponent }: Props) {
               width: "60%",
               margin: "0 auto",
               paddingTop: "0",
+              minWidth: "fit-content",
             }}
           >
             <TabButton
@@ -692,6 +693,8 @@ function Main({ setComponent }: Props) {
                       WebkitUserSelect: "text",
                       MozUserSelect: "text",
                       msUserSelect: "text",
+                      whiteSpace: "normal",
+                      wordBreak: "break-all",
                     }}
                   >
                     {info.bank} {info.accountNumberShown}
@@ -818,6 +821,8 @@ function Main({ setComponent }: Props) {
                       WebkitUserSelect: "text",
                       MozUserSelect: "text",
                       msUserSelect: "text",
+                      whiteSpace: "normal",
+                      wordBreak: "break-all",
                     }}
                   >
                     {info.bank} {info.accountNumberShown}
@@ -1360,7 +1365,8 @@ const Marker = styled.span`
 
 const AccountWrapper = styled.div`
   margin: 0 auto;
-  width: max(85%, 320px);
+  width: 100%;
+  minwidth: "fit-content";
   transition: height 0.6s;
   transition-timing-function: cubic-bezier(0.15, 0.82, 0.165, 1);
   overflow: hidden;
