@@ -340,12 +340,12 @@ const MoreButton = styled.button`
   padding: 30px 0 0;
   width: 50%;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: 600;
   gap: 6px;
 
   @media only screen and (max-width: 400px) {
-    font-size: 19px;
+    font-size: 16px;
     gap: 5px;
   }
 
