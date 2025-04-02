@@ -52,6 +52,8 @@ import { INFORMATION } from "../value";
 import BusMap from "/images/busMap.png";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 
 interface Props {
   setComponent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
@@ -237,7 +239,7 @@ function Main({ setComponent }: Props) {
     <Wrappper>
       <ContentWrapper>
         <SpeakerButton onClick={toggleMusic}>
-          <i className={`fa fa-volume-${isMusicPlaying ? "up" : "off"}`}></i>
+          {isMusicPlaying ? <VolumeUpIcon /> : <VolumeOffIcon />}
         </SpeakerButton>
         <audio
           ref={audioRef}
@@ -1760,14 +1762,16 @@ const SpeakerButton = styled.button`
   justify-content: center;
   z-index: 1000;
   transition: all 0.3s ease;
+  padding: 0;
 
   &:hover {
     transform: scale(1.1);
   }
 
-  i {
+  svg {
     font-size: 24px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: white !important;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    fill: white !important;
   }
 `;
