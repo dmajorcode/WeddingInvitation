@@ -478,6 +478,7 @@ function Main({ setComponent }: Props) {
         <DescriptionWrapper
           style={{
             background: "linear-gradient(to bottom, #ffffff 0%, #f9f9f9 5%)",
+            paddingTop: "80px",
           }}
         >
           <EnglishSubTitle style={{ color: "#777777" }}>
