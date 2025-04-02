@@ -953,6 +953,7 @@ function Main({ setComponent }: Props) {
             <br />
             모든 분들께 감사드립니다.
           </span>
+          <Dimmed></Dimmed>
         </LastImgWrapper>
       </ContentWrapper>
 
