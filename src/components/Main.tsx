@@ -1084,7 +1084,13 @@ const BottomBar = styled.div`
 `;
 
 const Dimmed = styled.div`
-  background-color: rgba(0, 0, 0, 0.27);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.17) 64%,
+    rgba(0, 0, 0, 0.44) 78%,
+    rgba(0, 0, 0, 0.66) 100%
+  );
   width: 100%;
   height: 100%;
   position: absolute;
