@@ -83,6 +83,7 @@ function Main({ setComponent }: Props) {
     return () => clearInterval(intervalId);
   }, []);
 
+  // TODO: put speaker emoji and music https://www.youtube.com/watch?v=yHXB9lk93Ts
   const [isVisible, setIsVisible] = useState(false);
   // const refEl = useRef(null);
   // TODO: 상태를 5개로 아래와 같이 바꿔야 함
@@ -208,9 +209,42 @@ function Main({ setComponent }: Props) {
     });
   };
 
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
+
+  const toggleMusic = () => {
+    if (audioRef.current) {
+      if (isMusicPlaying) {
+        audioRef.current.pause();
+      } else {
+        audioRef.current.play();
+      }
+      setIsMusicPlaying(!isMusicPlaying);
+    }
+  };
+
+  const handleMusicEnd = () => {
+    if (audioRef.current && !hasPlayedOnce) {
+      audioRef.current.play();
+      setHasPlayedOnce(true);
+    } else {
+      setIsMusicPlaying(false);
+    }
+  };
+
   return (
     <Wrappper>
       <ContentWrapper>
+        <SpeakerButton onClick={toggleMusic}>
+          <i className={`fa fa-volume-${isMusicPlaying ? "up" : "off"}`}></i>
+        </SpeakerButton>
+        <audio
+          ref={audioRef}
+          src="/music/background-music.mp3"
+          onEnded={handleMusicEnd}
+          preload="auto"
+        />
         <div style={{ position: "relative", display: "inline-block" }}>
           <ProgressiveImg placeholderSrc={MainPic} src={High} />
         </div>
@@ -1709,4 +1743,31 @@ const DescriptionMarker = styled.span`
   font-family: Pretendard;
   position: relative;
   bottom: 3px;
+`;
+
+const SpeakerButton = styled.button`
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  i {
+    font-size: 24px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
 `;
