@@ -946,7 +946,7 @@ function Main({ setComponent }: Props) {
               width: "100%",
               fontSize: "90%",
               lineHeight: "1.8",
-              paddingBottom: "3%",
+              paddingBottom: "2%",
             }}
           >
             저희의 새로운 시작을 축하해주시는
@@ -1087,9 +1087,10 @@ const Dimmed = styled.div`
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.17) 64%,
-    rgba(0, 0, 0, 0.44) 78%,
-    rgba(0, 0, 0, 0.66) 100%
+    rgba(0, 0, 0, 0.15) 63%,
+    // rgba(0, 0, 0, 0.32) 69%,
+    rgba(0, 0, 0, 0.6) 88%,
+    rgba(0, 0, 0, 0.7) 100%
   );
   width: 100%;
   height: 100%;
