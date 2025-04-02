@@ -357,7 +357,11 @@ function Main({ setComponent }: Props) {
           }}
         >
           <EnglishSubTitle>GROOM & BRIDE</EnglishSubTitle>
-          <Title>시간이 흐르고, 사랑이 피었습니다</Title>
+          <Title>
+            시간이 흐르고,
+            <br />
+            사랑이 피었습니다
+          </Title>
 
           <InterviewWrapper>
             <div>
@@ -1089,7 +1093,7 @@ const Dimmed = styled.div`
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.15) 63%,
+    rgba(0, 0, 0, 0.18) 63%,
     // rgba(0, 0, 0, 0.32) 69%,
     rgba(0, 0, 0, 0.6) 88%,
     rgba(0, 0, 0, 0.7) 100%
@@ -1130,10 +1134,10 @@ const LastImgWrapper = styled.div`
 const InterviewWrapper = styled.div`
   width: 100%;
   display: flex;
-  gap: 24px;
+  gap: 4%;
   flex-direction: row;
   justify-content: center;
-  flex-wrap: wrap; // Add this to allow wrapping for more images
+  flex-wrap: wrap;
   margin: 36px 0;
 `;
 
@@ -1331,6 +1335,8 @@ const Title = styled.p`
   font-weight: 500;
   color: #4d4d4d;
   margin-bottom: 10px;
+  line-height: 1.8;
+  text-align: center;
 
   @media only screen and (max-width: 445px) {
     font-size: 23px;
