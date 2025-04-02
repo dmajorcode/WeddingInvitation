@@ -941,12 +941,12 @@ function Main({ setComponent }: Props) {
               zIndex: 200,
               position: "relative",
               display: "block",
-              marginTop: "40%",
-              textAlign: "right",
+              marginBottom: "20px",
+              textAlign: "center",
               width: "100%",
               fontSize: "20px",
               lineHeight: "1.8",
-              paddingTop: "40px",
+              paddingBottom: "40px",
             }}
           >
             저희의 새로운 시작을 축하해주시는
@@ -1100,7 +1100,7 @@ const LastImgWrapper = styled.div`
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   text-align: center;
   color: white;
@@ -1109,21 +1109,11 @@ const LastImgWrapper = styled.div`
   padding: 0 20px;
   box-sizing: border-box;
   margin: 0 auto;
+  margin-bottom: 55px;
 
   @font-face {
     font-family: "GowunBatang-Regular";
     src: url("/fonts/GowunBatang-Regular.ttf") format("truetype");
-  }
-
-  span {
-    color: white;
-    z-index: 200;
-    position: relative;
-    display: block;
-    margintop: "50%";
-    textalign: "right";
-    width: "100%";
-    font-family: "GowunBatang-Regular", serif;
   }
 `;
 
@@ -1191,7 +1181,7 @@ const Wrappper = styled.div`
   background-color: #f2eeee;
   width: 100vw;
   position: relative;
-  padding-bottom: 40px;
+  padding-bottom: 0;
 `;
 
 const ContentWrapper = styled.div`
@@ -1427,7 +1417,7 @@ const AButton = styled.a`
 
 const TabButton = styled.div`
   border: 1px solid gray;
-  width: 230px;
+  width: 280px;
   height: 45px;
   display: flex;
   align-items: center;
