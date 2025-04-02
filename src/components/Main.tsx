@@ -18,8 +18,16 @@ import {
 import Snowfall from "react-snowfall";
 import ManPic from "/images/man.jpg";
 import WomanPic from "/images/woman.jpg";
-import BoyPic from "/images/boy.jpeg";
-import GirlPic from "/images/girl.jpeg";
+
+import BoyPic1 from "/images/boy1.jpg";
+import GirlPic1 from "/images/girl1.jpg";
+import BoyPic2 from "/images/boy2.jpg";
+import GirlPic2 from "/images/girl2.jpg";
+import BoyPic3 from "/images/boy3.jpg";
+import GirlPic3 from "/images/girl3.jpg";
+import BoyPic4 from "/images/boy4.jpg";
+import GirlPic4 from "/images/girl4.jpg";
+
 import MainPic from "/images/main7.jpg";
 import ProgressiveImg from "./ProgressiveImg";
 import High from "/images/high.jpg";
@@ -54,11 +62,27 @@ const BUS_MAP_URL =
 
 const PhotoGallery = lazy(() => import("./Gallery/PhotoGallery"));
 
+// First, create arrays of photos for each person
+const GROOM_PHOTOS = [ManPic, BoyPic1, BoyPic2, BoyPic3, BoyPic4]; // Add more photos as needed
+const BRIDE_PHOTOS = [WomanPic, GirlPic1, GirlPic2, GirlPic3, GirlPic4]; // Add more photos as needed
+
 // TODO: 콘솔 보이는 것 막기
 
 function Main({ setComponent }: Props) {
-  const [isboy, setIsBoy] = useState(true);
-  const [isGirl, setIsGirl] = useState(true);
+  // Replace isboy/isGirl with photo indices
+  const [groomPhotoIndex, setGroomPhotoIndex] = useState(0);
+  const [bridePhotoIndex, setBridePhotoIndex] = useState(0);
+
+  // Update the useEffect to cycle through photos
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setGroomPhotoIndex((prev) => (prev + 1) % GROOM_PHOTOS.length);
+      setBridePhotoIndex((prev) => (prev + 1) % BRIDE_PHOTOS.length);
+    }, 4000); // Change photo every 4 seconds
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   const [isVisible, setIsVisible] = useState(false);
   // const refEl = useRef(null);
   // TODO: 상태를 5개로 아래와 같이 바꿔야 함
@@ -109,38 +133,6 @@ function Main({ setComponent }: Props) {
   const [copyPopupOpen, setCopyPopupOpen] = useState(false);
   const [copiedText, setCopiedText] = useState("");
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", checkScrollPosition);
-
-  //   const intervalId = setInterval(() => {
-  //     setIsBoy((prev) => !prev);
-  //     setIsGirl((prev) => !prev);
-  //   }, 4000);
-
-  //   return () => {
-  //     clearInterval(intervalId);
-  //     window.removeEventListener("scroll", checkScrollPosition);
-  //   };
-  // }, []);
-
-  // 카카오 SDK 로드
-  useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js";
-    script.integrity =
-      "sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4yyC7wy6K1Hs90nka";
-    script.crossOrigin = "anonymous";
-    script.onload = () => {
-      // 카카오 SDK 초기화
-      window.Kakao.init(import.meta.env.VITE_APP_KAKAO_APP_KEY); // 카카오 앱의 JavaScript 키 입력
-    };
-    document.body.appendChild(script);
-
-    // Cleanup (스크립트 제거)
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
   const refEl = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -418,6 +410,77 @@ function Main({ setComponent }: Props) {
             ></i>
             참석여부 전달하기
           </Button>
+        </DescriptionWrapper>
+        <DescriptionWrapper style={{ padding: "60px 22px" }}>
+          <EnglishSubTitle>GROOM & BRIDE</EnglishSubTitle>
+          <Title>신랑 신부는요,</Title>
+
+          <InterviewWrapper>
+            <div>
+              <InterviewImageWrapper>
+                {GROOM_PHOTOS.map((photo, index) => (
+                  <InterviewImage
+                    key={index}
+                    style={{
+                      backgroundImage: `url(${photo})`,
+                      opacity: index === groomPhotoIndex ? 1 : 0,
+                      zIndex: index === groomPhotoIndex ? 1 : 0,
+                    }}
+                  />
+                ))}
+              </InterviewImageWrapper>
+              <p
+                style={{
+                  textAlign: "center",
+                  margin: "16px 0",
+                  fontSize: "18px",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "13px",
+                    marginRight: "6px",
+                    color: "#136198",
+                  }}
+                >
+                  신랑
+                </span>{" "}
+                정상진
+              </p>
+            </div>
+            <div>
+              <InterviewImageWrapper>
+                {BRIDE_PHOTOS.map((photo, index) => (
+                  <InterviewImage
+                    key={index}
+                    style={{
+                      backgroundImage: `url(${photo})`,
+                      opacity: index === bridePhotoIndex ? 1 : 0,
+                      zIndex: index === bridePhotoIndex ? 1 : 0,
+                    }}
+                  />
+                ))}
+              </InterviewImageWrapper>
+              <p
+                style={{
+                  textAlign: "center",
+                  margin: "16px 0",
+                  fontSize: "18px",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "13px",
+                    marginRight: "6px",
+                    color: "#e05068",
+                  }}
+                >
+                  신부
+                </span>{" "}
+                강다은
+              </p>
+            </div>
+          </InterviewWrapper>
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
@@ -1067,8 +1130,10 @@ const LastImgWrapper = styled.div`
 const InterviewWrapper = styled.div`
   width: 100%;
   display: flex;
-  gap: 36px;
-  flex-direction: column;
+  gap: 24px;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap; // Add this to allow wrapping for more images
   margin: 36px 0;
 `;
 
@@ -1087,20 +1152,22 @@ const Interview = styled.div`
 
 const InterviewImageWrapper = styled.div`
   position: relative;
-  width: min(calc(100vw - 44px), 510px);
-  height: min(calc(100vw - 44px), 510px);
-  margin: 0 auto;
+  width: min(calc((100vw - 68px) / 2), 240px);
+  height: min(calc((100vw - 68px) / 2), 240px);
+  margin: 0;
 `;
 
 const InterviewImage = styled.div`
   position: absolute;
   top: 0;
+  left: 0;
   border-radius: 20px;
   width: 100%;
   height: 100%;
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  transition: opacity 2s;
+  transition: opacity 2s ease-in-out;
 `;
 
 const TitleImageTitle = styled.div`
