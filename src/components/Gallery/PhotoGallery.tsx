@@ -306,8 +306,7 @@ const PhotoGallery = () => {
           <span style={{ display: "flex", alignItems: "center" }}>
             사진 더보기
             <KeyboardArrowDownIcon
-              fontSize="large"
-              style={{ marginLeft: "8px" }}
+              sx={{ marginLeft: "8px", fontWeight: 400 }}
             />
           </span>
         </MoreButton>
