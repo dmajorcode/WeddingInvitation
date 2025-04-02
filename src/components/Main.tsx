@@ -78,7 +78,7 @@ function Main({ setComponent }: Props) {
     const intervalId = setInterval(() => {
       setGroomPhotoIndex((prev) => (prev + 1) % GROOM_PHOTOS.length);
       setBridePhotoIndex((prev) => (prev + 1) % BRIDE_PHOTOS.length);
-    }, 4000); // Change photo every 4 seconds
+    }, 5000); // Changed to 5 seconds
 
     return () => clearInterval(intervalId);
   }, []);
@@ -1165,7 +1165,13 @@ const InterviewImage = styled.div`
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: all 0.3s ease-in-out;
+  transition: opacity 2s ease-in-out;
+  opacity: 0;
+  z-index: 0;
+
+  &:hover {
+    transform: scale(1.02);
+  }
 `;
 
 const TitleImageTitle = styled.div`
