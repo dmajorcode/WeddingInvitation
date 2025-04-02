@@ -778,7 +778,7 @@ function Main({ setComponent }: Props) {
                   key={info.name}
                   style={{
                     backgroundColor: "white",
-                    padding: "16px 8px 8px 8px",
+                    padding: "12px 8px 4px 8px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "0",
@@ -813,7 +813,6 @@ function Main({ setComponent }: Props) {
                         marginRight: "0",
                       }}
                     >
-                      {/* <FileCopyOutlinedIcon */}
                       <FileCopyIcon
                         sx={{ fontSize: 18, fill: "rgb(185, 185, 185)" }}
                         color="action"
@@ -835,6 +834,7 @@ function Main({ setComponent }: Props) {
                       wordBreak: "break-all",
                       color: "#666666",
                       fontWeight: "300",
+                      height: "32px",
                     }}
                   >
                     {info.bank} {info.accountNumberShown}
@@ -917,7 +917,7 @@ function Main({ setComponent }: Props) {
                   key={info.name}
                   style={{
                     backgroundColor: "white",
-                    padding: "16px 8px 8px 8px",
+                    padding: "12px 8px 4px 8px",
                     display: "flex",
                     flexDirection: "column",
                     gap: "0",
@@ -943,10 +943,6 @@ function Main({ setComponent }: Props) {
                       }}
                       size="small"
                       sx={{
-                        // color: "ButtonText.primary",
-                        // "&:hover": {
-                        //   backgroundColor: "rgba(102, 102, 102, 0.08)",
-                        // },
                         padding: "2px",
                         marginLeft: "6px",
                         marginRight: "0",
@@ -972,6 +968,7 @@ function Main({ setComponent }: Props) {
                       wordBreak: "break-all",
                       color: "#666666",
                       fontWeight: "300",
+                      height: "32px",
                     }}
                   >
                     {info.bank} {info.accountNumberShown}
