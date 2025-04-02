@@ -383,7 +383,7 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            padding: "100px 22px",
+            padding: "100px 22px 80px 22px",
             background:
               "linear-gradient(to bottom, #f9f9f9 0%,rgb(247, 247, 247) 5%)",
           }}
@@ -464,7 +464,7 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            padding: "40px 20px",
+            // padding: "40px 20px",
             background:
               "linear-gradient(to bottom, rgb(247, 247, 247) 0%, #ffffff 5%)",
           }}
