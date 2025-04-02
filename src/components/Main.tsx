@@ -413,7 +413,7 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper style={{ padding: "60px 22px" }}>
           <EnglishSubTitle>GROOM & BRIDE</EnglishSubTitle>
-          <Title>신랑 신부는요,</Title>
+          <Title>시간이 흐르고, 사랑이 피었습니다</Title>
 
           <InterviewWrapper>
             <div>
