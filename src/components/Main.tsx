@@ -349,87 +349,9 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            padding: "60px 22px",
-            background:
-              "linear-gradient(to bottom, #f9f9f9 0%,rgb(247, 247, 247) 5%)",
-          }}
-        >
-          <EnglishSubTitle>GROOM & BRIDE</EnglishSubTitle>
-          <Title>시간이 흐르고, 사랑이 피었습니다</Title>
-
-          <InterviewWrapper>
-            <div>
-              <InterviewImageWrapper>
-                {GROOM_PHOTOS.map((photo, index) => (
-                  <InterviewImage
-                    key={index}
-                    style={{
-                      backgroundImage: `url(${photo})`,
-                      opacity: index === groomPhotoIndex ? 1 : 0,
-                      zIndex: index === groomPhotoIndex ? 1 : 0,
-                    }}
-                  />
-                ))}
-              </InterviewImageWrapper>
-              <p
-                style={{
-                  textAlign: "center",
-                  margin: "16px 0",
-                  fontSize: "18px",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "13px",
-                    marginRight: "6px",
-                    color: "#136198",
-                  }}
-                >
-                  신랑
-                </span>{" "}
-                정상진
-              </p>
-            </div>
-            <div>
-              <InterviewImageWrapper>
-                {BRIDE_PHOTOS.map((photo, index) => (
-                  <InterviewImage
-                    key={index}
-                    style={{
-                      backgroundImage: `url(${photo})`,
-                      opacity: index === bridePhotoIndex ? 1 : 0,
-                      zIndex: index === bridePhotoIndex ? 1 : 0,
-                    }}
-                  />
-                ))}
-              </InterviewImageWrapper>
-              <p
-                style={{
-                  textAlign: "center",
-                  margin: "16px 0",
-                  fontSize: "18px",
-                }}
-              >
-                <span
-                  style={{
-                    fontSize: "13px",
-                    marginRight: "6px",
-                    color: "#e05068",
-                  }}
-                >
-                  신부
-                </span>{" "}
-                강다은
-              </p>
-            </div>
-          </InterviewWrapper>
-        </DescriptionWrapper>
-        <DescriptionWrapper
-          style={{
+            padding: "80px 20px",
             background:
               "linear-gradient(to bottom, rgb(247, 247, 247) 0%, #ffffff 5%)",
-            // minHeight: "500px", // 높이 조절 (필요에 따라 변경)
-            padding: "130px 20px",
           }}
         >
           <EnglishSubTitle>GALLERY</EnglishSubTitle>
@@ -942,11 +864,12 @@ function Main({ setComponent }: Props) {
               zIndex: 200,
               position: "relative",
               display: "block",
-              marginTop: "50%",
+              marginTop: "40%",
               textAlign: "right",
               width: "100%",
-              fontSize: "25px",
+              fontSize: "20px",
               lineHeight: "1.8",
+              paddingTop: "40px",
             }}
           >
             저희의 새로운 시작을 축하해주시는
@@ -1111,8 +1034,8 @@ const LastImgWrapper = styled.div`
   margin: 0 auto;
 
   @font-face {
-    font-family: "IncheonEducationJaram";
-    src: url("/fonts/IncheonEducationJaram.ttf") format("truetype");
+    font-family: "GowunBatang-Regular";
+    src: url("/fonts/GowunBatang-Regular.ttf") format("truetype");
   }
 
   span {
@@ -1123,7 +1046,7 @@ const LastImgWrapper = styled.div`
     margintop: "50%";
     textalign: "right";
     width: "100%";
-    font-family: "IncheonEducationJaram", serif;
+    font-family: "GowunBatang-Regular", serif;
   }
 `;
 
@@ -1301,6 +1224,7 @@ const TitleDescription = styled(Description)`
   line-height: 33px;
   font-size: 23px;
   color: #3a3a3a;
+  font-family: "GowunBatang-Regular", serif;
 
   @media only screen and (max-width: 445px) {
     font-size: 17px;
