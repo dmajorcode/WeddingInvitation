@@ -349,6 +349,83 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
+            padding: "100px 22px",
+            background:
+              "linear-gradient(to bottom, #f9f9f9 0%,rgb(247, 247, 247) 5%)",
+          }}
+        >
+          <EnglishSubTitle>GROOM & BRIDE</EnglishSubTitle>
+          <Title>시간이 흐르고, 사랑이 피었습니다</Title>
+
+          <InterviewWrapper>
+            <div>
+              <InterviewImageWrapper>
+                {GROOM_PHOTOS.map((photo, index) => (
+                  <InterviewImage
+                    key={index}
+                    style={{
+                      backgroundImage: `url(${photo})`,
+                      opacity: index === groomPhotoIndex ? 1 : 0,
+                      zIndex: index === groomPhotoIndex ? 1 : 0,
+                    }}
+                  />
+                ))}
+              </InterviewImageWrapper>
+              <p
+                style={{
+                  textAlign: "center",
+                  margin: "16px 0",
+                  fontSize: "18px",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "13px",
+                    marginRight: "6px",
+                    color: "#136198",
+                  }}
+                >
+                  신랑
+                </span>{" "}
+                정상진
+              </p>
+            </div>
+            <div>
+              <InterviewImageWrapper>
+                {BRIDE_PHOTOS.map((photo, index) => (
+                  <InterviewImage
+                    key={index}
+                    style={{
+                      backgroundImage: `url(${photo})`,
+                      opacity: index === bridePhotoIndex ? 1 : 0,
+                      zIndex: index === bridePhotoIndex ? 1 : 0,
+                    }}
+                  />
+                ))}
+              </InterviewImageWrapper>
+              <p
+                style={{
+                  textAlign: "center",
+                  margin: "16px 0",
+                  fontSize: "18px",
+                }}
+              >
+                <span
+                  style={{
+                    fontSize: "13px",
+                    marginRight: "6px",
+                    color: "#e05068",
+                  }}
+                >
+                  신부
+                </span>{" "}
+                강다은
+              </p>
+            </div>
+          </InterviewWrapper>
+        </DescriptionWrapper>
+        <DescriptionWrapper
+          style={{
             padding: "80px 20px",
             background:
               "linear-gradient(to bottom, rgb(247, 247, 247) 0%, #ffffff 5%)",
