@@ -181,7 +181,9 @@ function Main({ setComponent }: Props) {
 
   const onClickLink = async () => {
     try {
-      await navigator.clipboard.writeText("https://always-summer.vercel.app");
+      await navigator.clipboard.writeText(
+        "https://wedding-invitation-kj.vercel.app/"
+      );
       setCopiedText("청첩장 링크");
       setCopyPopupOpen(true);
     } catch (err) {
