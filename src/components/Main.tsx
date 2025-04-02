@@ -1379,6 +1379,7 @@ const NaviTitle = styled.div`
   font-size: 21px;
   font-weight: 600;
   margin-bottom: 18px;
+  font-family: "GowunBatang-Regular", serif;
 
   @media only screen and (max-width: 445px) {
     font-size: 20px;
