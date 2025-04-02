@@ -135,7 +135,7 @@ function Main({ setComponent }: Props) {
         const isVisible = top < window.innerHeight - 150;
 
         if (isVisible) {
-          // Reset photo indices when section becomes visible
+          // Reset photo indices to 0 (Man and Woman photos) when section becomes visible
           setGroomPhotoIndex(0);
           setBridePhotoIndex(0);
         }
@@ -153,17 +153,15 @@ function Main({ setComponent }: Props) {
     return () => clearInterval(interval);
   }, []);
 
-  // Update the useEffect for photo cycling to only start when section is visible
+  // Photo cycling effect
   useEffect(() => {
-    if (!isVisible) return; // Don't start cycling if section is not visible
-
     const intervalId = setInterval(() => {
       setGroomPhotoIndex((prev) => (prev + 1) % GROOM_PHOTOS.length);
       setBridePhotoIndex((prev) => (prev + 1) % BRIDE_PHOTOS.length);
     }, 5000);
 
     return () => clearInterval(intervalId);
-  }, [isVisible]);
+  }, []);
 
   const onClickCopy = async (text: string) => {
     try {
