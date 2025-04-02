@@ -865,6 +865,31 @@ function Main({ setComponent }: Props) {
           </div>
         </DescriptionWrapper>
         <LastImgWrapper style={{ backgroundImage: `url(${image45})` }}>
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100px",
+              // background:
+              //   // "linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent)",
+              //   "linear-gradient(to bottom,rgba(255, 255, 255, 0.7) 0%,rgb(255, 255, 255, 0) 20%)",
+              transition: "opacity 0.3s ease",
+            }}
+          />
+          {/* <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100px",
+              background:
+                "linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent)",
+              transition: "opacity 0.3s ease",
+            }}
+          /> */}
           <span
             style={{
               color: "white",
