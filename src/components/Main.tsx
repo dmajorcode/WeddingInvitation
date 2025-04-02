@@ -347,71 +347,13 @@ function Main({ setComponent }: Props) {
             전화로 축하 인사하기
           </Button>
         </DescriptionWrapper>
-
         <DescriptionWrapper
           style={{
-            background: "linear-gradient(to bottom, #f9f9f9 0%, #ffffff 5%)",
-            // minHeight: "500px", // 높이 조절 (필요에 따라 변경)
-            padding: "130px 20px",
+            padding: "60px 22px",
+            background:
+              "linear-gradient(to bottom, #f9f9f9 0%,rgb(247, 247, 247) 5%)",
           }}
         >
-          <EnglishSubTitle>GALLERY</EnglishSubTitle>
-          <Title style={{ marginBottom: "40px" }}>우리의 순간</Title>
-
-          <PhotoGallery />
-        </DescriptionWrapper>
-
-        <DescriptionWrapper
-          style={{
-            background: "linear-gradient(to bottom, #ffffff 0%, #f9f9f9 5%)",
-          }}
-        >
-          <EnglishSubTitle style={{ color: "#777777" }}>
-            WEDDING DAY
-          </EnglishSubTitle>
-          <Title>날짜 </Title>
-          <img
-            src={CalendarPic}
-            alt="캘린더"
-            style={{ width: "91%", maxWidth: "445px", marginTop: "35px" }}
-          />
-        </DescriptionWrapper>
-        <DescriptionWrapper
-          style={{
-            backgroundColor: "#efefef",
-            gap: "36px",
-            position: "relative",
-          }}
-        >
-          <div>
-            <EnglishSubTitle>SAVE THE DATE</EnglishSubTitle>
-            <Title>참석여부를 전달해주세요</Title>
-          </div>
-          <Description>
-            축하의 마음으로 예식에 참석하시는
-            <br />
-            모든 분들을 더욱 귀하게 모실 수 있도록, <br />
-            참석 여부를 알려주시면 감사하겠습니다.
-          </Description>
-          <Button
-            style={{ backgroundColor: "#444444", color: "white" }}
-            onClick={() =>
-              setComponent(<AttendModal setComponent={setComponent} />)
-            }
-          >
-            <i
-              className="fa fa-calendar-check"
-              aria-hidden="true"
-              style={{
-                marginRight: "12px",
-                fontSize: "16px",
-                color: "white",
-              }}
-            ></i>
-            참석여부 전달하기
-          </Button>
-        </DescriptionWrapper>
-        <DescriptionWrapper style={{ padding: "60px 22px" }}>
           <EnglishSubTitle>GROOM & BRIDE</EnglishSubTitle>
           <Title>시간이 흐르고, 사랑이 피었습니다</Title>
 
@@ -482,6 +424,71 @@ function Main({ setComponent }: Props) {
             </div>
           </InterviewWrapper>
         </DescriptionWrapper>
+        <DescriptionWrapper
+          style={{
+            background:
+              "linear-gradient(to bottom, rgb(247, 247, 247) 0%, #ffffff 5%)",
+            // minHeight: "500px", // 높이 조절 (필요에 따라 변경)
+            padding: "130px 20px",
+          }}
+        >
+          <EnglishSubTitle>GALLERY</EnglishSubTitle>
+          <Title style={{ marginBottom: "40px" }}>우리의 순간</Title>
+
+          <PhotoGallery />
+        </DescriptionWrapper>
+
+        <DescriptionWrapper
+          style={{
+            background: "linear-gradient(to bottom, #ffffff 0%, #f9f9f9 5%)",
+          }}
+        >
+          <EnglishSubTitle style={{ color: "#777777" }}>
+            WEDDING DAY
+          </EnglishSubTitle>
+          <Title>날짜 </Title>
+          <img
+            src={CalendarPic}
+            alt="캘린더"
+            style={{ width: "91%", maxWidth: "445px", marginTop: "35px" }}
+          />
+        </DescriptionWrapper>
+        <DescriptionWrapper
+          style={{
+            backgroundColor: "#efefef",
+            gap: "36px",
+            position: "relative",
+          }}
+        >
+          <div>
+            <EnglishSubTitle>SAVE THE DATE</EnglishSubTitle>
+            <Title>참석여부를 전달해주세요</Title>
+          </div>
+          <Description>
+            축하의 마음으로 예식에 참석하시는
+            <br />
+            모든 분들을 더욱 귀하게 모실 수 있도록, <br />
+            참석 여부를 알려주시면 감사하겠습니다.
+          </Description>
+          <Button
+            style={{ backgroundColor: "#444444", color: "white" }}
+            onClick={() =>
+              setComponent(<AttendModal setComponent={setComponent} />)
+            }
+          >
+            <i
+              className="fa fa-calendar-check"
+              aria-hidden="true"
+              style={{
+                marginRight: "12px",
+                fontSize: "16px",
+                color: "white",
+              }}
+            ></i>
+            참석여부 전달하기
+          </Button>
+        </DescriptionWrapper>
+
         <DescriptionWrapper
           style={{
             backgroundColor: "#f6f6f6",
