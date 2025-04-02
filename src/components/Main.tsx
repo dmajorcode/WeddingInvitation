@@ -52,6 +52,7 @@ import { INFORMATION } from "../value";
 import BusMap from "/images/busMap.png";
 import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
+import FileCopyOutlinedIcon from "@mui/icons-material/FileCopyOutlined";
 import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
 
@@ -800,16 +801,20 @@ function Main({ setComponent }: Props) {
                       }}
                       size="small"
                       sx={{
-                        color: "#cccccc",
+                        color: "#666666",
                         "&:hover": {
-                          backgroundColor: "rgba(204, 204, 204, 0.08)",
+                          backgroundColor: "rgba(102, 102, 102, 0.08)",
                         },
                         padding: "2px",
                         marginLeft: "6px",
                         marginRight: "0",
                       }}
                     >
-                      <FileCopyIcon sx={{ fontSize: 18, color: "#cccccc" }} />
+                      {/* <FileCopyIcon sx={{ fontSize: 18, fill: "gray" }} /> */}
+                      <FileCopyOutlinedIcon
+                        sx={{ fontSize: 18, fill: "gray" }}
+                        color="action"
+                      />
                     </IconButton>
                     {info.name}
                   </AccountOwner>
@@ -935,16 +940,16 @@ function Main({ setComponent }: Props) {
                       }}
                       size="small"
                       sx={{
-                        color: "#cccccc",
-                        "&:hover": {
-                          backgroundColor: "rgba(204, 204, 204, 0.08)",
-                        },
+                        // color: "ButtonText.primary",
+                        // "&:hover": {
+                        //   backgroundColor: "rgba(102, 102, 102, 0.08)",
+                        // },
                         padding: "2px",
                         marginLeft: "6px",
                         marginRight: "0",
                       }}
                     >
-                      <FileCopyIcon sx={{ fontSize: 18, color: "#cccccc" }} />
+                      <FileCopyIcon sx={{ fontSize: 18, fill: "gray" }} />
                     </IconButton>
                     {info.name}
                   </AccountOwner>
