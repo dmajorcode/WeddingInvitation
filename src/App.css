@@ -1,7 +1,7 @@
-/* @font-face {
-  font-family: 'NanumSquareNeo';
-  src: url('../public/fonts/NanumSquareNeo-Variable.woff');
-} */
+@font-face {
+  font-family: "GowunBatang-Regular";
+  src: url("../public/fonts/GowunBatang-Regular.ttf");
+}
 
 @font-face {
   font-family: "Cafe24Behappy";
