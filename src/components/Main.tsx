@@ -75,20 +75,10 @@ function Main({ setComponent }: Props) {
   const [groomPhotoIndex, setGroomPhotoIndex] = useState(0);
   const [bridePhotoIndex, setBridePhotoIndex] = useState(0);
 
-  // Update the useEffect to cycle through photos
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setGroomPhotoIndex((prev) => (prev + 1) % GROOM_PHOTOS.length);
-      setBridePhotoIndex((prev) => (prev + 1) % BRIDE_PHOTOS.length);
-    }, 5000); // Changed to 5 seconds
-
-    return () => clearInterval(intervalId);
-  }, []);
-
   // TODO: put speaker emoji and music https://www.youtube.com/watch?v=yHXB9lk93Ts
   const [isVisible, setIsVisible] = useState(false);
   // const refEl = useRef(null);
-  // TODO: 상태를 5개로 아래와 같이 바꿔야 함
+  // TODO: 상태를 5개의 경우의 수로 설정
   // function Main({ setComponent }: Props) {
   //   // 상태를 5개의 경우의 수로 설정
   //   const [status, setStatus] = useState(0); // 0부터 4까지의 값을 가질 수 있는 상태
@@ -142,7 +132,15 @@ function Main({ setComponent }: Props) {
     const checkPosition = () => {
       if (refEl.current) {
         const { top } = refEl.current.getBoundingClientRect();
-        setIsVisible((prev) => prev || top < window.innerHeight - 150); // Adjust -150 for earlier visibility
+        const isVisible = top < window.innerHeight - 150;
+
+        if (isVisible) {
+          // Reset photo indices when section becomes visible
+          setGroomPhotoIndex(0);
+          setBridePhotoIndex(0);
+        }
+
+        setIsVisible(isVisible);
       }
     };
 
@@ -155,18 +153,17 @@ function Main({ setComponent }: Props) {
     return () => clearInterval(interval);
   }, []);
 
-  // const checkScrollPosition = () => {
-  //   if (refEl.current) {
-  //     const { offsetTop } = refEl.current;
-  //     const scrollPosition = window.innerHeight;
+  // Update the useEffect for photo cycling to only start when section is visible
+  useEffect(() => {
+    if (!isVisible) return; // Don't start cycling if section is not visible
 
-  //     if (scrollPosition >= offsetTop + 12314700) {
-  //       setIsVisible(true);
-  //     } else {
-  //       setIsVisible(false);
-  //     }
-  //   }
-  // };
+    const intervalId = setInterval(() => {
+      setGroomPhotoIndex((prev) => (prev + 1) % GROOM_PHOTOS.length);
+      setBridePhotoIndex((prev) => (prev + 1) % BRIDE_PHOTOS.length);
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [isVisible]);
 
   const onClickCopy = async (text: string) => {
     try {
@@ -1212,7 +1209,7 @@ const InterviewImage = styled.div`
   z-index: 0;
 
   &:hover {
-    transform: scale(1.02);
+    transform: none;
   }
 `;
 
