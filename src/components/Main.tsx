@@ -935,47 +935,22 @@ function Main({ setComponent }: Props) {
             </AccountWrapper>
           </div>
         </DescriptionWrapper>
-        <LastImgWrapper style={{ backgroundImage: `url(${image45})` }}>
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100px",
-              // background:
-              //   // "linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent)",
-              //   "linear-gradient(to bottom,rgba(255, 255, 255, 0.7) 0%,rgb(255, 255, 255, 0) 20%)",
-              transition: "opacity 0.3s ease",
-            }}
-          />
-          {/* <div
-            style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100px",
-              background:
-                "linear-gradient(to bottom, rgba(255, 255, 255, 0.5), transparent)",
-              transition: "opacity 0.3s ease",
-            }}
-          /> */}
+        <LastImgWrapper>
           <span
             style={{
               color: "white",
               zIndex: 200,
+              position: "relative",
+              display: "block",
+              marginTop: "40%",
+              textAlign: "right",
+              width: "100%",
             }}
           >
-            <br />
-            <br />
-            <br />
-            <br />
             저희의 새로운 시작을 축하해주시는
             <br />
             모든 분들께 감사드립니다.
           </span>
-          <Dimmed></Dimmed>
         </LastImgWrapper>
       </ContentWrapper>
 
@@ -1113,24 +1088,34 @@ const Dimmed = styled.div`
 `;
 
 const LastImgWrapper = styled.div`
-  width: 100vw;
+  width: 100%;
   max-width: 600px;
   height: calc(min(100vw, 600px) * 0.6667);
   position: relative;
-  background-size: contain;
+  background-image: url(${image45});
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
+  text-align: center;
   color: white;
   font-size: 18px;
-  text-align: center;
   line-height: 1.8;
+  padding: 0 20px;
+  box-sizing: border-box;
+  margin: 0 auto;
 
-  @media only screen and (max-width: 380px) {
-    font-size: 17px;
-    line-height: 1.7;
+  span {
+    color: white;
+    z-index: 200;
+    position: relative;
+    display: block;
+    margintop: "40%";
+    textalign: "right";
+    width: "100%";
   }
 `;
 
@@ -1198,7 +1183,7 @@ const Wrappper = styled.div`
   background-color: #f2eeee;
   width: 100vw;
   position: relative;
-  padding-bottom: 55px;
+  padding-bottom: 40px;
 `;
 
 const ContentWrapper = styled.div`
