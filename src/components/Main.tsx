@@ -942,9 +942,11 @@ function Main({ setComponent }: Props) {
               zIndex: 200,
               position: "relative",
               display: "block",
-              marginTop: "40%",
+              marginTop: "50%",
               textAlign: "right",
               width: "100%",
+              fontSize: "25px",
+              lineHeight: "1.8",
             }}
           >
             저희의 새로운 시작을 축하해주시는
@@ -1108,14 +1110,20 @@ const LastImgWrapper = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
 
+  @font-face {
+    font-family: "IncheonEducationJaram";
+    src: url("/fonts/IncheonEducationJaram.ttf") format("truetype");
+  }
+
   span {
     color: white;
     z-index: 200;
     position: relative;
     display: block;
-    margintop: "40%";
+    margintop: "50%";
     textalign: "right";
     width: "100%";
+    font-family: "IncheonEducationJaram", serif;
   }
 `;
 

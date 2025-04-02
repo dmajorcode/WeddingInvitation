@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: "IncheonEducationJaram";
+  src: url("../public/fonts/IncheonEducationJaram.ttf");
+}
+
+@font-face {
   font-family: "Cafe24Behappy";
   src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/Cafe24Behappy.woff2")
     format("woff2");
