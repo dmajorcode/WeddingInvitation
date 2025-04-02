@@ -426,7 +426,7 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            padding: "80px 20px",
+            padding: "40px 20px",
             background:
               "linear-gradient(to bottom, rgb(247, 247, 247) 0%, #ffffff 5%)",
           }}
@@ -529,11 +529,11 @@ function Main({ setComponent }: Props) {
                 paddingLeft: "23px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
             >
-              <Marker style={{ fontSize: "15px" }}>𒊹</Marker>네비게이션에
+              <Marker style={{ fontSize: "10px" }}>𒊹</Marker>네비게이션에
               "서울동부지방법원" 검색
             </Li>
             <Li>
-              <Marker style={{ fontSize: "15px" }}>𒊹</Marker>지상주차장 무료주차
+              <Marker style={{ fontSize: "10px" }}>𒊹</Marker>지상주차장 무료주차
             </Li>
           </NaviWrapper>
           <NaviWrapper>
@@ -1152,13 +1152,13 @@ const InterviewImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 20px;
+  border-radius: 15px;
   width: 100%;
   height: 100%;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  transition: opacity 2s ease-in-out;
+  transition: all 0.3s ease-in-out;
 `;
 
 const TitleImageTitle = styled.div`
@@ -1479,7 +1479,7 @@ const Li = styled.li`
 `;
 
 const Marker = styled.span`
-  font-size: 10px;
+  font-size: 8px;
   color: #555555;
   margin-right: 6px;
   font-family: Pretendard;
@@ -1682,7 +1682,7 @@ const DescriptionLi = styled.li`
 `;
 
 const DescriptionMarker = styled.span`
-  font-size: 10px;
+  font-size: 8px;
   color: #555555;
   margin-right: 6px;
   font-family: Pretendard;
