@@ -944,9 +944,9 @@ function Main({ setComponent }: Props) {
               marginBottom: "20px",
               textAlign: "center",
               width: "100%",
-              fontSize: "20px",
+              fontSize: "90%",
               lineHeight: "1.8",
-              paddingBottom: "40px",
+              paddingBottom: "3%",
             }}
           >
             저희의 새로운 시작을 축하해주시는
@@ -1084,7 +1084,7 @@ const BottomBar = styled.div`
 `;
 
 const Dimmed = styled.div`
-  background-color: rgba(0, 0, 0, 0.35);
+  background-color: rgba(0, 0, 0, 0.27);
   width: 100%;
   height: 100%;
   position: absolute;
