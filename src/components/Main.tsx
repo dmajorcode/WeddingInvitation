@@ -695,7 +695,7 @@ function Main({ setComponent }: Props) {
               <span
                 style={{
                   position: "absolute",
-                  left: "50%",
+                  left: "48%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
                   whiteSpace: "nowrap",
@@ -830,7 +830,7 @@ function Main({ setComponent }: Props) {
               <span
                 style={{
                   position: "absolute",
-                  left: "50%",
+                  left: "48%",
                   transform: "translateX(-50%)",
                   pointerEvents: "none",
                   whiteSpace: "nowrap",
