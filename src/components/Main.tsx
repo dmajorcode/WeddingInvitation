@@ -190,7 +190,8 @@ function Main({ setComponent }: Props) {
   const onClickLink = async () => {
     try {
       await navigator.clipboard.writeText("https://always-summer.vercel.app");
-      alert(`청첩장 링크가 복사되었습니다.`);
+      setCopiedText("청첩장 링크");
+      setCopyPopupOpen(true);
     } catch (err) {
       console.error(err);
     }
@@ -968,7 +969,9 @@ function Main({ setComponent }: Props) {
           style={{ textAlign: "center", padding: "16px 0 24px 0" }}
         >
           <Typography style={{ fontSize: "16px", color: "#666666" }}>
-            복사가 완료되었습니다.
+            {copiedText === "청첩장 링크"
+              ? "링크가 복사되었습니다."
+              : "복사가 완료되었습니다."}
           </Typography>
         </DialogContent>
         <DialogActions
