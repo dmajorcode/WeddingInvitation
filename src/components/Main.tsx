@@ -564,7 +564,7 @@ function Main({ setComponent }: Props) {
                 whiteSpace: "normal",
                 wordBreak: "break-word",
                 textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "23px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
             >
               <Marker style={{ fontSize: "10px" }}>𒊹</Marker>네비게이션에
@@ -597,7 +597,8 @@ function Main({ setComponent }: Props) {
                 gap: "2px", // ✅ 아이콘과 텍스트 사이 최소 간격 유지
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                paddingLeft: "2px",
+                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
+                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
                 fontWeight: "490", // 글씨를 bold로 처리
               }}
             >
@@ -610,7 +611,7 @@ function Main({ setComponent }: Props) {
                 whiteSpace: "normal",
                 wordBreak: "break-word",
                 textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "23px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
             >
               <Marker style={{ color: "green", fontSize: "15px" }}>𒊹</Marker>
@@ -623,7 +624,7 @@ function Main({ setComponent }: Props) {
                 whiteSpace: "normal",
                 wordBreak: "break-word",
                 textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "23px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
             >
               <Marker style={{ color: "blue", fontSize: "15px" }}>𒊹</Marker>
@@ -637,7 +638,7 @@ function Main({ setComponent }: Props) {
                 whiteSpace: "normal",
                 wordBreak: "break-word",
                 textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "23px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
             >
               <Marker style={{ color: "green", fontSize: "15px" }}>𒊹</Marker>
@@ -663,6 +664,8 @@ function Main({ setComponent }: Props) {
                 display: "block",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
+                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
+                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
               }}
             >
               <Marker style={{ color: "green", fontSize: "15px" }}>𒊹</Marker>
@@ -810,9 +813,9 @@ function Main({ setComponent }: Props) {
                         marginRight: "0",
                       }}
                     >
-                      {/* <FileCopyIcon sx={{ fontSize: 18, fill: "gray" }} /> */}
-                      <FileCopyOutlinedIcon
-                        sx={{ fontSize: 18, fill: "gray" }}
+                      {/* <FileCopyOutlinedIcon */}
+                      <FileCopyIcon
+                        sx={{ fontSize: 18, fill: "rgb(185, 185, 185)" }}
                         color="action"
                       />
                     </IconButton>
@@ -949,7 +952,9 @@ function Main({ setComponent }: Props) {
                         marginRight: "0",
                       }}
                     >
-                      <FileCopyIcon sx={{ fontSize: 18, fill: "gray" }} />
+                      <FileCopyIcon
+                        sx={{ fontSize: 18, fill: "rgb(185, 185, 185)" }}
+                      />
                     </IconButton>
                     {info.name}
                   </AccountOwner>
