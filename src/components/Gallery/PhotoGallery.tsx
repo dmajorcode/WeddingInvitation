@@ -5,6 +5,14 @@ import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import images from "./Images.ts";
 
+const NoDragImage = styled.img`
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+`;
+
 const PhotoGallery = () => {
   const [isMoreView, setIsMoreView] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -169,7 +177,7 @@ const PhotoGallery = () => {
       >
         {images.map((image, index) => (
           <div key={index} className="image-container">
-            <img
+            <NoDragImage
               loading="lazy"
               style={smallItemStyles}
               alt={image.alt}
@@ -211,10 +219,11 @@ const PhotoGallery = () => {
                   <div className="loading-spinner" />
                 </LoadingPlaceholder>
               )}
-              <img
+              <NoDragImage
                 ref={imageRef}
                 src={selectedImage}
                 alt="Selected"
+                draggable={false}
                 style={{
                   maxWidth: "100%",
                   maxHeight: "100%",
