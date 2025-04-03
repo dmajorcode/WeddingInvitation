@@ -192,8 +192,8 @@ const PhotoGallery = () => {
                 // borderRadius: "8px", // 둥근 모서리 추가 가능
                 // cursor: "pointer",
                 objectFit: "cover",
-                width: "min(32vw, 190px)",
-                height: "min(32vw, 190px)",
+                width: "min(30vw, 11.87rem)",
+                height: "min(30vw, 11.87rem)",
                 borderRadius: "2%",
                 transition: "all 0.3s ease",
               }}
