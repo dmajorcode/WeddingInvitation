@@ -383,7 +383,7 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            padding: "100px 22px 80px 22px",
+            padding: "100px 22px",
             background:
               "linear-gradient(to bottom, #f9f9f9 0%,rgb(247, 247, 247) 5%)",
           }}
@@ -464,7 +464,7 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            // padding: "40px 20px",
+            padding: "40px 20px",
             background:
               "linear-gradient(to bottom, rgb(247, 247, 247) 0%, #ffffff 5%)",
           }}
@@ -488,7 +488,7 @@ function Main({ setComponent }: Props) {
           <img
             src={CalendarPic}
             alt="캘린더"
-            style={{ width: "91%", maxWidth: "445px", marginTop: "32px" }}
+            style={{ width: "91%", maxWidth: "445px", marginTop: "35px" }}
           />
         </DescriptionWrapper>
         <DescriptionWrapper
@@ -717,7 +717,7 @@ function Main({ setComponent }: Props) {
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "space-between",
+                justifyContent: "center",
                 fontSize: "16px",
                 fontWeight: "500",
                 boxShadow: openGroomAccount
@@ -815,7 +815,7 @@ function Main({ setComponent }: Props) {
                       }}
                     >
                       <FileCopyIcon
-                        sx={{ fontSize: 18, fill: "rgb(185, 185, 185)" }}
+                        sx={{ fontSize: 16, fill: "rgb(166, 166, 166)" }}
                         color="action"
                       />
                     </IconButton>
@@ -857,7 +857,7 @@ function Main({ setComponent }: Props) {
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
-                justifyContent: "space-between",
+                justifyContent: "center",
                 fontSize: "16px",
                 fontWeight: "500",
                 boxShadow: openBrideccount
@@ -950,7 +950,7 @@ function Main({ setComponent }: Props) {
                       }}
                     >
                       <FileCopyIcon
-                        sx={{ fontSize: 18, fill: "rgb(185, 185, 185)" }}
+                        sx={{ fontSize: 16, fill: "rgb(166, 166, 166)" }}
                       />
                     </IconButton>
                     {info.name}
@@ -1478,7 +1478,7 @@ const AButton = styled.a`
 
 const TabButton = styled.div`
   border: 1px solid gray;
-  width: 280px;
+  width: 100%;
   height: 45px;
   display: flex;
   align-items: center;
@@ -1488,6 +1488,7 @@ const TabButton = styled.div`
   color: white;
   border-radius: 6px;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  position: relative;
 `;
 
 const NaviWrapper = styled.div`
