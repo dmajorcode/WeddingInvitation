@@ -801,7 +801,7 @@ function Main({ setComponent }: Props) {
                       }}
                     >
                       <FileCopyIcon
-                        sx={{ fontSize: 16, fill: "rgb(166, 166, 166)" }}
+                        sx={{ fontSize: 14, fill: "rgb(166, 166, 166)" }}
                         color="action"
                       />
                     </IconButton>
@@ -936,7 +936,7 @@ function Main({ setComponent }: Props) {
                       }}
                     >
                       <FileCopyIcon
-                        sx={{ fontSize: 16, fill: "rgb(166, 166, 166)" }}
+                        sx={{ fontSize: 14, fill: "rgb(166, 166, 166)" }}
                       />
                     </IconButton>
                     {info.name}
