@@ -12,6 +12,11 @@ const NoDragImage = styled.img`
   -webkit-tap-highlight-color: transparent;
   touch-action: none;
   pointer-events: auto;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
 `;
 
 const PhotoGallery = () => {
@@ -172,7 +177,17 @@ const PhotoGallery = () => {
         }}
       >
         {images.map((image, index) => (
-          <div key={index} className="image-container">
+          <div
+            key={index}
+            className="image-container"
+            style={{
+              userSelect: "none",
+              WebkitUserSelect: "none",
+              WebkitTouchCallout: "none",
+              WebkitTapHighlightColor: "transparent",
+              pointerEvents: "auto",
+            }}
+          >
             <NoDragImage
               loading="lazy"
               style={smallItemStyles}

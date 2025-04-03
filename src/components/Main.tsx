@@ -492,10 +492,16 @@ function Main({ setComponent }: Props) {
           <img
             src={CalendarPic}
             alt="캘린더"
+            draggable={false}
             style={{
               width: "91%",
               maxWidth: "27.8125rem",
               marginTop: "2.1875rem",
+              userSelect: "none",
+              WebkitUserSelect: "none",
+              WebkitTouchCallout: "none",
+              WebkitTapHighlightColor: "transparent",
+              pointerEvents: "none",
             }}
           />
         </DescriptionWrapper>
