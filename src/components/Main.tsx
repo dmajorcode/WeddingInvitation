@@ -266,7 +266,7 @@ function Main({ setComponent }: Props) {
                 alt="Heart"
                 style={{ width: "20px", height: "20px", margin: "0 10px" }}
               />
-              강다은 테스트
+              강다은 (테스트 사이트)
             </TopName>
           </Parent>
           <TitleDescription>
