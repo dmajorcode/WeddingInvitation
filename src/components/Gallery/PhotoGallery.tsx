@@ -523,6 +523,7 @@ const CloseButton = styled.button`
   svg {
     font-size: 32px;
     color: white;
+    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
   }
 
   @media (max-width: 768px) {
@@ -534,6 +535,7 @@ const CloseButton = styled.button`
     svg {
       font-size: 28px;
       color: white;
+      filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
     }
   }
 `;
