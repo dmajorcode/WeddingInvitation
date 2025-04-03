@@ -487,8 +487,9 @@ const NavButton = styled.button`
   }
 
   svg {
-    font-size: 24px;
-    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
+    font-size: clamp(16px, 3vw, 24px)
+    color: rgba(226, 226, 226, 0.59);
+    filter: drop-shadow(0 0 4px rgba(226, 226, 226, 0.51));
   }
 
   @media (max-width: 768px) {
