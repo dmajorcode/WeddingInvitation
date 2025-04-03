@@ -1,7 +1,7 @@
-import { useEffect, useRef } from 'react';
-import styled from 'styled-components';
-import { useOutsideClick } from '../hooks/useOutsideClick';
-import { INFORMATION } from '../value';
+import { useRef } from "react";
+import styled from "styled-components";
+import { useOutsideClick } from "../hooks/useOutsideClick";
+import { INFORMATION } from "../value";
 
 interface Props {
   setComponent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
@@ -28,7 +28,7 @@ const PhoneModal = ({ setComponent }: Props) => {
       <CloseButton onClick={() => setComponent(null)}>
         <i
           className="fa fa-times"
-          style={{ color: 'white' }}
+          style={{ color: "white" }}
           aria-hidden="true"
         ></i>
       </CloseButton>
@@ -39,7 +39,7 @@ const PhoneModal = ({ setComponent }: Props) => {
           <ContentWrapper key={info.name}>
             <Content>{info.title}</Content>
             <Name>{info.name}</Name>
-            <Content style={{ marginLeft: '16px' }}>
+            <Content style={{ marginLeft: "16px" }}>
               <Icon
                 className="fa fa-phone"
                 onClick={() => onClickPhone(info.phoneNumber)}
@@ -49,21 +49,21 @@ const PhoneModal = ({ setComponent }: Props) => {
               <Icon
                 className="fa fa-envelope"
                 onClick={() => onClickMessage(info.phoneNumber)}
-                style={{ transform: 'none' }}
+                style={{ transform: "none" }}
               ></Icon>
             </Content>
           </ContentWrapper>
         ))}
       </Wrapper>
       <Wrapper>
-        <Title style={{ color: '#a25364', borderBottom: '2px solid #e3cfd3' }}>
+        <Title style={{ color: "#a25364", borderBottom: "2px solid #e3cfd3" }}>
           신부측
         </Title>
         {INFORMATION.bride.map((info) => (
           <ContentWrapper key={info.name}>
             <Content>{info.title}</Content>
             <Name>{info.name}</Name>
-            <Content style={{ marginLeft: '16px' }}>
+            <Content style={{ marginLeft: "16px" }}>
               <Icon
                 className="fa fa-phone"
                 onClick={() => onClickPhone(info.phoneNumber)}
@@ -73,7 +73,7 @@ const PhoneModal = ({ setComponent }: Props) => {
               <Icon
                 className="fa fa-envelope"
                 onClick={() => onClickMessage(info.phoneNumber)}
-                style={{ transform: 'none' }}
+                style={{ transform: "none" }}
               ></Icon>
             </Content>
           </ContentWrapper>

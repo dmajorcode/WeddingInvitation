@@ -1,60 +1,41 @@
 import styled from "styled-components";
 import CalendarPic from "/images/calendar3.jpg";
-import CalendarBackground from "/images/calendarBackground.jpg";
-import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 // import FloatingBar from './../components/FloatingBar';
-import { useEffect, useRef, useState, lazy } from "react";
-import { useSearchParams } from "react-router-dom";
 import {
-  Typography,
-  IconButton,
-  Tooltip,
   Dialog,
-  DialogTitle,
-  DialogContent,
   DialogActions,
+  DialogContent,
+  IconButton,
   Button as MuiButton,
+  Typography,
 } from "@mui/material";
-import Snowfall from "react-snowfall";
+import { lazy, useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import ManPic from "/images/man.jpg";
 import WomanPic from "/images/woman.jpg";
 
 import BoyPic1 from "/images/boy1.jpg";
-import GirlPic1 from "/images/girl1.jpg";
 import BoyPic2 from "/images/boy2.jpg";
-import GirlPic2 from "/images/girl2.jpg";
 import BoyPic3 from "/images/boy3.jpg";
-import GirlPic3 from "/images/girl3.jpg";
 import BoyPic4 from "/images/boy4.jpg";
+import GirlPic1 from "/images/girl1.jpg";
+import GirlPic2 from "/images/girl2.jpg";
+import GirlPic3 from "/images/girl3.jpg";
 import GirlPic4 from "/images/girl4.jpg";
 
-import MainPic from "/images/main7.jpg";
-import ProgressiveImg from "./ProgressiveImg";
-import High from "/images/high.jpg";
-import TossIcon from "/images/toss.jpg";
-import KakaoMapIcon from "/images/kakaoMap.png";
-import NaverMapIcon from "/images/naverMap.png";
-import Heart from "/images/heart.png";
-import TMavIcon from "/images/tmap.png";
-import KakayPayIcon from "/images/kakaopay.png";
-import SunFlower from "/images/sunflower1.png";
-import SunFlower2 from "/images/sunflower2.png";
-import SunFlower3 from "/images/sunflower3.png";
-import image45 from "/images/image45.jpg";
-import Hall from "/images/food2.jpg";
-import Hall2 from "/images/hall2.jpg";
-import Cursor from "/images/cursor.png";
-import PhoneModal from "./PhoneModal";
-import Map from "../Map";
-import LikeButton from "./LikeButton";
-import AttendModal from "./AttendModal";
-import { INFORMATION } from "../value";
-import BusMap from "/images/busMap.png";
-import ContentCopyOutlinedIcon from "@mui/icons-material/ContentCopyOutlined";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
-import FileCopyOutlinedIcon from "@mui/icons-material/FileCopyOutlined";
-import VolumeUpIcon from "@mui/icons-material/VolumeUp";
 import VolumeOffIcon from "@mui/icons-material/VolumeOff";
+import VolumeUpIcon from "@mui/icons-material/VolumeUp";
+import Map from "../Map";
+import { INFORMATION } from "../value";
+import AttendModal from "./AttendModal";
+import PhoneModal from "./PhoneModal";
+import ProgressiveImg from "./ProgressiveImg";
+import Heart from "/images/heart.png";
+import image45 from "/images/image45.jpg";
+import KakaoMapIcon from "/images/kakaoMap.png";
+import MainPic from "/images/main7.jpg";
+import NaverMapIcon from "/images/naverMap.png";
 
 interface Props {
   setComponent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
@@ -78,37 +59,6 @@ function Main({ setComponent }: Props) {
 
   // TODO: put speaker emoji and music https://www.youtube.com/watch?v=yHXB9lk93Ts
   const [isVisible, setIsVisible] = useState(false);
-  // const refEl = useRef(null);
-  // TODO: 상태를 5개의 경우의 수로 설정
-  // function Main({ setComponent }: Props) {
-  //   // 상태를 5개의 경우의 수로 설정
-  //   const [status, setStatus] = useState(0); // 0부터 4까지의 값을 가질 수 있는 상태
-
-  //   const changeStatus = () => {
-  //     setStatus((prev) => (prev + 1) % 5); // 0부터 4까지 순차적으로 변화
-  //   };
-
-  //   useEffect(() => {
-  //     // 상태를 주기적으로 변경
-  //     const intervalId = setInterval(() => {
-  //       changeStatus();
-  //     }, 4000); // 4초마다 상태 변경
-
-  //     return () => clearInterval(intervalId); // 정리 함수
-  //   }, []);
-
-  //   return (
-  //     <div>
-  //       <p>현재 상태: {status}</p>
-  //       {/* 상태에 따른 다른 내용을 렌더링 */}
-  //       {status === 0 && <div>상태 0의 내용</div>}
-  //       {status === 1 && <div>상태 1의 내용</div>}
-  //       {status === 2 && <div>상태 2의 내용</div>}
-  //       {status === 3 && <div>상태 3의 내용</div>}
-  //       {status === 4 && <div>상태 4의 내용</div>}
-  //     </div>
-  //   );
-  // }
 
   const childRef = useRef<{ triggerChildEvent: () => void }>(null);
 
@@ -245,7 +195,7 @@ function Main({ setComponent }: Props) {
           loop
         />
         <div style={{ position: "relative", display: "inline-block" }}>
-          <ProgressiveImg placeholderSrc={MainPic} src={High} />
+          <ProgressiveImg placeholderSrc={MainPic} />
         </div>
 
         <TitleImageTitle
@@ -677,6 +627,7 @@ function Main({ setComponent }: Props) {
                 gap: "0.125rem",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
+                textIndent: "-1.4375rem",
                 paddingLeft: "1.5625rem",
                 fontWeight: "490",
               }}

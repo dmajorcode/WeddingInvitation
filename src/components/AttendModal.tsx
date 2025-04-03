@@ -1,8 +1,8 @@
-import { ChangeEvent, useEffect, useRef, useState } from "react";
-import styled from "styled-components";
-import { useOutsideClick } from "../hooks/useOutsideClick";
 import { push, ref } from "firebase/database";
+import { ChangeEvent, useRef, useState } from "react";
+import styled from "styled-components";
 import { realtimeDb } from "../firebase";
+import { useOutsideClick } from "../hooks/useOutsideClick";
 
 interface Props {
   setComponent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
@@ -13,8 +13,6 @@ const AttendModal = ({ setComponent }: Props) => {
   const [isGroom, setIsGroom] = useState<boolean>(true);
   const [name, setName] = useState<string>();
   const [companionCount, setCompanionCount] = useState<string>("0");
-  // const [useBus, setUseBus] = useState<boolean>();
-  // const [isAgreed, setIsAgreed] = useState<boolean>(false);
 
   const elRef = useRef<HTMLDivElement>(null);
 
@@ -41,23 +39,12 @@ const AttendModal = ({ setComponent }: Props) => {
     setCompanionCount(e.target.value);
   };
 
-  // const isAgreedHandler = (e: ChangeEvent<HTMLInputElement>) => {
-  //   const { checked } = e.target;
-  //   setIsAgreed(checked);
-  // };
-
-  const useBusHandler = (e: ChangeEvent<HTMLInputElement>) => {
-    const _useBus = e.target.value === "true";
-    setUseBus(_useBus);
-  };
-
   const postAttendInfo = async () => {
     const inputData = {
       name,
       isAvailable,
       isGroom,
       companionCount: isAvailable ? companionCount : 0,
-      // useBus: isAvailable ? useBus : false,
       created_at: new Date().toISOString(),
     };
 
