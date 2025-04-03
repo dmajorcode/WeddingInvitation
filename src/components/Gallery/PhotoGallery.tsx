@@ -83,6 +83,11 @@ const PhotoGallery = () => {
     height: "min(32vw, 190px)",
     borderRadius: "2%",
     transition: "all 0.3s ease",
+    userSelect: "none",
+    WebkitUserSelect: "none",
+    WebkitTouchCallout: "none",
+    WebkitTapHighlightColor: "transparent",
+    pointerEvents: "auto",
   };
 
   const handleImageClick = (imageSource: string, index: number) => {
