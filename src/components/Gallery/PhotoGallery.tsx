@@ -174,6 +174,83 @@ const PhotoGallery = () => {
           </div>
         ))}
       </ImageWrapper>
+      {selectedImage && (
+        <ModalOverlay onClick={handleCloseModal}>
+          <ModalContent onClick={(e) => e.stopPropagation()}>
+            <TouchZone
+              onClick={(e) => {
+                e.stopPropagation();
+                const prevIndex =
+                  (currentIndex - 1 + images.length) % images.length;
+                setIsImageLoading(true);
+                const img = new Image();
+                img.onload = () => {
+                  setCurrentIndex(prevIndex);
+                  setSelectedImage(images[prevIndex].source);
+                };
+                img.src = images[prevIndex].source;
+              }}
+              style={{ left: 0 }}
+            >
+              <NavButton>
+                <ArrowBackIosNewIcon style={{ color: leftArrowColor }} />
+              </NavButton>
+            </TouchZone>
+            <ImageContainer
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onClick={handleCloseModal}
+            >
+              {isImageLoading && (
+                <LoadingPlaceholder>
+                  <div className="loading-spinner" />
+                </LoadingPlaceholder>
+              )}
+              <img
+                ref={imageRef}
+                src={selectedImage}
+                alt="Selected"
+                style={{
+                  maxWidth: "100%",
+                  maxHeight: "100%",
+                  width: "auto",
+                  height: "auto",
+                  objectFit: "contain",
+                  cursor: "pointer",
+                  userSelect: "none",
+                  WebkitTouchCallout: "none",
+                  WebkitUserSelect: "none",
+                  WebkitTapHighlightColor: "transparent",
+                  transform: "scale(1)",
+                  transformOrigin: "center",
+                  pointerEvents: "none",
+                  opacity: isImageLoading ? 0 : 1,
+                  transition: "opacity 0.3s ease",
+                }}
+                onLoad={handleImageLoad}
+              />
+            </ImageContainer>
+            <TouchZone
+              onClick={(e) => {
+                e.stopPropagation();
+                const nextIndex = (currentIndex + 1) % images.length;
+                setIsImageLoading(true);
+                const img = new Image();
+                img.onload = () => {
+                  setCurrentIndex(nextIndex);
+                  setSelectedImage(images[nextIndex].source);
+                };
+                img.src = images[nextIndex].source;
+              }}
+              style={{ right: 0 }}
+            >
+              <NavButton>
+                <ArrowForwardIosIcon style={{ color: rightArrowColor }} />
+              </NavButton>
+            </TouchZone>
+          </ModalContent>
+        </ModalOverlay>
+      )}
       {/* 기존 사진 위쪽 그라데이션 */}
       {!isMoreView && (
         <div
