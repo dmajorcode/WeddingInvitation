@@ -144,6 +144,7 @@ const PhotoGallery = () => {
         margin: 0,
       }}
     >
+      {/* 이미지 썸네일 컨테이너 */}
       <ImageWrapper
         $isMoreView={isMoreView}
         style={{
@@ -156,8 +157,9 @@ const PhotoGallery = () => {
           opacity: isMoreView ? 1 : 1,
           transition: "opacity 0.3s ease",
           boxSizing: "border-box",
-          margin: 0,
-          padding: 0,
+          margin: "0 auto" /* 중앙 정렬 */,
+          padding: "0",
+          marginBottom: "40px" /* 🟢 아래 여백 추가 */,
         }}
       >
         {images.map((image, index) => (
@@ -172,113 +174,33 @@ const PhotoGallery = () => {
           </div>
         ))}
       </ImageWrapper>
-
-      {selectedImage && (
-        <ModalOverlay onClick={handleCloseModal}>
-          <ModalContent onClick={(e) => e.stopPropagation()}>
-            <TouchZone
-              onClick={(e) => {
-                e.stopPropagation();
-                const prevIndex =
-                  (currentIndex - 1 + images.length) % images.length;
-                setIsImageLoading(true);
-                const img = new Image();
-                img.onload = () => {
-                  setCurrentIndex(prevIndex);
-                  setSelectedImage(images[prevIndex].source);
-                };
-                img.src = images[prevIndex].source;
-              }}
-              style={{ left: 0 }}
-            >
-              <NavButton>
-                <ArrowBackIosNewIcon style={{ color: leftArrowColor }} />
-              </NavButton>
-            </TouchZone>
-            <ImageContainer
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onClick={handleCloseModal}
-            >
-              {isImageLoading && (
-                <LoadingPlaceholder>
-                  <div className="loading-spinner" />
-                </LoadingPlaceholder>
-              )}
-              <img
-                ref={imageRef}
-                src={selectedImage}
-                alt="Selected"
-                style={{
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                  width: "auto",
-                  height: "auto",
-                  objectFit: "contain",
-                  cursor: "pointer",
-                  userSelect: "none",
-                  WebkitTouchCallout: "none",
-                  WebkitUserSelect: "none",
-                  WebkitTapHighlightColor: "transparent",
-                  transform: "scale(1)",
-                  transformOrigin: "center",
-                  pointerEvents: "none",
-                  opacity: isImageLoading ? 0 : 1,
-                  transition: "opacity 0.3s ease",
-                }}
-                onLoad={handleImageLoad}
-              />
-            </ImageContainer>
-            <TouchZone
-              onClick={(e) => {
-                e.stopPropagation();
-                const nextIndex = (currentIndex + 1) % images.length;
-                setIsImageLoading(true);
-                const img = new Image();
-                img.onload = () => {
-                  setCurrentIndex(nextIndex);
-                  setSelectedImage(images[nextIndex].source);
-                };
-                img.src = images[nextIndex].source;
-              }}
-              style={{ right: 0 }}
-            >
-              <NavButton>
-                <ArrowForwardIosIcon style={{ color: rightArrowColor }} />
-              </NavButton>
-            </TouchZone>
-          </ModalContent>
-        </ModalOverlay>
-      )}
-
       {/* 기존 사진 위쪽 그라데이션 */}
       {!isMoreView && (
         <div
           style={{
             position: "absolute",
-            bottom: "50px",
+            bottom: "60px" /* 🔹 기존보다 조금 아래로 조정 */,
             left: 0,
             right: 0,
-            height: "80px",
+            height: "90px" /* 🔹 그라데이션 크기 조정 */,
             background:
-              "linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%)",
-            zIndex: 2,
+              "linear-gradient(to bottom, rgba(255, 255, 255, 0) 2%, rgba(255, 255, 255, 1) 100%)",
+            zIndex: 2 /* 🔹 버튼보다 뒤쪽으로 */,
           }}
         />
       )}
 
-      {/* isMoreView가 false일 때만 보이도록 설정 */}
+      {/* 버튼 위쪽의 블러 효과 (그라데이션) */}
       {!isMoreView && (
         <div
           style={{
             position: "absolute",
-            bottom: 0,
+            bottom: "0px",
             left: 0,
             width: "100%",
             height: "100px",
-            background:
-              "linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent)",
             transition: "opacity 0.3s ease",
+            zIndex: 2 /* 🔹 버튼보다 뒤쪽으로 */,
           }}
         />
       )}
@@ -289,18 +211,19 @@ const PhotoGallery = () => {
           onClick={() => setIsMoreView(true)}
           style={{
             position: "absolute",
-            bottom: "0px",
+            bottom: "-10px",
             left: 0,
             width: "100%",
             backgroundColor: "#fff",
-            padding: "15px 0",
+            padding: "25px 0",
+            height: "70px",
             border: "none",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
             fontWeight: "bold",
             cursor: "pointer",
-            zIndex: 3,
+            zIndex: 3 /* 🔹 버튼이 가장 위 */,
           }}
         >
           <span style={{ display: "flex", alignItems: "center" }}>
@@ -310,6 +233,21 @@ const PhotoGallery = () => {
             />
           </span>
         </MoreButton>
+      )}
+
+      {/* 버튼 아래 흰색 영역 추가 */}
+      {!isMoreView && (
+        <div
+          style={{
+            position: "absolute",
+            bottom: "-50px",
+            left: 0,
+            width: "100%",
+            height: "50px",
+            backgroundColor: "#fff",
+            zIndex: 2 /* 🔹 버튼보다 아래 */,
+          }}
+        />
       )}
     </div>
   );
