@@ -6,11 +6,12 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import images from "./Images.ts";
 
 const NoDragImage = styled.img`
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: none;
+  pointer-events: auto;
 `;
 
 const PhotoGallery = () => {
@@ -91,11 +92,6 @@ const PhotoGallery = () => {
     height: "min(32vw, 190px)",
     borderRadius: "2%",
     transition: "all 0.3s ease",
-    userSelect: "none",
-    WebkitUserSelect: "none",
-    WebkitTouchCallout: "none",
-    WebkitTapHighlightColor: "transparent",
-    pointerEvents: "auto",
   };
 
   const handleImageClick = (imageSource: string, index: number) => {
@@ -183,6 +179,7 @@ const PhotoGallery = () => {
               alt={image.alt}
               src={image.thumbnail}
               onClick={() => handleImageClick(image.source, index)}
+              draggable={false}
             />
           </div>
         ))}
