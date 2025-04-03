@@ -182,13 +182,17 @@ const PhotoGallery = () => {
               pointerEvents: "auto",
             }}
           >
-            <NoDragImage
-              loading="lazy"
-              style={smallItemStyles}
-              alt={image.alt}
-              src={image.thumbnail}
+            <div
+              style={{
+                backgroundImage: `url(${image.thumbnail})`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+                width: "100px", // 이미지 크기에 맞게 조절
+                height: "100px",
+                borderRadius: "8px", // 둥근 모서리 추가 가능
+              }}
               onClick={() => handleImageClick(image.source, index)}
-              draggable={false}
+              onContextMenu={(e) => e.preventDefault()} // 우클릭 방지
             />
           </div>
         ))}
