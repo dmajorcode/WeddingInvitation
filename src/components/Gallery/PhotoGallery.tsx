@@ -3,6 +3,7 @@ import styled from "styled-components";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import CloseIcon from "@mui/icons-material/Close";
 import images from "./Images.ts";
 
 const NoDragImage = styled.img`
@@ -206,6 +207,14 @@ const PhotoGallery = () => {
       {selectedImage && (
         <ModalOverlay onClick={handleCloseModal}>
           <ModalContent onClick={(e) => e.stopPropagation()}>
+            <CloseButton onClick={handleCloseModal}>
+              <CloseIcon
+                sx={{
+                  width: "7vw",
+                  fill: "rgba(250, 250, 250, 0.86)",
+                }}
+              />
+            </CloseButton>
             <TouchZone
               onClick={(e) => {
                 e.stopPropagation();
@@ -488,6 +497,43 @@ const NavButton = styled.button`
 
     svg {
       font-size: 20px;
+    }
+  }
+`;
+
+const CloseButton = styled.button`
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1002;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  svg {
+    font-size: 32px;
+    color: white;
+  }
+
+  @media (max-width: 768px) {
+    top: 8px;
+    right: 8px;
+    width: 35px;
+    height: 35px;
+
+    svg {
+      font-size: 28px;
+      color: white;
     }
   }
 `;
