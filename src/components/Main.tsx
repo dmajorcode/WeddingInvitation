@@ -270,7 +270,7 @@ function Main({ setComponent }: Props) {
                   margin: "0 0.625rem",
                 }}
               />
-              강다은 (테스트 사이트)
+              강다은
             </TopName>
           </Parent>
           <TitleDescription>
