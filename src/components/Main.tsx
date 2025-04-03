@@ -536,7 +536,16 @@ function Main({ setComponent }: Props) {
               <Marker style={{ fontSize: "0.625rem" }}>𒊹</Marker>네비게이션에
               "서울동부지방법원" 검색
             </Li>
-            <Li>
+            <Li
+              style={{
+                marginBottom: "0.25rem",
+                display: "block",
+                whiteSpace: "normal",
+                wordBreak: "break-word",
+                textIndent: "-1.4375rem",
+                paddingLeft: "1.5625rem",
+              }}
+            >
               <Marker style={{ fontSize: "0.625rem" }}>𒊹</Marker>지상주차장
               무료주차
             </Li>
