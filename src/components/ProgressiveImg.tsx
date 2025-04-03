@@ -9,10 +9,16 @@ const ProgressiveImg = ({ placeholderSrc, src, ...props }: any) => {
       <img
         src={imgSrc}
         alt={props.alt || ""}
+        draggable={false}
         style={{
           width: "100%",
           height: "auto",
           display: "block",
+          userSelect: "none",
+          WebkitUserSelect: "none",
+          WebkitTouchCallout: "none",
+          WebkitTapHighlightColor: "transparent",
+          pointerEvents: "none",
         }}
       />
 
