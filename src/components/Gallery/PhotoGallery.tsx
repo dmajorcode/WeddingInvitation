@@ -10,13 +10,7 @@ const NoDragImage = styled.img`
   -webkit-user-select: none;
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
-  touch-action: none;
   pointer-events: auto;
-  -webkit-user-drag: none;
-  -khtml-user-drag: none;
-  -moz-user-drag: none;
-  -o-user-drag: none;
-  user-drag: none;
 `;
 
 const PhotoGallery = () => {
