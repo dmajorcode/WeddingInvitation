@@ -242,6 +242,7 @@ function Main({ setComponent }: Props) {
           src="/music/background-music.mp3"
           onEnded={handleMusicEnd}
           preload="auto"
+          loop
         />
         <div style={{ position: "relative", display: "inline-block" }}>
           <ProgressiveImg placeholderSrc={MainPic} src={High} />
