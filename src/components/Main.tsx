@@ -249,14 +249,14 @@ function Main({ setComponent }: Props) {
 
         <TitleImageTitle
           style={{
-            fontSize: "30px",
+            fontSize: "1.875rem",
           }}
         >
           {/* 정상진 그리고 강다은 */}
           {/* <br /> */}
         </TitleImageTitle>
         <DescriptionWrapper
-          style={{ padding: "50px 20px", backgroundColor: "#f9f9f9" }}
+          style={{ padding: "3.125rem 1.25rem", backgroundColor: "#f9f9f9" }}
         >
           <Parent>
             <TopName>
@@ -264,7 +264,11 @@ function Main({ setComponent }: Props) {
               <img
                 src={Heart}
                 alt="Heart"
-                style={{ width: "20px", height: "20px", margin: "0 10px" }}
+                style={{
+                  width: "1.25rem",
+                  height: "1.25rem",
+                  margin: "0 0.625rem",
+                }}
               />
               강다은 (테스트 사이트)
             </TopName>
@@ -281,9 +285,9 @@ function Main({ setComponent }: Props) {
         <DescriptionWrapper
           style={{
             backgroundColor: "#f9f9f9",
-            gap: "32px",
+            gap: "2rem",
             position: "relative",
-            paddingTop: "65px",
+            paddingTop: "4.0625rem",
           }}
         >
           <div>
@@ -332,11 +336,11 @@ function Main({ setComponent }: Props) {
             <span
               style={{
                 fontFamily: "MaruBuriBold",
-                fontSize: "19px",
-                marginLeft: "10px",
+                fontSize: "1.1875rem",
+                marginLeft: "0.625rem",
                 color: "#3b3b3b",
                 position: "relative",
-                bottom: "1px",
+                bottom: "0.0625rem",
               }}
             >
               상진
@@ -354,11 +358,11 @@ function Main({ setComponent }: Props) {
             <span
               style={{
                 fontFamily: "MaruBuriBold",
-                fontSize: "19px",
-                marginLeft: "10px",
+                fontSize: "1.1875rem",
+                marginLeft: "0.625rem",
                 color: "#3b3b3b",
                 position: "relative",
-                bottom: "1px",
+                bottom: "0.0625rem",
               }}
             >
               다은
@@ -374,8 +378,8 @@ function Main({ setComponent }: Props) {
               className="fa fa-phone"
               style={{
                 transform: "rotate(98deg)",
-                marginRight: "12px",
-                fontSize: "16px",
+                marginRight: "0.75rem",
+                fontSize: "1rem",
               }}
             ></i>
             전화로 축하 인사하기
@@ -383,7 +387,7 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            padding: "100px 22px",
+            padding: "6.25rem 1.375rem",
             background:
               "linear-gradient(to bottom, #f9f9f9 0%,rgb(247, 247, 247) 5%)",
           }}
@@ -412,14 +416,14 @@ function Main({ setComponent }: Props) {
               <p
                 style={{
                   textAlign: "center",
-                  margin: "16px 0",
-                  fontSize: "18px",
+                  margin: "1rem 0",
+                  fontSize: "1.125rem",
                 }}
               >
                 <span
                   style={{
-                    fontSize: "13px",
-                    marginRight: "6px",
+                    fontSize: "0.8125rem",
+                    marginRight: "0.375rem",
                     color: "#136198",
                   }}
                 >
@@ -444,14 +448,14 @@ function Main({ setComponent }: Props) {
               <p
                 style={{
                   textAlign: "center",
-                  margin: "16px 0",
-                  fontSize: "18px",
+                  margin: "1rem 0",
+                  fontSize: "1.125rem",
                 }}
               >
                 <span
                   style={{
-                    fontSize: "13px",
-                    marginRight: "6px",
+                    fontSize: "0.8125rem",
+                    marginRight: "0.375rem",
                     color: "#e05068",
                   }}
                 >
@@ -464,13 +468,13 @@ function Main({ setComponent }: Props) {
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
-            padding: "40px 20px",
+            padding: "2.5rem 1.25rem",
             background:
               "linear-gradient(to bottom, rgb(247, 247, 247) 0%, #ffffff 5%)",
           }}
         >
           <EnglishSubTitle>GALLERY</EnglishSubTitle>
-          <Title style={{ marginBottom: "40px" }}>우리의 순간</Title>
+          <Title style={{ marginBottom: "2.5rem" }}>우리의 순간</Title>
 
           <PhotoGallery />
         </DescriptionWrapper>
@@ -478,7 +482,7 @@ function Main({ setComponent }: Props) {
         <DescriptionWrapper
           style={{
             background: "linear-gradient(to bottom, #ffffff 0%, #f9f9f9 5%)",
-            paddingTop: "80px",
+            paddingTop: "5rem",
           }}
         >
           <EnglishSubTitle style={{ color: "#777777" }}>
@@ -488,13 +492,17 @@ function Main({ setComponent }: Props) {
           <img
             src={CalendarPic}
             alt="캘린더"
-            style={{ width: "91%", maxWidth: "445px", marginTop: "35px" }}
+            style={{
+              width: "91%",
+              maxWidth: "27.8125rem",
+              marginTop: "2.1875rem",
+            }}
           />
         </DescriptionWrapper>
         <DescriptionWrapper
           style={{
             backgroundColor: "#efefef",
-            gap: "36px",
+            gap: "2.25rem",
             position: "relative",
           }}
         >
@@ -518,8 +526,8 @@ function Main({ setComponent }: Props) {
               className="fa fa-calendar-check"
               aria-hidden="true"
               style={{
-                marginRight: "12px",
-                fontSize: "16px",
+                marginRight: "0.75rem",
+                fontSize: "1rem",
                 color: "white",
               }}
             ></i>
@@ -538,7 +546,7 @@ function Main({ setComponent }: Props) {
             <EnglishSubTitle>LOCATION</EnglishSubTitle>
             <Title>오시는 길</Title>
           </div>
-          <Description style={{ margin: "50px 0 24px" }}>
+          <Description style={{ margin: "3.125rem 0 1.5rem" }}>
             <Location>서울동부지방법원</Location>
             <br />
             <LocationDetail>
@@ -556,29 +564,32 @@ function Main({ setComponent }: Props) {
               네이버지도
             </MapIconItem>
           </MapIconsWrapper>
-          <NaviWrapper style={{ paddingTop: "30px" }}>
+          <NaviWrapper style={{ paddingTop: "1.875rem" }}>
             <NaviTitle>자가용 & 주차 안내</NaviTitle>
             <Li
               style={{
-                marginBottom: "4px",
-                display: "block", // ✅ 블록 요소로 변경하여 들여쓰기 가능하도록 수정
+                marginBottom: "0.25rem",
+                display: "block",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                textIndent: "-1.4375rem",
+                paddingLeft: "1.5625rem",
               }}
             >
-              <Marker style={{ fontSize: "10px" }}>𒊹</Marker>네비게이션에
+              <Marker style={{ fontSize: "0.625rem" }}>𒊹</Marker>네비게이션에
               "서울동부지방법원" 검색
             </Li>
             <Li>
-              <Marker style={{ fontSize: "10px" }}>𒊹</Marker>지상주차장 무료주차
+              <Marker style={{ fontSize: "0.625rem" }}>𒊹</Marker>지상주차장
+              무료주차
             </Li>
           </NaviWrapper>
           <NaviWrapper>
             <NaviTitle>지하철 안내</NaviTitle>
             <Li>
-              <Marker style={{ color: "hotpink", fontSize: "15px" }}>𒊹</Marker>
+              <Marker style={{ color: "hotpink", fontSize: "0.9375rem" }}>
+                𒊹
+              </Marker>
               8호선 문정역 3번 출구(도보 10분)
             </Li>
           </NaviWrapper>
@@ -593,14 +604,14 @@ function Main({ setComponent }: Props) {
 
             <Li
               style={{
-                display: "inline-flex", // ✅ 아이콘과 텍스트 간격 줄이기
+                display: "inline-flex",
                 alignItems: "center",
-                gap: "2px", // ✅ 아이콘과 텍스트 사이 최소 간격 유지
+                gap: "0.125rem",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
-                fontWeight: "490", // 글씨를 bold로 처리
+                textIndent: "-1.4375rem",
+                paddingLeft: "1.5625rem",
+                fontWeight: "490",
               }}
             >
               서울동부지방법원 앞 건영아파트 정류장
@@ -608,14 +619,16 @@ function Main({ setComponent }: Props) {
 
             <Li
               style={{
-                display: "block", // ✅ 블록 요소로 변경하여 들여쓰기 가능하도록 수정
+                display: "block",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                textIndent: "-1.4375rem",
+                paddingLeft: "1.5625rem",
               }}
             >
-              <Marker style={{ color: "green", fontSize: "15px" }}>𒊹</Marker>
+              <Marker style={{ color: "green", fontSize: "0.9375rem" }}>
+                𒊹
+              </Marker>
               일반버스 : 30, 31, 32, 119, 331
             </Li>
 
@@ -624,25 +637,29 @@ function Main({ setComponent }: Props) {
                 display: "block",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                textIndent: "-1.4375rem",
+                paddingLeft: "1.5625rem",
               }}
             >
-              <Marker style={{ color: "blue", fontSize: "15px" }}>𒊹</Marker>
+              <Marker style={{ color: "blue", fontSize: "0.9375rem" }}>
+                𒊹
+              </Marker>
               간선버스 : 302, 303, 320, 333, 343, 345, 350, 360
             </Li>
 
             <Li
               style={{
                 display: "block",
-                marginBottom: "12px",
+                marginBottom: "0.75rem",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                textIndent: "-1.4375rem",
+                paddingLeft: "1.5625rem",
               }}
             >
-              <Marker style={{ color: "green", fontSize: "15px" }}>𒊹</Marker>
+              <Marker style={{ color: "green", fontSize: "0.9375rem" }}>
+                𒊹
+              </Marker>
               지선버스 : 3322, 3420
             </Li>
 
@@ -650,11 +667,11 @@ function Main({ setComponent }: Props) {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "2px",
+                gap: "0.125rem",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                paddingLeft: "2px",
-                fontWeight: "490", // 글씨를 bold로 처리
+                paddingLeft: "1.5625rem",
+                fontWeight: "490",
               }}
             >
               서울동부지방법원 앞 정류장
@@ -665,11 +682,13 @@ function Main({ setComponent }: Props) {
                 display: "block",
                 whiteSpace: "normal",
                 wordBreak: "break-word",
-                textIndent: "-23px", // ✅ "-" 기호를 앞으로 당김
-                paddingLeft: "25px", // ✅ 첫 줄은 유지하고, 줄바꿈된 부분만 들여쓰기
+                textIndent: "-1.4375rem",
+                paddingLeft: "1.5625rem",
               }}
             >
-              <Marker style={{ color: "green", fontSize: "15px" }}>𒊹</Marker>
+              <Marker style={{ color: "green", fontSize: "0.9375rem" }}>
+                𒊹
+              </Marker>
               마을버스(녹색) : 송파02
             </Li>
           </NaviWrapper>
@@ -683,13 +702,13 @@ function Main({ setComponent }: Props) {
           <EnglishSubTitle>
             <i
               className="fa fa-heart"
-              style={{ color: "#ffa2a2", fontSize: "16px" }}
+              style={{ color: "#ffa2a2", fontSize: "1rem" }}
             ></i>
           </EnglishSubTitle>
           <Title>마음 전하실 곳</Title>
           <Description
             style={{
-              margin: "36px 0",
+              margin: "2.25rem 0",
             }}
           >
             참석하지 못하더라도 축복해주시는
@@ -712,19 +731,19 @@ function Main({ setComponent }: Props) {
                 transition: "all 0.3s ease",
                 border: "none",
                 width: "100%",
-                height: "50px",
-                borderRadius: "1px 1px 0 0",
+                height: "3.125rem",
+                borderRadius: "0.0625rem 0.0625rem 0 0",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                fontSize: "16px",
+                fontSize: "1rem",
                 fontWeight: "500",
                 boxShadow: openGroomAccount
-                  ? "-1px 0 3px rgba(0, 0, 0, 0.1), 1px 0 3px rgba(0, 0, 0, 0.1)"
-                  : "0 1px 3px rgba(0, 0, 0, 0.1)",
+                  ? "-0.0625rem 0 0.1875rem rgba(0, 0, 0, 0.1), 0.0625rem 0 0.1875rem rgba(0, 0, 0, 0.1)"
+                  : "0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1)",
                 margin: 0,
-                padding: "0 20px",
+                padding: "0 1.25rem",
                 position: "relative",
                 transform: "translateZ(0)",
                 WebkitTransform: "translateZ(0)",
@@ -751,7 +770,7 @@ function Main({ setComponent }: Props) {
               <i
                 className={`fa fa-chevron-${openGroomAccount ? "up" : "down"}`}
                 style={{
-                  fontSize: "14px",
+                  fontSize: "0.875rem",
                   marginLeft: "auto",
                   pointerEvents: "none",
                 }}
@@ -1095,10 +1114,10 @@ export default Main;
 const BottomBar = styled.div`
   position: fixed;
   bottom: 0;
-  height: 55px;
+  height: 3.5rem;
   width: 100%;
   background-color: #f2f2f2;
-  border-top: 1px solid #eaeaea;
+  border-top: 0.0625rem solid #eaeaea;
   display: flex;
   z-index: 400;
 
@@ -1106,24 +1125,24 @@ const BottomBar = styled.div`
     color: #444444;
     font-family: Pretendard;
     white-space: nowrap;
-    font-size: 16px;
+    font-size: 1rem;
     z-index: 450;
 
     @media only screen and (max-width: 380px) {
-      margin-right: 7px;
-      font-size: 15px;
+      margin-right: 0.4375rem;
+      font-size: 0.9375rem;
     }
   }
 
   & > button > i {
-    margin-right: 8px;
-    font-size: 15px;
+    margin-right: 0.5rem;
+    font-size: 0.9375rem;
     color: #444444;
     z-index: 450;
 
     @media only screen and (max-width: 380px) {
-      margin-right: 7px;
-      font-size: 14px;
+      margin-right: 0.4375rem;
+      font-size: 0.875rem;
     }
   }
 `;
@@ -1144,8 +1163,8 @@ const Dimmed = styled.div`
 
 const LastImgWrapper = styled.div`
   width: 100%;
-  max-width: 600px;
-  height: calc(min(100vw, 600px) * 0.6667);
+  max-width: 37.5rem;
+  height: calc(min(100vw, 37.5rem) * 0.6667);
   position: relative;
   background-image: url(${image45});
   background-size: cover;
@@ -1157,17 +1176,12 @@ const LastImgWrapper = styled.div`
   align-items: center;
   text-align: center;
   color: white;
-  font-size: 18px;
+  font-size: 1.125rem;
   line-height: 1.8;
-  padding: 0 20px;
+  padding: 0 1.25rem;
   box-sizing: border-box;
   margin: 0 auto;
-  margin-bottom: 55px;
-
-  @font-face {
-    font-family: "GowunBatang-Regular";
-    src: url("/fonts/GowunBatang-Regular.ttf") format("truetype");
-  }
+  margin-bottom: 3.4375rem;
 `;
 
 const InterviewWrapper = styled.div`
@@ -1177,26 +1191,25 @@ const InterviewWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 36px 0;
+  margin: 2.25rem 0;
 `;
 
 const Interview = styled.div`
   width: 100%;
-  font-size: 15.4px;
+  font-size: 0.9625rem;
   color: #555555;
   line-height: 1.8;
-
   word-break: break-all;
 
   @media only screen and (max-width: 390px) {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 `;
 
 const InterviewImageWrapper = styled.div`
   position: relative;
-  width: min(calc((100vw - 68px) / 2), 240px);
-  height: min(calc((100vw - 68px) / 2), 240px);
+  width: min(calc((100vw - 4.25rem) / 2), 15rem);
+  height: min(calc((100vw - 4.25rem) / 2), 15rem);
   margin: 0;
 `;
 
@@ -1204,7 +1217,7 @@ const InterviewImage = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  border-radius: 15px;
+  border-radius: 0.9375rem;
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -1222,18 +1235,18 @@ const InterviewImage = styled.div`
 const TitleImageTitle = styled.div`
   font-family: Cafe24Behappy, MaruBuriBold;
   color: #ffffff;
-  font-size: min(16vw, 85px);
+  font-size: min(16vw, 5.3125rem);
   position: absolute;
   z-index: 5;
-  top: 35px;
+  top: 2.1875rem;
   font-style: italic;
   line-height: 0.8;
   text-align: center;
   left: 50%;
   width: 100%;
   transform: translateX(-50%);
-  letter-spacing: 1px;
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.2);
+  letter-spacing: 0.0625rem;
+  text-shadow: 0.125rem 0.125rem 0.1875rem rgba(0, 0, 0, 0.2);
 `;
 
 const Wrappper = styled.div`
@@ -1246,7 +1259,7 @@ const Wrappper = styled.div`
 const ContentWrapper = styled.div`
   background-color: white;
   width: 100%;
-  max-width: 600px;
+  max-width: 37.5rem;
   line-height: 1.4rem;
   margin: 0 auto;
   display: flex;
@@ -1258,7 +1271,7 @@ const MainImage = styled.img`
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 450px;
+  min-height: 28.125rem;
 `;
 
 const DescriptionWrapper = styled.div`
@@ -1267,24 +1280,24 @@ const DescriptionWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 60px 20px;
+  padding: 3.75rem 1.25rem;
   overflow: hidden;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 
   @media only screen and (max-width: 445px) {
-    padding: 58px 18px;
+    padding: 3.625rem 1.125rem;
   }
 
   @media only screen and (max-width: 360px) {
-    padding: 55px 16px;
+    padding: 3.4375rem 1rem;
   }
 `;
 
 const Description = styled.p`
-  font-size: 18.5px;
-  line-height: 38px;
+  font-size: 1.15625rem;
+  line-height: 2.375rem;
   text-align: center;
   font-weight: bold;
   position: relative;
@@ -1293,123 +1306,123 @@ const Description = styled.p`
   color: #4e4e4e;
 
   @media only screen and (max-width: 445px) {
-    font-size: 17px;
-    line-height: 36px;
+    font-size: 1.0625rem;
+    line-height: 2.25rem;
   }
 
   @media only screen and (max-width: 360px) {
-    font-size: 16px;
-    line-height: 34px;
+    font-size: 1rem;
+    line-height: 2.125rem;
   }
 
   @media only screen and (max-width: 340px) {
-    font-size: 15px;
-    line-height: 32px;
+    font-size: 0.9375rem;
+    line-height: 2rem;
   }
 `;
 
 const Flower = styled.div`
-  width: 34px;
-  height: 34px;
+  width: 2.125rem;
+  height: 2.125rem;
   background-size: contain;
-  margin: 0 12px;
+  margin: 0 0.75rem;
 
   @media only screen and (max-width: 400px) {
-    width: 33px;
-    height: 33px;
+    width: 2.0625rem;
+    height: 2.0625rem;
   }
 
   @media only screen and (max-width: 360px) {
-    width: 32px;
-    height: 32px;
+    width: 2rem;
+    height: 2rem;
   }
 `;
 
 const TopName = styled(Description)`
-  font-size: 25px;
-  margin-bottom: 32px;
+  font-size: 1.5625rem;
+  margin-bottom: 2rem;
   color: #141414;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.03125rem;
   display: flex;
   align-items: center;
 
   @media only screen and (max-width: 445px) {
-    font-size: 22.5px;
+    font-size: 1.40625rem;
   }
 
   @media only screen and (max-width: 360px) {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
 
   @media only screen and (max-width: 340px) {
-    font-size: 21.5px;
+    font-size: 1.34375rem;
   }
 `;
 
 const TitleDescription = styled(Description)`
-  line-height: 33px;
-  font-size: 23px;
+  line-height: 2.0625rem;
+  font-size: 1.4375rem;
   color: #3a3a3a;
   font-family: "GowunBatang-Regular", serif;
 
   @media only screen and (max-width: 445px) {
-    font-size: 17px;
-    line-height: 32.5px;
+    font-size: 1.0625rem;
+    line-height: 2.03125rem;
   }
 
   @media only screen and (max-width: 360px) {
-    font-size: 16.5px;
-    line-height: 32px;
+    font-size: 1.03125rem;
+    line-height: 2rem;
   }
 
   @media only screen and (max-width: 340px) {
-    font-size: 16.2px;
-    line-height: 31.2px;
+    font-size: 1.0125rem;
+    line-height: 1.95rem;
   }
 `;
 
 const Title = styled.p`
   font-family: MaruBuriBold;
-  font-size: 23.5px;
+  font-size: 1.46875rem;
   font-weight: 500;
   color: #4d4d4d;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
   line-height: 1.8;
   text-align: center;
 
   @media only screen and (max-width: 445px) {
-    font-size: 23px;
+    font-size: 1.4375rem;
   }
 
   @media only screen and (max-width: 360px) {
-    font-size: 22px;
+    font-size: 1.375rem;
   }
 `;
 
 const EnglishSubTitle = styled.p`
   font-family: MaruburiLight;
-  font-size: 13px;
+  font-size: 0.8125rem;
   color: #b2b2b2;
-  letter-spacing: 3px;
+  letter-spacing: 0.1875rem;
   text-align: center;
-  padding-bottom: 12px;
+  padding-bottom: 0.75rem;
 
   @media only screen and (max-width: 445px) {
-    font-size: 12.5px;
-    padding-bottom: 11.5px;
+    font-size: 0.78125rem;
+    padding-bottom: 0.71875rem;
   }
 
   @media only screen and (max-width: 360px) {
-    font-size: 12.3px;
-    padding-bottom: 11px;
+    font-size: 0.76875rem;
+    padding-bottom: 0.6875rem;
   }
 `;
 
 const HR = styled.hr`
-  width: min(270px, 70%);
+  width: min(16.875rem, 70%);
   border: 0;
-  height: 1px;
-  border-width: 1px 0 0 0;
+  height: 0.0625rem;
+  border-width: 0.0625rem 0 0 0;
   border-style: solid;
   border-color: #d6d6d6;
 `;
@@ -1418,14 +1431,14 @@ const Gallery = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(8, 1fr);
-  gap: 10px;
+  gap: 0.625rem;
   max-width: 100%;
   margin: 0 auto;
 `;
 
 const GalleryItem = styled.div`
-  border: 2px solid #ddd;
-  border-radius: 8px;
+  border: 0.125rem solid #ddd;
+  border-radius: 0.5rem;
   overflow: hidden;
 `;
 
@@ -1439,18 +1452,18 @@ const GalleryItemImg = styled.img`
 const Button = styled.button`
   font-family: "Pretendard";
   background-color: rgba(255, 255, 255, 0.1);
-  letter-spacing: 0.5px;
-  width: min(300px, 85%);
-  height: 60px;
-  border: 1px solid #afafaf;
-  font-size: 17.5px;
-  border-radius: 10px;
+  letter-spacing: 0.03125rem;
+  width: min(18.75rem, 85%);
+  height: 3.75rem;
+  border: 0.0625rem solid #afafaf;
+  font-size: 1.09375rem;
+  border-radius: 0.625rem;
   cursor: pointer;
-  margin: 10px 0px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin: 0.625rem 0;
+  box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
 
   @media only screen and (max-width: 360px) {
-    font-size: 16px;
+    font-size: 1rem;
   }
 `;
 
@@ -1460,34 +1473,34 @@ const AButton = styled.a`
   align-items: center;
   font-family: "Pretendard";
   background-color: rgba(255, 255, 255, 0.1);
-  letter-spacing: 0.5px;
-  width: min(300px, 85%);
-  height: 60px;
-  border: 1px solid #afafaf;
-  font-size: 17.5px;
-  border-radius: 10px;
+  letter-spacing: 0.03125rem;
+  width: min(18.75rem, 85%);
+  height: 3.75rem;
+  border: 0.0625rem solid #afafaf;
+  font-size: 1.09375rem;
+  border-radius: 0.625rem;
   cursor: pointer;
-  margin: 10px 0px;
+  margin: 0.625rem 0;
   text-decoration: none;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
 
   @media only screen and (max-width: 360px) {
-    font-size: 16px;
+    font-size: 1rem;
   }
 `;
 
 const TabButton = styled.div`
-  border: 1px solid gray;
+  border: 0.0625rem solid gray;
   width: 100%;
-  height: 45px;
+  height: 2.8125rem;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   cursor: pointer;
   color: white;
-  border-radius: 6px;
-  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  border-radius: 0.375rem;
+  box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
   position: relative;
 `;
 
@@ -1495,57 +1508,57 @@ const NaviWrapper = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid lightgray;
-  padding: 35px 0;
+  border-bottom: 0.0625rem solid lightgray;
+  padding: 2.1875rem 0;
   overflow: visible;
 
   @media only screen and (max-width: 400px) {
-    padding: 33px 0;
+    padding: 2.0625rem 0;
   }
 `;
 
 const NaviTitle = styled.div`
-  font-size: 21px;
+  font-size: 1.3125rem;
   font-weight: 600;
-  margin-bottom: 18px;
+  margin-bottom: 1.125rem;
   font-family: "GowunBatang-Regular", serif;
 
   @media only screen and (max-width: 445px) {
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   @media only screen and (max-width: 360px) {
-    font-size: 19px;
+    font-size: 1.1875rem;
   }
 `;
 
 const Li = styled.li`
   list-style: none;
   font-family: Pretendard;
-  font-size: 17.5px;
+  font-size: 1.09375rem;
   line-height: 1.8;
   white-space: nowrap;
 
   @media only screen and (max-width: 445px) {
-    font-size: 17px;
+    font-size: 1.0625rem;
   }
 
   @media only screen and (max-width: 360px) {
-    font-size: 16.2px;
+    font-size: 1.0125rem;
   }
 
   @media only screen and (max-width: 340px) {
-    font-size: 15.2px;
+    font-size: 0.95rem;
   }
 `;
 
 const Marker = styled.span`
-  font-size: 8px;
+  font-size: 0.5rem;
   color: #555555;
-  margin-right: 6px;
+  margin-right: 0.375rem;
   font-family: Pretendard;
   position: relative;
-  bottom: 3px;
+  bottom: 0.1875rem;
 `;
 
 const AccountWrapper = styled.div`
@@ -1680,17 +1693,17 @@ const MapIconItem = styled.a`
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   font-family: Pretendard;
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
 
   @media only screen and (max-width: 380px) {
-    font-size: 15.5px;
+    font-size: 0.96875rem;
   }
 
   @media only screen and (max-width: 340px) {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 `;
 
@@ -1698,29 +1711,29 @@ const MapIconItemDiv = styled.div`
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   font-family: Pretendard;
-  font-size: 16px;
+  font-size: 1rem;
   text-decoration: none;
 
   @media only screen and (max-width: 380px) {
-    font-size: 15.5px;
+    font-size: 0.96875rem;
   }
 
   @media only screen and (max-width: 340px) {
-    font-size: 15px;
+    font-size: 0.9375rem;
   }
 `;
 
 const MapIconImage = styled.img`
-  border-radius: 4px;
+  border-radius: 0.25rem;
 `;
 
 const DescriptionItem = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 6.5px;
-  font-size: 15px;
+  gap: 0.40625rem;
+  font-size: 0.9375rem;
   font-family: Pretendard;
   line-height: 1.8;
   word-break: keep-all;
@@ -1731,32 +1744,32 @@ const DescriptionItem = styled.div`
 const DescriptionLi = styled.li`
   list-style: none;
   font-family: Pretendard;
-  font-size: 17px;
+  font-size: 1.0625rem;
 
   @media only screen and (max-width: 445px) {
-    font-size: 16.6px;
+    font-size: 1.0375rem;
   }
 
   @media only screen and (max-width: 360px) {
-    font-size: 16.2px;
+    font-size: 1.0125rem;
   }
 `;
 
 const DescriptionMarker = styled.span`
-  font-size: 8px;
+  font-size: 0.5rem;
   color: #555555;
-  margin-right: 6px;
+  margin-right: 0.375rem;
   font-family: Pretendard;
   position: relative;
-  bottom: 3px;
+  bottom: 0.1875rem;
 `;
 
 const SpeakerButton = styled.button`
   position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 40px;
-  height: 40px;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 50%;
   background-color: transparent;
   border: none;
@@ -1773,9 +1786,9 @@ const SpeakerButton = styled.button`
   }
 
   svg {
-    font-size: 24px;
+    font-size: 1.5rem;
     color: white !important;
-    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.3));
     fill: white !important;
   }
 `;
