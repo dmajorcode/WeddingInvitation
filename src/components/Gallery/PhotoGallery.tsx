@@ -12,6 +12,7 @@ const NoDragImage = styled.img`
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   pointer-events: auto;
+  -webkit-touch-callout: none;
 `;
 
 const SlideContainer = styled.div`
@@ -356,6 +357,8 @@ const PhotoGallery = () => {
                 src={selectedImage}
                 alt="Selected"
                 onLoad={handleImageLoad}
+                onContextMenu={(e) => e.preventDefault()} // 우클릭 방지
+                onTouchStart={(e) => e.preventDefault()} // 길게 눌렀을 때 저장 메뉴 방지
                 style={{
                   maxWidth: "100%",
                   maxHeight: "100%",
