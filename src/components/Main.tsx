@@ -933,24 +933,11 @@ function Main({ setComponent }: Props) {
           </div>
         </DescriptionWrapper>
         <LastImgWrapper>
-          <span
-            style={{
-              color: "rgba(211, 211, 211, 0.79)",
-              zIndex: 200,
-              position: "relative",
-              display: "block",
-              marginBottom: "20px",
-              textAlign: "center",
-              width: "100%",
-              fontSize: "95%",
-              lineHeight: "1.8",
-              paddingBottom: "5%",
-            }}
-          >
+          <ThankYouText>
             저희의 새로운 시작을 축하해주시는
             <br />
             모든 분들께 감사드립니다.
-          </span>
+          </ThankYouText>
           <Dimmed></Dimmed>
         </LastImgWrapper>
       </ContentWrapper>
@@ -1085,10 +1072,10 @@ const Dimmed = styled.div`
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 0%,
-    // rgba(0, 0, 0, 0.18) 63%,
-    // rgba(0, 0, 0, 0.32) 69%,
-    // rgba(0, 0, 0, 0.6) 88%,
-    rgba(0, 0, 0, 0.7) 100%
+    rgba(0, 0, 0, 0.29) 50%,
+    // rgba(0, 0, 0, 0.32) 60%,
+    rgba(0, 0, 0, 0.74) 80%,
+    rgba(0, 0, 0, 0.78) 100%
   );
   width: 100%;
   height: 100%;
@@ -1116,6 +1103,7 @@ const LastImgWrapper = styled.div`
   box-sizing: border-box;
   margin: 0 auto;
   margin-bottom: 3.4375rem;
+  overflow: hidden;
 `;
 
 const InterviewWrapper = styled.div`
@@ -1167,7 +1155,7 @@ const InterviewImage = styled.div`
 `;
 
 const TitleImageTitle = styled.div`
-  font-family: Cafe24Behappy, MaruBuriBold;
+  font-family: MaruBuriBold;
   color: #ffffff;
   font-size: min(16vw, 5.3125rem);
   position: absolute;
@@ -1607,5 +1595,28 @@ const SpeakerButton = styled.button`
     color: white !important;
     filter: drop-shadow(0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.3));
     fill: white !important;
+  }
+`;
+
+const ThankYouText = styled.span`
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  right: 0;
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 4vw;
+  line-height: 1.3;
+  font-family: "Nanum-Letter", serif;
+  color: rgba(211, 211, 211, 0.79);
+  z-index: 200;
+
+  @media (max-width: 480px) {
+    font-size: 6vw;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 3vw;
   }
 `;
