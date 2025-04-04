@@ -140,23 +140,6 @@ function Main({ setComponent }: Props) {
     }
   };
 
-  const onClickMapIcon = (platform: "NAVER" | "KAKAO" | "TMAP") => {
-    if (platform === "NAVER") {
-      window.location.href =
-        "https://m.map.naver.com/search2/search.naver?query=%EB%B3%B4%ED%85%8C%EA%B0%80%EB%A7%88%EC%A7%80%EC%98%A4#/map/1/31494641";
-    }
-  };
-
-  // 내비게이션 시작 함수
-  const startNavigation = () => {
-    window.Kakao.Navi.start({
-      name: "서울동부지방법원",
-      x: 37.48332,
-      y: 127.119668,
-      coordType: "wgs84",
-    });
-  };
-
   const [isMusicPlaying, setIsMusicPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
@@ -968,16 +951,16 @@ function Main({ setComponent }: Props) {
         <LastImgWrapper>
           <span
             style={{
-              color: "white",
+              color: "rgba(211, 211, 211, 0.79)",
               zIndex: 200,
               position: "relative",
               display: "block",
               marginBottom: "20px",
               textAlign: "center",
               width: "100%",
-              fontSize: "90%",
+              fontSize: "95%",
               lineHeight: "1.8",
-              paddingBottom: "2%",
+              paddingBottom: "5%",
             }}
           >
             저희의 새로운 시작을 축하해주시는
@@ -1118,9 +1101,9 @@ const Dimmed = styled.div`
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.18) 63%,
+    // rgba(0, 0, 0, 0.18) 63%,
     // rgba(0, 0, 0, 0.32) 69%,
-    rgba(0, 0, 0, 0.6) 88%,
+    // rgba(0, 0, 0, 0.6) 88%,
     rgba(0, 0, 0, 0.7) 100%
   );
   width: 100%;
@@ -1232,13 +1215,6 @@ const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-`;
-
-const MainImage = styled.img`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  min-height: 28.125rem;
 `;
 
 const DescriptionWrapper = styled.div`

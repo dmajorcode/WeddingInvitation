@@ -25,8 +25,13 @@ const PhotoGallery = () => {
     "rgba(255, 255, 255, 0.9)"
   );
   const touchStartX = useRef(0);
+  const touchStartY = useRef(0);
+  const isSwiping = useRef(false);
   const imageRef = useRef<HTMLImageElement>(null);
   const [isImageLoading, setIsImageLoading] = useState(false);
+  const [swipeDirection, setSwipeDirection] = useState<"left" | "right" | null>(
+    null
+  );
 
   const analyzeImageBrightness = (image: HTMLImageElement) => {
     const canvas = document.createElement("canvas");
@@ -115,17 +120,38 @@ const PhotoGallery = () => {
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    isSwiping.current = true;
+    setSwipeDirection(null);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (!selectedImage) return;
+    if (!selectedImage || !isSwiping.current) return;
 
     const touchEndX = e.touches[0].clientX;
-    const diff = touchStartX.current - touchEndX;
+    const touchEndY = e.touches[0].clientY;
+    const diffX = touchStartX.current - touchEndX;
+    const diffY = Math.abs(touchStartY.current - touchEndY);
 
-    if (Math.abs(diff) > 50) {
-      // Minimum swipe distance
-      if (diff > 0) {
+    // Only handle horizontal swipes if the vertical movement is minimal
+    if (diffY < 50) {
+      if (Math.abs(diffX) > 30) {
+        setSwipeDirection(diffX > 0 ? "left" : "right");
+      }
+    }
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (!selectedImage || !isSwiping.current) return;
+
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const diffX = touchStartX.current - touchEndX;
+    const diffY = Math.abs(touchStartY.current - touchEndY);
+
+    // Only process swipe if vertical movement is minimal
+    if (diffY < 50 && Math.abs(diffX) > 50) {
+      if (diffX > 0) {
         // Swipe left - next image
         const nextIndex = (currentIndex + 1) % images.length;
         setCurrentIndex(nextIndex);
@@ -137,7 +163,32 @@ const PhotoGallery = () => {
         setSelectedImage(images[prevIndex].source);
       }
     }
+
+    isSwiping.current = false;
+    setSwipeDirection(null);
   };
+
+  // Add keyboard navigation
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+
+      if (e.key === "ArrowLeft") {
+        const prevIndex = (currentIndex - 1 + images.length) % images.length;
+        setCurrentIndex(prevIndex);
+        setSelectedImage(images[prevIndex].source);
+      } else if (e.key === "ArrowRight") {
+        const nextIndex = (currentIndex + 1) % images.length;
+        setCurrentIndex(nextIndex);
+        setSelectedImage(images[nextIndex].source);
+      } else if (e.key === "Escape") {
+        handleCloseModal();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [selectedImage, currentIndex]);
 
   return (
     <div
@@ -237,7 +288,17 @@ const PhotoGallery = () => {
             <ImageContainer
               onTouchStart={handleTouchStart}
               onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
               onClick={handleCloseModal}
+              style={{
+                transform:
+                  swipeDirection === "left"
+                    ? "translateX(-10px)"
+                    : swipeDirection === "right"
+                    ? "translateX(10px)"
+                    : "none",
+                transition: "transform 0.2s ease-out",
+              }}
             >
               {isImageLoading && (
                 <LoadingPlaceholder>
