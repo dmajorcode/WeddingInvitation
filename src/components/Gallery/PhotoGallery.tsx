@@ -180,6 +180,8 @@ const PhotoGallery = () => {
     if (diffY < 50) {
       if (Math.abs(diffX) > 30) {
         setSwipeDirection(diffX > 0 ? "left" : "right");
+        // Set loading state when swipe is detected
+        setIsImageLoading(true);
       }
     }
   };
@@ -195,35 +197,43 @@ const PhotoGallery = () => {
     // Only process swipe if vertical movement is minimal
     if (diffY < 50 && Math.abs(diffX) > 50) {
       setIsTransitioning(true);
+      setIsImageLoading(true); // Ensure loading state is set
 
       if (diffX > 0) {
         // Swipe left - next image
-        const nextIndex = (currentIndex + 1) % images.length;
-        setCurrentIndex(nextIndex);
-        setSelectedImage(images[nextIndex].source);
+        const nextIdx = (currentIndex + 1) % images.length;
+        setCurrentIndex(nextIdx);
+        setSelectedImage(images[nextIdx].source);
       } else {
         // Swipe right - previous image
-        const prevIndex = (currentIndex - 1 + images.length) % images.length;
-        setCurrentIndex(prevIndex);
-        setSelectedImage(images[prevIndex].source);
+        const prevIdx = (currentIndex - 1 + images.length) % images.length;
+        setCurrentIndex(prevIdx);
+        setSelectedImage(images[prevIdx].source);
       }
 
+      // Reset transition state after a delay
       setTimeout(() => {
         setIsTransitioning(false);
       }, 300);
+
+      // Don't reset loading state here - it will be reset by the onLoad handler
+    } else {
+      // If swipe was cancelled, reset loading state
+      setIsImageLoading(false);
     }
 
     isSwiping.current = false;
     setSwipeDirection(null);
   };
 
-  // Update keyboard navigation to use instant transitions
+  // Update keyboard navigation to show loading state
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!selectedImage || isTransitioning) return;
 
       if (e.key === "ArrowLeft") {
         setIsTransitioning(true);
+        setIsImageLoading(true); // Set loading state when changing image
         const prevIndex = (currentIndex - 1 + images.length) % images.length;
         setCurrentIndex(prevIndex);
         setSelectedImage(images[prevIndex].source);
@@ -233,6 +243,7 @@ const PhotoGallery = () => {
         }, 300);
       } else if (e.key === "ArrowRight") {
         setIsTransitioning(true);
+        setIsImageLoading(true); // Set loading state when changing image
         const nextIndex = (currentIndex + 1) % images.length;
         setCurrentIndex(nextIndex);
         setSelectedImage(images[nextIndex].source);
@@ -269,6 +280,19 @@ const PhotoGallery = () => {
     } else {
       // For multi-touch or other gestures, prevent default
       e.preventDefault();
+    }
+  };
+
+  // Update handleSwipeImageLoad to be more reliable
+  const handleSwipeImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
+    const img = e.target as HTMLImageElement;
+    if (img.complete) {
+      setIsImageLoading(false);
+    } else {
+      setIsImageLoading(true);
+      img.onload = () => {
+        setIsImageLoading(false);
+      };
     }
   };
 
@@ -350,6 +374,7 @@ const PhotoGallery = () => {
                 if (isTransitioning) return;
 
                 setIsTransitioning(true);
+                setIsImageLoading(true); // Set loading state when changing image
                 const prevIdx =
                   (currentIndex - 1 + images.length) % images.length;
                 setCurrentIndex(prevIdx);
@@ -386,7 +411,7 @@ const PhotoGallery = () => {
                 ref={imageRef}
                 src={selectedImage}
                 alt=""
-                onLoad={handleImageLoad}
+                onLoad={handleSwipeImageLoad}
                 style={{
                   display: "none",
                 }}
@@ -398,6 +423,7 @@ const PhotoGallery = () => {
                 if (isTransitioning) return;
 
                 setIsTransitioning(true);
+                setIsImageLoading(true); // Set loading state when changing image
                 const nextIdx = (currentIndex + 1) % images.length;
                 setCurrentIndex(nextIdx);
                 setSelectedImage(images[nextIdx].source);
