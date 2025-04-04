@@ -40,9 +40,6 @@ interface Props {
   setComponent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
 }
 
-const BUS_MAP_URL =
-  "https://map.naver.com/p/directions/14119087.345187,4396486.7244838,%EC%B6%A9%EB%82%A8%20%EC%98%88%EC%82%B0%EA%B5%B0%20%EC%98%88%EC%82%B0%EC%9D%8D%20%EC%82%B0%EC%84%B1%EB%A6%AC%20678,,SIMPLE_POI/-/-/transit?c=18.57,0,0,0,dh";
-
 const PhotoGallery = lazy(() => import("./Gallery/PhotoGallery"));
 
 // First, create arrays of photos for each person
@@ -58,15 +55,6 @@ function Main({ setComponent }: Props) {
 
   // TODO: put speaker emoji and music https://www.youtube.com/watch?v=yHXB9lk93Ts
   const [isVisible, setIsVisible] = useState(false);
-
-  const childRef = useRef<{ triggerChildEvent: () => void }>(null);
-
-  const triggerChildEventFromParent = () => {
-    // 부모가 자식의 메서드를 호출
-    if (childRef.current) {
-      childRef.current.triggerChildEvent();
-    }
-  };
 
   const [searchParams] = useSearchParams();
   const dear = searchParams.get("dear"); // 받는사람 성명
@@ -184,10 +172,7 @@ function Main({ setComponent }: Props) {
           style={{
             fontSize: "1.875rem",
           }}
-        >
-          {/* 정상진 그리고 강다은 */}
-          {/* <br /> */}
-        </TitleImageTitle>
+        ></TitleImageTitle>
         <DescriptionWrapper
           style={{ padding: "3.125rem 1.25rem", backgroundColor: "#f9f9f9" }}
         >
@@ -1369,28 +1354,6 @@ const HR = styled.hr`
   border-color: #d6d6d6;
 `;
 
-const Gallery = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(8, 1fr);
-  gap: 0.625rem;
-  max-width: 100%;
-  margin: 0 auto;
-`;
-
-const GalleryItem = styled.div`
-  border: 0.125rem solid #ddd;
-  border-radius: 0.5rem;
-  overflow: hidden;
-`;
-
-const GalleryItemImg = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-`;
-
 const Button = styled.button`
   font-family: "Pretendard";
   background-color: rgba(255, 255, 255, 0.1);
@@ -1402,28 +1365,6 @@ const Button = styled.button`
   border-radius: 0.625rem;
   cursor: pointer;
   margin: 0.625rem 0;
-  box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
-
-  @media only screen and (max-width: 360px) {
-    font-size: 1rem;
-  }
-`;
-
-const AButton = styled.a`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Pretendard";
-  background-color: rgba(255, 255, 255, 0.1);
-  letter-spacing: 0.03125rem;
-  width: min(18.75rem, 85%);
-  height: 3.75rem;
-  border: 0.0625rem solid #afafaf;
-  font-size: 1.09375rem;
-  border-radius: 0.625rem;
-  cursor: pointer;
-  margin: 0.625rem 0;
-  text-decoration: none;
   box-shadow: 0.125rem 0.125rem 0.25rem rgba(0, 0, 0, 0.2);
 
   @media only screen and (max-width: 360px) {
@@ -1594,19 +1535,6 @@ const LocationDetail = styled.span`
   }
 `;
 
-const IntroduceWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 1px solid gray;
-  gap: 6px;
-
-  & > * {
-    font-family: Pretendard;
-    font-size: 15px;
-  }
-`;
-
 const MapIconsWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -1649,61 +1577,8 @@ const MapIconItem = styled.a`
   }
 `;
 
-const MapIconItemDiv = styled.div`
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: Pretendard;
-  font-size: 1rem;
-  text-decoration: none;
-
-  @media only screen and (max-width: 380px) {
-    font-size: 0.96875rem;
-  }
-
-  @media only screen and (max-width: 340px) {
-    font-size: 0.9375rem;
-  }
-`;
-
 const MapIconImage = styled.img`
   border-radius: 0.25rem;
-`;
-
-const DescriptionItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.40625rem;
-  font-size: 0.9375rem;
-  font-family: Pretendard;
-  line-height: 1.8;
-  word-break: keep-all;
-  word-wrap: break-word;
-  color: #555555;
-`;
-
-const DescriptionLi = styled.li`
-  list-style: none;
-  font-family: Pretendard;
-  font-size: 1.0625rem;
-
-  @media only screen and (max-width: 445px) {
-    font-size: 1.0375rem;
-  }
-
-  @media only screen and (max-width: 360px) {
-    font-size: 1.0125rem;
-  }
-`;
-
-const DescriptionMarker = styled.span`
-  font-size: 0.5rem;
-  color: #555555;
-  margin-right: 0.375rem;
-  font-family: Pretendard;
-  position: relative;
-  bottom: 0.1875rem;
 `;
 
 const SpeakerButton = styled.button`
