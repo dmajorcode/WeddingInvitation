@@ -14,6 +14,39 @@ const NoDragImage = styled.img`
   pointer-events: auto;
 `;
 
+const SlideContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+`;
+
+const SlideTrack = styled.div<{ $translateX: number }>`
+  display: flex;
+  width: 200%;
+  height: 100%;
+  transform: translateX(${(props) => props.$translateX}%);
+  transition: transform 0.3s ease-out;
+`;
+
+const Slide = styled.div`
+  width: 50%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const ImageContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 const PhotoGallery = () => {
   const [isMoreView, setIsMoreView] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -32,6 +65,9 @@ const PhotoGallery = () => {
   const [swipeDirection, setSwipeDirection] = useState<"left" | "right" | null>(
     null
   );
+  const [isTransitioning, setIsTransitioning] = useState(false);
+  const [nextImage, setNextImage] = useState<string | null>(null);
+  const [prevImage, setPrevImage] = useState<string | null>(null);
 
   const analyzeImageBrightness = (image: HTMLImageElement) => {
     const canvas = document.createElement("canvas");
@@ -123,10 +159,11 @@ const PhotoGallery = () => {
     touchStartY.current = e.touches[0].clientY;
     isSwiping.current = true;
     setSwipeDirection(null);
+    setIsTransitioning(false);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
-    if (!selectedImage || !isSwiping.current) return;
+    if (!selectedImage || !isSwiping.current || isTransitioning) return;
 
     const touchEndX = e.touches[0].clientX;
     const touchEndY = e.touches[0].clientY;
@@ -142,7 +179,7 @@ const PhotoGallery = () => {
   };
 
   const handleTouchEnd = (e: React.TouchEvent) => {
-    if (!selectedImage || !isSwiping.current) return;
+    if (!selectedImage || !isSwiping.current || isTransitioning) return;
 
     const touchEndX = e.changedTouches[0].clientX;
     const touchEndY = e.changedTouches[0].clientY;
@@ -151,6 +188,8 @@ const PhotoGallery = () => {
 
     // Only process swipe if vertical movement is minimal
     if (diffY < 50 && Math.abs(diffX) > 50) {
+      setIsTransitioning(true);
+
       if (diffX > 0) {
         // Swipe left - next image
         const nextIndex = (currentIndex + 1) % images.length;
@@ -162,25 +201,39 @@ const PhotoGallery = () => {
         setCurrentIndex(prevIndex);
         setSelectedImage(images[prevIndex].source);
       }
+
+      setTimeout(() => {
+        setIsTransitioning(false);
+      }, 300);
     }
 
     isSwiping.current = false;
     setSwipeDirection(null);
   };
 
-  // Add keyboard navigation
+  // Update keyboard navigation to use instant transitions
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (!selectedImage) return;
+      if (!selectedImage || isTransitioning) return;
 
       if (e.key === "ArrowLeft") {
+        setIsTransitioning(true);
         const prevIndex = (currentIndex - 1 + images.length) % images.length;
         setCurrentIndex(prevIndex);
         setSelectedImage(images[prevIndex].source);
+
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 300);
       } else if (e.key === "ArrowRight") {
+        setIsTransitioning(true);
         const nextIndex = (currentIndex + 1) % images.length;
         setCurrentIndex(nextIndex);
         setSelectedImage(images[nextIndex].source);
+
+        setTimeout(() => {
+          setIsTransitioning(false);
+        }, 300);
       } else if (e.key === "Escape") {
         handleCloseModal();
       }
@@ -188,7 +241,7 @@ const PhotoGallery = () => {
 
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [selectedImage, currentIndex]);
+  }, [selectedImage, currentIndex, isTransitioning]);
 
   return (
     <div
@@ -269,15 +322,17 @@ const PhotoGallery = () => {
             <TouchZone
               onClick={(e) => {
                 e.stopPropagation();
+                if (isTransitioning) return;
+
+                setIsTransitioning(true);
                 const prevIndex =
                   (currentIndex - 1 + images.length) % images.length;
-                setIsImageLoading(true);
-                const img = new Image();
-                img.onload = () => {
-                  setCurrentIndex(prevIndex);
-                  setSelectedImage(images[prevIndex].source);
-                };
-                img.src = images[prevIndex].source;
+                setCurrentIndex(prevIndex);
+                setSelectedImage(images[prevIndex].source);
+
+                setTimeout(() => {
+                  setIsTransitioning(false);
+                }, 300);
               }}
               style={{ left: 0 }}
             >
@@ -290,15 +345,6 @@ const PhotoGallery = () => {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
               onClick={handleCloseModal}
-              style={{
-                transform:
-                  swipeDirection === "left"
-                    ? "translateX(-10px)"
-                    : swipeDirection === "right"
-                    ? "translateX(10px)"
-                    : "none",
-                transition: "transform 0.2s ease-out",
-              }}
             >
               {isImageLoading && (
                 <LoadingPlaceholder>
@@ -309,38 +355,29 @@ const PhotoGallery = () => {
                 ref={imageRef}
                 src={selectedImage}
                 alt="Selected"
-                draggable={false}
+                onLoad={handleImageLoad}
                 style={{
                   maxWidth: "100%",
                   maxHeight: "100%",
-                  width: "auto",
-                  height: "auto",
                   objectFit: "contain",
-                  cursor: "pointer",
-                  userSelect: "none",
-                  WebkitTouchCallout: "none",
-                  WebkitUserSelect: "none",
-                  WebkitTapHighlightColor: "transparent",
-                  transform: "scale(1)",
-                  transformOrigin: "center",
-                  pointerEvents: "none",
                   opacity: isImageLoading ? 0 : 1,
                   transition: "opacity 0.3s ease",
                 }}
-                onLoad={handleImageLoad}
               />
             </ImageContainer>
             <TouchZone
               onClick={(e) => {
                 e.stopPropagation();
+                if (isTransitioning) return;
+
+                setIsTransitioning(true);
                 const nextIndex = (currentIndex + 1) % images.length;
-                setIsImageLoading(true);
-                const img = new Image();
-                img.onload = () => {
-                  setCurrentIndex(nextIndex);
-                  setSelectedImage(images[nextIndex].source);
-                };
-                img.src = images[nextIndex].source;
+                setCurrentIndex(nextIndex);
+                setSelectedImage(images[nextIndex].source);
+
+                setTimeout(() => {
+                  setIsTransitioning(false);
+                }, 300);
               }}
               style={{ right: 0 }}
             >
@@ -496,20 +533,6 @@ const ModalContent = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  touch-action: pan-x;
-  user-select: none;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -webkit-tap-highlight-color: transparent;
-`;
-
-const ImageContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   touch-action: pan-x;
   user-select: none;
   -webkit-touch-callout: none;
