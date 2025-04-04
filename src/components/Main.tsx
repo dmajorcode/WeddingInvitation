@@ -1606,17 +1606,19 @@ const ThankYouText = styled.span`
   display: block;
   text-align: center;
   width: 100%;
-  font-size: 4vw;
-  line-height: 1.3;
+  font-size: 5vw;
+  line-height: 1.3em;
   font-family: "Nanum-Letter", serif;
   color: rgba(211, 211, 211, 0.79);
   z-index: 200;
 
   @media (max-width: 480px) {
-    font-size: 6vw;
+    font-size: 8vw;
+    line-height: 1.3em;
   }
 
   @media (min-width: 1200px) {
-    font-size: 3vw;
+    font-size: 5vw;
+    line-height: 1.5em;
   }
 `;
