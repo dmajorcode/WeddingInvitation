@@ -345,10 +345,10 @@ const PhotoGallery = () => {
                 if (isTransitioning) return;
 
                 setIsTransitioning(true);
-                const prevIndex =
+                const prevIdx =
                   (currentIndex - 1 + images.length) % images.length;
-                setCurrentIndex(prevIndex);
-                setSelectedImage(images[prevIndex].source);
+                setCurrentIndex(prevIdx);
+                setSelectedImage(images[prevIdx].source);
 
                 setTimeout(() => {
                   setIsTransitioning(false);
@@ -366,12 +366,6 @@ const PhotoGallery = () => {
               onTouchEnd={handleTouchEnd}
               onClick={handleCloseModal}
               onContextMenu={preventContextMenu}
-              style={{
-                touchAction: "pan-x",
-                WebkitTouchCallout: "none",
-                WebkitUserSelect: "none",
-                WebkitTapHighlightColor: "transparent",
-              }}
             >
               {isImageLoading && (
                 <LoadingPlaceholder>
@@ -403,9 +397,9 @@ const PhotoGallery = () => {
                 if (isTransitioning) return;
 
                 setIsTransitioning(true);
-                const nextIndex = (currentIndex + 1) % images.length;
-                setCurrentIndex(nextIndex);
-                setSelectedImage(images[nextIndex].source);
+                const nextIdx = (currentIndex + 1) % images.length;
+                setCurrentIndex(nextIdx);
+                setSelectedImage(images[nextIdx].source);
 
                 setTimeout(() => {
                   setIsTransitioning(false);
