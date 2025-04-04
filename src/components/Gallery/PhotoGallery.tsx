@@ -12,7 +12,15 @@ const NoDragImage = styled.img`
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   pointer-events: auto;
-  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  touch-action: pan-x;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 `;
 
 const SlideContainer = styled.div`
@@ -46,6 +54,35 @@ const ImageContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  touch-action: pan-x;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none !important;
+`;
+
+const BackgroundImageContainer = styled.div<{
+  $imageUrl: string;
+  $isLoading: boolean;
+}>`
+  width: 100%;
+  height: 100%;
+  background-image: url(${(props) => props.$imageUrl});
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: ${(props) => (props.$isLoading ? 0 : 1)};
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+  user-select: none !important;
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
 `;
 
 const PhotoGallery = () => {
@@ -250,6 +287,28 @@ const PhotoGallery = () => {
     return () => document.removeEventListener("gesturestart", preventGesture);
   }, []);
 
+  // Add a function to prevent context menu
+  const preventContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+  };
+
+  // Add a function to prevent long-press actions
+  const preventLongPress = (e: React.TouchEvent) => {
+    e.preventDefault();
+  };
+
+  // Combine touch handlers
+  const handleCombinedTouchStart = (e: React.TouchEvent) => {
+    // Only prevent default for long-press, not for swipe
+    if (e.touches.length === 1) {
+      // For single touch, we'll let the swipe handler work
+      handleTouchStart(e);
+    } else {
+      // For multi-touch or other gestures, prevent default
+      e.preventDefault();
+    }
+  };
+
   return (
     <div
       style={{
@@ -332,10 +391,10 @@ const PhotoGallery = () => {
                 if (isTransitioning) return;
 
                 setIsTransitioning(true);
-                const prevIndex =
+                const prevIdx =
                   (currentIndex - 1 + images.length) % images.length;
-                setCurrentIndex(prevIndex);
-                setSelectedImage(images[prevIndex].source);
+                setCurrentIndex(prevIdx);
+                setSelectedImage(images[prevIdx].source);
 
                 setTimeout(() => {
                   setIsTransitioning(false);
@@ -348,42 +407,29 @@ const PhotoGallery = () => {
               </NavButton>
             </TouchZone>
             <ImageContainer
-              onTouchStart={handleTouchStart}
+              onTouchStart={handleCombinedTouchStart}
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
               onClick={handleCloseModal}
+              onContextMenu={preventContextMenu}
             >
               {isImageLoading && (
                 <LoadingPlaceholder>
                   <div className="loading-spinner" />
                 </LoadingPlaceholder>
               )}
+              <BackgroundImageContainer
+                $imageUrl={selectedImage}
+                $isLoading={isImageLoading}
+              />
+              {/* Hidden image for loading and brightness analysis */}
               <NoDragImage
                 ref={imageRef}
                 src={selectedImage}
-                alt="Selected"
+                alt=""
                 onLoad={handleImageLoad}
-                onContextMenu={(e) => e.preventDefault()} // 우클릭 방지 (PC)
-                onDragStart={(e) => e.preventDefault()} // 드래그 방지
-                draggable={false}
-                onPointerDown={(e) => {
-                  if (e.pointerType === "touch") {
-                    e.stopPropagation();
-                  }
-                }}
-                onTouchStart={(e) => {
-                  e.preventDefault(); // 🔥 길게 누를 때 메뉴 막기
-                }}
                 style={{
-                  maxWidth: "100%",
-                  maxHeight: "100%",
-                  objectFit: "contain",
-                  opacity: isImageLoading ? 0 : 1,
-                  transition: "opacity 0.3s ease",
-                  userSelect: "none",
-                  WebkitUserSelect: "none",
-                  WebkitTouchCallout: "none",
-                  pointerEvents: "auto",
+                  display: "none",
                 }}
               />
             </ImageContainer>
@@ -393,9 +439,9 @@ const PhotoGallery = () => {
                 if (isTransitioning) return;
 
                 setIsTransitioning(true);
-                const nextIndex = (currentIndex + 1) % images.length;
-                setCurrentIndex(nextIndex);
-                setSelectedImage(images[nextIndex].source);
+                const nextIdx = (currentIndex + 1) % images.length;
+                setCurrentIndex(nextIdx);
+                setSelectedImage(images[nextIdx].source);
 
                 setTimeout(() => {
                   setIsTransitioning(false);
