@@ -244,6 +244,12 @@ const PhotoGallery = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [selectedImage, currentIndex, isTransitioning]);
 
+  useEffect(() => {
+    const preventGesture = (e: any) => e.preventDefault();
+    document.addEventListener("gesturestart", preventGesture);
+    return () => document.removeEventListener("gesturestart", preventGesture);
+  }, []);
+
   return (
     <div
       style={{
@@ -359,11 +365,14 @@ const PhotoGallery = () => {
                 onLoad={handleImageLoad}
                 onContextMenu={(e) => e.preventDefault()} // 우클릭 방지 (PC)
                 onDragStart={(e) => e.preventDefault()} // 드래그 방지
-                draggable={false} // 기본 드래그 방지
+                draggable={false}
                 onPointerDown={(e) => {
                   if (e.pointerType === "touch") {
-                    e.stopPropagation(); // 터치 이벤트 전파 방지 (메뉴가 뜨는 것 방지)
+                    e.stopPropagation();
                   }
+                }}
+                onTouchStart={(e) => {
+                  e.preventDefault(); // 🔥 길게 누를 때 메뉴 막기
                 }}
                 style={{
                   maxWidth: "100%",
@@ -371,10 +380,10 @@ const PhotoGallery = () => {
                   objectFit: "contain",
                   opacity: isImageLoading ? 0 : 1,
                   transition: "opacity 0.3s ease",
-                  userSelect: "none", // 텍스트 드래그 방지
-                  WebkitUserSelect: "none", // iOS용
-                  WebkitTouchCallout: "none", // iOS에서 길게 눌렀을 때 공유 방지
-                  pointerEvents: "auto", // 스와이프 기능 유지
+                  userSelect: "none",
+                  WebkitUserSelect: "none",
+                  WebkitTouchCallout: "none",
+                  pointerEvents: "auto",
                 }}
               />
             </ImageContainer>
