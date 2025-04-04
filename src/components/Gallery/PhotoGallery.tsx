@@ -12,7 +12,15 @@ const NoDragImage = styled.img`
   -webkit-touch-callout: none;
   -webkit-tap-highlight-color: transparent;
   pointer-events: auto;
-  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+  touch-action: pan-x;
+  -webkit-touch-callout: none !important;
+  -webkit-user-select: none !important;
+  -webkit-tap-highlight-color: transparent !important;
 `;
 
 const SlideContainer = styled.div`
@@ -250,6 +258,11 @@ const PhotoGallery = () => {
     return () => document.removeEventListener("gesturestart", preventGesture);
   }, []);
 
+  // Add a function to prevent context menu
+  const preventContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault();
+  };
+
   return (
     <div
       style={{
@@ -352,6 +365,13 @@ const PhotoGallery = () => {
               onTouchMove={handleTouchMove}
               onTouchEnd={handleTouchEnd}
               onClick={handleCloseModal}
+              onContextMenu={preventContextMenu}
+              style={{
+                touchAction: "pan-x",
+                WebkitTouchCallout: "none",
+                WebkitUserSelect: "none",
+                WebkitTapHighlightColor: "transparent",
+              }}
             >
               {isImageLoading && (
                 <LoadingPlaceholder>
@@ -363,27 +383,17 @@ const PhotoGallery = () => {
                 src={selectedImage}
                 alt="Selected"
                 onLoad={handleImageLoad}
-                onContextMenu={(e) => e.preventDefault()} // 우클릭 방지 (PC)
-                onDragStart={(e) => e.preventDefault()} // 드래그 방지
-                draggable={false}
-                onPointerDown={(e) => {
-                  if (e.pointerType === "touch") {
-                    e.stopPropagation();
-                  }
-                }}
-                onTouchStart={(e) => {
-                  e.preventDefault(); // 🔥 길게 누를 때 메뉴 막기
-                }}
+                onContextMenu={preventContextMenu}
                 style={{
                   maxWidth: "100%",
                   maxHeight: "100%",
                   objectFit: "contain",
                   opacity: isImageLoading ? 0 : 1,
                   transition: "opacity 0.3s ease",
-                  userSelect: "none",
-                  WebkitUserSelect: "none",
+                  touchAction: "pan-x",
                   WebkitTouchCallout: "none",
-                  pointerEvents: "auto",
+                  WebkitUserSelect: "none",
+                  WebkitTapHighlightColor: "transparent",
                 }}
               />
             </ImageContainer>
