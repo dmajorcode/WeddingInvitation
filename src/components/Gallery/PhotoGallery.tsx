@@ -180,8 +180,7 @@ const PhotoGallery = () => {
     if (diffY < 50) {
       if (Math.abs(diffX) > 30) {
         setSwipeDirection(diffX > 0 ? "left" : "right");
-        // Set loading state when swipe is detected
-        setIsImageLoading(true);
+        // Don't set loading state here - we'll check if needed in handleTouchEnd
       }
     }
   };
@@ -197,7 +196,29 @@ const PhotoGallery = () => {
     // Only process swipe if vertical movement is minimal
     if (diffY < 50 && Math.abs(diffX) > 50) {
       setIsTransitioning(true);
-      setIsImageLoading(true); // Ensure loading state is set
+
+      // Check if the next image is already loaded
+      const nextImage =
+        diffX > 0
+          ? images[(currentIndex + 1) % images.length].source
+          : images[(currentIndex - 1 + images.length) % images.length].source;
+
+      // Create a temporary image to check if it's already loaded
+      const tempImg = new Image();
+      tempImg.onload = () => {
+        // Image is already loaded, don't show loading circle
+        setIsImageLoading(false);
+      };
+      tempImg.onerror = () => {
+        // Error loading image, don't show loading circle
+        setIsImageLoading(false);
+      };
+
+      // Set loading state initially, will be turned off if image is already loaded
+      setIsImageLoading(true);
+
+      // Start loading the image
+      tempImg.src = nextImage;
 
       if (diffX > 0) {
         // Swipe left - next image
@@ -215,8 +236,6 @@ const PhotoGallery = () => {
       setTimeout(() => {
         setIsTransitioning(false);
       }, 300);
-
-      // Don't reset loading state here - it will be reset by the onLoad handler
     } else {
       // If swipe was cancelled, reset loading state
       setIsImageLoading(false);
@@ -226,27 +245,67 @@ const PhotoGallery = () => {
     setSwipeDirection(null);
   };
 
-  // Update keyboard navigation to show loading state
+  // Update keyboard navigation to only show loading state when needed
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!selectedImage || isTransitioning) return;
 
       if (e.key === "ArrowLeft") {
         setIsTransitioning(true);
-        setIsImageLoading(true); // Set loading state when changing image
+
+        // Check if the previous image is already loaded
         const prevIndex = (currentIndex - 1 + images.length) % images.length;
+        const prevImage = images[prevIndex].source;
+
+        // Create a temporary image to check if it's already loaded
+        const tempImg = new Image();
+        tempImg.onload = () => {
+          // Image is already loaded, don't show loading circle
+          setIsImageLoading(false);
+        };
+        tempImg.onerror = () => {
+          // Error loading image, don't show loading circle
+          setIsImageLoading(false);
+        };
+
+        // Set loading state initially, will be turned off if image is already loaded
+        setIsImageLoading(true);
+
+        // Start loading the image
+        tempImg.src = prevImage;
+
         setCurrentIndex(prevIndex);
-        setSelectedImage(images[prevIndex].source);
+        setSelectedImage(prevImage);
 
         setTimeout(() => {
           setIsTransitioning(false);
         }, 300);
       } else if (e.key === "ArrowRight") {
         setIsTransitioning(true);
-        setIsImageLoading(true); // Set loading state when changing image
+
+        // Check if the next image is already loaded
         const nextIndex = (currentIndex + 1) % images.length;
+        const nextImage = images[nextIndex].source;
+
+        // Create a temporary image to check if it's already loaded
+        const tempImg = new Image();
+        tempImg.onload = () => {
+          // Image is already loaded, don't show loading circle
+          setIsImageLoading(false);
+        };
+        tempImg.onerror = () => {
+          // Error loading image, don't show loading circle
+          setIsImageLoading(false);
+        };
+
+        // Set loading state initially, will be turned off if image is already loaded
+        setIsImageLoading(true);
+
+        // Start loading the image
+        tempImg.src = nextImage;
+
         setCurrentIndex(nextIndex);
-        setSelectedImage(images[nextIndex].source);
+        setSelectedImage(nextImage);
 
         setTimeout(() => {
           setIsTransitioning(false);
@@ -287,8 +346,10 @@ const PhotoGallery = () => {
   const handleSwipeImageLoad = (e: React.SyntheticEvent<HTMLImageElement>) => {
     const img = e.target as HTMLImageElement;
     if (img.complete) {
+      // If image is already loaded, don't show loading circle
       setIsImageLoading(false);
     } else {
+      // Only show loading circle if image is not already loaded
       setIsImageLoading(true);
       img.onload = () => {
         setIsImageLoading(false);
