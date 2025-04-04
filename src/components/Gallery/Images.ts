@@ -25,24 +25,7 @@ import image24 from "../../../public/images/image24.jpg";
 import image25 from "../../../public/images/image25.jpg";
 import image26 from "../../../public/images/image26.jpg";
 import image27 from "../../../public/images/image27.jpg";
-import image28 from "../../../public/images/image28.jpg";
-import image29 from "../../../public/images/image29.jpg";
-import image30 from "../../../public/images/image30.jpg";
-import image31 from "../../../public/images/image31.jpg";
-import image32 from "../../../public/images/image32.jpg";
-import image33 from "../../../public/images/image33.jpg";
-import image34 from "../../../public/images/image34.jpg";
-import image35 from "../../../public/images/image35.jpg";
-import image36 from "../../../public/images/image36.jpg";
-import image37 from "../../../public/images/image37.jpg";
-import image38 from "../../../public/images/image38.jpg";
-import image39 from "../../../public/images/image39.jpg";
-import image40 from "../../../public/images/image40.jpg";
-import image41 from "../../../public/images/image41.jpeg";
-import image42 from "../../../public/images/image42.jpg";
-import image43 from "../../../public/images/image43.jpg";
-import image44 from "../../../public/images/image44.jpg";
-import image45 from "../../../public/images/image45.jpg";
+
 import image01Thumb from "../../../public/images/thumbnails/image01.jpg";
 import image02Thumb from "../../../public/images/thumbnails/image02.jpg";
 import image03Thumb from "../../../public/images/thumbnails/image03.jpg";
@@ -70,27 +53,6 @@ import image24Thumb from "../../../public/images/thumbnails/image24.jpg";
 import image25Thumb from "../../../public/images/thumbnails/image25.jpg";
 import image26Thumb from "../../../public/images/thumbnails/image26.jpg";
 import image27Thumb from "../../../public/images/thumbnails/image27.jpg";
-import image28Thumb from "../../../public/images/thumbnails/image28.jpg";
-import image29Thumb from "../../../public/images/thumbnails/image29.jpg";
-import image30Thumb from "../../../public/images/thumbnails/image30.jpg";
-import image31Thumb from "../../../public/images/thumbnails/image31.jpg";
-import image32Thumb from "../../../public/images/thumbnails/image32.jpg";
-import image33Thumb from "../../../public/images/thumbnails/image33.jpg";
-import image34Thumb from "../../../public/images/thumbnails/image34.jpg";
-import image35Thumb from "../../../public/images/thumbnails/image35.jpg";
-import image36Thumb from "../../../public/images/thumbnails/image36.jpg";
-import image37Thumb from "../../../public/images/thumbnails/image37.jpg";
-import image38Thumb from "../../../public/images/thumbnails/image38.jpg";
-import image39Thumb from "../../../public/images/thumbnails/image39.jpg";
-import image40Thumb from "../../../public/images/thumbnails/image40.jpg";
-import image41Thumb from "../../../public/images/thumbnails/image41.jpeg";
-import image42Thumb from "../../../public/images/thumbnails/image42.jpg";
-import image43Thumb from "../../../public/images/thumbnails/image43.jpg";
-import image44Thumb from "../../../public/images/thumbnails/image44.jpg";
-import image45Thumb from "../../../public/images/thumbnails/image45.jpg";
-import complete from "../../../public/images/complete.jpg";
-import completeThumb from "../../../public/images/thumbnails/complete.jpg";
-// 가로 사진이 확대하면 세로로 길어지는 것 해결하기
 
 const images = [
   /* 이미지 경로를 리스트로 저장 */

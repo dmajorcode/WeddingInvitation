@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import CalendarPic from "/images/calendar3.jpg";
-// import FloatingBar from './../components/FloatingBar';
 import {
   Dialog,
   DialogActions,
