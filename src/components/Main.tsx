@@ -1072,6 +1072,7 @@ const Dimmed = styled.div`
   background: linear-gradient(
     to bottom,
     rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0) 20%,
     rgba(0, 0, 0, 0.29) 50%,
     // rgba(0, 0, 0, 0.32) 60%,
     rgba(0, 0, 0, 0.74) 80%,
@@ -1114,18 +1115,6 @@ const InterviewWrapper = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   margin: 2.25rem 0;
-`;
-
-const Interview = styled.div`
-  width: 100%;
-  font-size: 0.9625rem;
-  color: #555555;
-  line-height: 1.8;
-  word-break: break-all;
-
-  @media only screen and (max-width: 390px) {
-    font-size: 0.9375rem;
-  }
 `;
 
 const InterviewImageWrapper = styled.div`
@@ -1609,7 +1598,7 @@ const ThankYouText = styled.span`
   font-size: 5vw;
   line-height: 1.3em;
   font-family: "Nanum-Letter", serif;
-  color: rgba(211, 211, 211, 0.79);
+  color: rgba(216, 216, 216, 0.74);
   z-index: 200;
 
   @media (max-width: 480px) {
