@@ -357,14 +357,24 @@ const PhotoGallery = () => {
                 src={selectedImage}
                 alt="Selected"
                 onLoad={handleImageLoad}
-                onContextMenu={(e) => e.preventDefault()} // 우클릭 방지
-                onTouchStart={(e) => e.preventDefault()} // 길게 눌렀을 때 저장 메뉴 방지
+                onContextMenu={(e) => e.preventDefault()} // 우클릭 방지 (PC)
+                onDragStart={(e) => e.preventDefault()} // 드래그 방지
+                draggable={false} // 기본 드래그 방지
+                onPointerDown={(e) => {
+                  if (e.pointerType === "touch") {
+                    e.stopPropagation(); // 터치 이벤트 전파 방지 (메뉴가 뜨는 것 방지)
+                  }
+                }}
                 style={{
                   maxWidth: "100%",
                   maxHeight: "100%",
                   objectFit: "contain",
                   opacity: isImageLoading ? 0 : 1,
                   transition: "opacity 0.3s ease",
+                  userSelect: "none", // 텍스트 드래그 방지
+                  WebkitUserSelect: "none", // iOS용
+                  WebkitTouchCallout: "none", // iOS에서 길게 눌렀을 때 공유 방지
+                  pointerEvents: "auto", // 스와이프 기능 유지
                 }}
               />
             </ImageContainer>
