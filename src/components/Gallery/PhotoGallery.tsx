@@ -23,29 +23,6 @@ const NoDragImage = styled.img`
   -webkit-tap-highlight-color: transparent !important;
 `;
 
-const SlideContainer = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-`;
-
-const SlideTrack = styled.div<{ $translateX: number }>`
-  display: flex;
-  width: 200%;
-  height: 100%;
-  transform: translateX(${(props) => props.$translateX}%);
-  transition: transform 0.3s ease-out;
-`;
-
-const Slide = styled.div`
-  width: 50%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
 const ImageContainer = styled.div`
   position: relative;
   width: 100%;
@@ -163,15 +140,6 @@ const PhotoGallery = () => {
       img.src = selectedImage;
     }
   }, [selectedImage]);
-
-  const smallItemStyles: React.CSSProperties = {
-    cursor: "pointer",
-    objectFit: "cover",
-    width: "min(32vw, 190px)",
-    height: "min(32vw, 190px)",
-    borderRadius: "2%",
-    transition: "all 0.3s ease",
-  };
 
   const handleImageClick = (imageSource: string, index: number) => {
     setIsImageLoading(true);
@@ -292,11 +260,6 @@ const PhotoGallery = () => {
     e.preventDefault();
   };
 
-  // Add a function to prevent long-press actions
-  const preventLongPress = (e: React.TouchEvent) => {
-    e.preventDefault();
-  };
-
   // Combine touch handlers
   const handleCombinedTouchStart = (e: React.TouchEvent) => {
     // Only prevent default for long-press, not for swipe
@@ -358,10 +321,6 @@ const PhotoGallery = () => {
                 backgroundImage: `url(${image.thumbnail})`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                // width: "100px", // 이미지 크기에 맞게 조절
-                // height: "100px",
-                // borderRadius: "8px", // 둥근 모서리 추가 가능
-                // cursor: "pointer",
                 objectFit: "cover",
                 width: "min(30vw, 11.87rem)",
                 height: "min(30vw, 11.87rem)",
@@ -690,26 +649,6 @@ const CloseButton = styled.button`
       color: white;
       filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.3));
     }
-  }
-`;
-
-const GalleryContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  position: relative;
-  touch-action: pan-x pan-y;
-  -webkit-overflow-scrolling: touch;
-  overflow: auto;
-  &.photo-gallery {
-    position: relative;
-    touch-action: pan-x pan-y;
-    -webkit-overflow-scrolling: touch;
-    overflow: auto;
   }
 `;
 
