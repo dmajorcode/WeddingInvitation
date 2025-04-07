@@ -1595,7 +1595,7 @@ const ThankYouText = styled.span`
   display: block;
   text-align: center;
   width: 100%;
-  font-size: 1.875rem; /* Base size relative to the container */
+  font-size: 2.8rem; /* Base size relative to the container */
   line-height: 1.3em;
   font-family: "Nanum-Letter", serif;
   color: rgba(216, 216, 216, 0.74);
