@@ -1595,19 +1595,11 @@ const ThankYouText = styled.span`
   display: block;
   text-align: center;
   width: 100%;
-  font-size: 2.8rem; /* Base size relative to the container */
+  font-size: clamp(1.5rem, 8vw, 3rem); /* Increased font size with clamp */
   line-height: 1.3em;
   font-family: "Nanum-Letter", serif;
   color: rgba(216, 216, 216, 0.74);
   z-index: 200;
-
-  @media (max-width: 480px) {
-    font-size: 1.5rem;
-    line-height: 1.3em;
-  }
-
-  @media (min-width: 1200px) {
-    font-size: 2.25rem;
-    line-height: 1.5em;
-  }
+  padding: 0 1rem;
+  box-sizing: border-box;
 `;
