@@ -13,7 +13,7 @@ import image12 from "../../../public/images/image12.jpg";
 import image13 from "../../../public/images/image13.jpg";
 import image14 from "../../../public/images/image14.jpg";
 import image15 from "../../../public/images/image15.jpg";
-import image16 from "../../../public/images/image16.jpg";
+import image28 from "../../../public/images/image28.jpg";
 import image17 from "../../../public/images/image17.jpg";
 import image18 from "../../../public/images/image18.jpg";
 import image19 from "../../../public/images/image19.jpg";
@@ -41,7 +41,7 @@ import image12Thumb from "../../../public/images/thumbnails/image12.jpg";
 import image13Thumb from "../../../public/images/thumbnails/image13.jpg";
 import image14Thumb from "../../../public/images/thumbnails/image14.jpg";
 import image15Thumb from "../../../public/images/thumbnails/image15.jpg";
-import image16Thumb from "../../../public/images/thumbnails/image16.jpg";
+import image28Thumb from "../../../public/images/thumbnails/image28.jpg";
 import image17Thumb from "../../../public/images/thumbnails/image17.jpg";
 import image18Thumb from "../../../public/images/thumbnails/image18.jpg";
 import image19Thumb from "../../../public/images/thumbnails/image19.jpg";
@@ -162,9 +162,9 @@ const images = [
     height: 900,
   },
   {
-    alt: "image16",
-    source: image16,
-    thumbnail: image16Thumb,
+    alt: "image28",
+    source: image28,
+    thumbnail: image28Thumb,
     width: 600,
     height: 900,
   },
