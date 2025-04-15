@@ -36,6 +36,7 @@ import KakaoMapIcon from "/images/kakaoMap.png";
 import MainPic from "/images/main7.jpg";
 import NaverMapIcon from "/images/naverMap.png";
 
+// Comment for Deployment
 interface Props {
   setComponent: React.Dispatch<React.SetStateAction<React.ReactNode>>;
 }
