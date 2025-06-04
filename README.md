@@ -4,6 +4,12 @@
 
 # Domain이 변경된 경우 og image에 있는 blob관련 도메인도 바꾸고 해야 함
 
+# 2025.06.04 과금 회피 위해 도메인 변경
+
+# 변경 전 : https://wedding-invitation-kj.vercel.app/
+
+# 변경 후 : https://hidden-wedding-invitation-kj.vercel.app/
+
 # Run Command
 
 npm run dev
