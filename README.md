@@ -2,7 +2,7 @@
 
 # og image에 있는 blob관련 도메인도 바꾸고 해야 함
 
-# 네이버 클라우드에서 maps가 아니라 ai naver api가서 해야 함
+# 네이버 클라우드에서 map api확인해야 함(기존에는 ai naver api사용함)
 
 # Run Command
 
