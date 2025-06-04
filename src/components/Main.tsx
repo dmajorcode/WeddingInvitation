@@ -119,7 +119,7 @@ function Main({ setComponent }: Props) {
   const onClickLink = async () => {
     try {
       await navigator.clipboard.writeText(
-        "https://wedding-invitation-kj.vercel.app/"
+        "https://hidden-wedding-invitation-kj.vercel.app/"
       );
       setCopiedText("청첩장 링크");
       setCopyPopupOpen(true);
@@ -478,6 +478,7 @@ function Main({ setComponent }: Props) {
               서울 송파구 법원로 101(서울 송파구 문정동 352)
             </LocationDetail>
           </Description>
+          {/* 과금 회피를 위해 NaverMapAPI 주석 처리 */}
           <Map />
           <MapIconsWrapper>
             <MapIconItem href="https://kko.kakao.com/JvuRBfKyOW">
